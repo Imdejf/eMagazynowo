@@ -8,7 +8,7 @@ declare module '@nuxt/schema' {
 }
 
 export default defineNuxtConfig({
-  ssr: false,
+  ssr: true,
 
   // typescripts
   typescript: {
