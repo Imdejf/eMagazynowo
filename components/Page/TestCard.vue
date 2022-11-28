@@ -10,10 +10,9 @@
       <div
         class="w-full items-center group-hover:h-1px h-3/5 flex justify-center group-hover:opacity-0"
       >
-        <img
-          class=""
-          src="https://images.magazynuj.pl/grupa/bariery-elastyczne/icon.webp"
-          alt=""
+        <NuxtPicture
+          alt="Bariery"
+          src="/img/icon.webp"
         />
       </div>
       <div

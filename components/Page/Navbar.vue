@@ -82,9 +82,9 @@ const openMenu = () => {
             href="/"
             class="<sm:min-w-120px <md:min-w-170px md:min-w-170px xl:min-w-230px"
           >
-            <img
-              class="<sm:w-120px <md:w-170px md:w-170px xl:w-230px"
-              src="@/img/logo.png"
+            <NuxtPicture
+              src="/logo.png"
+              sizes="sm:140px md:170px lg:230px"
               alt="logo eMagazynowo"
             />
           </a>

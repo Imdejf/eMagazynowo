@@ -43,6 +43,7 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@nuxt/content',
     'nuxt-windicss',
+    '@nuxt/image-edge',
     ['nuxt-swiper', {
       // Swiper options
     }]
@@ -62,4 +63,9 @@ export default defineNuxtConfig({
   vueuse: {
     ssrHandlers: true,
   },
+
+  image: {
+    // Options
+    dir: 'assets'
+  }
 })

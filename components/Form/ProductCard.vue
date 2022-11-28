@@ -4,11 +4,7 @@
       class="bg-white shadow-md rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700"
     >
       <a href="#">
-        <img
-          class="rounded-t-lg p-8"
-          src="https://i.ibb.co/KqdgGY4/cosmetic-packaging-mockup-1150-40280.webp"
-          alt="product image"
-        />
+        <NuxtPicture src="/img/crame.webp" alt="product image" />
       </a>
       <div class="px-5 pb-5">
         <a href="#">

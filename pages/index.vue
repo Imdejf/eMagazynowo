@@ -237,9 +237,13 @@ onBeforeUnmount(() => {
                 <div
                   class="relative lg:absolute xl:h-h-1xl <lg:20rem max-w-4xl xl:max-w-6xl left-0 container h-lg lg:w-screen w-full"
                 >
-                  <img
-                    src="@/assets/img/macbook-emagazynowo.png"
-                    class="mt-10 <sm:h-13rem <md:h-sm <lg:h-26rem lg:mt-24 xl:mt-40 w-full b-20 lg:mb-0 lg:h-full ml-0 lg:-ml-12 h-auto"
+                  <NuxtPicture
+                    alt="eMagazynowo macbook"
+                    src="/img/macbook-emagazynowo.webp"
+                    :imgAttrs="{
+                      class:
+                        'mt-10 <sm:h-13rem <md:h-sm <lg:h-26rem lg:mt-24 xl:mt-40 w-full b-20 lg:mb-0 lg:h-full ml-0 lg:-ml-12 h-auto',
+                    }"
                   />
                 </div>
               </div>
@@ -405,26 +409,25 @@ onBeforeUnmount(() => {
         <div class="section__recommended-product">
           <div class="container mx-auto block my-3 lg:px-10 <md:px-2">
             <div class="flex items-center">
-              <a href="#" class="m-auto"
-                ><img
-                  src="@/img/content/przelewy24-logo-footer.webp"
-                  alt=""
-                  width="106"
-                  height="35"
-              /></a>
-              <a href="#" class="m-auto"
-                ><img
-                  src="@/img/content/krs-logo-footer.webp"
-                  alt=""
-                  width="106"
-                  height="35"
-              /></a>
-              <a href="#" class="m-auto"
-                ><img
-                  src="@/img/content/instantssl-logo-footer.png"
-                  alt=""
-                  width="106"
-                  height="35"
+              <a href="#" class="m-auto">
+                <NuxtPicture
+                  alt="logo Przelewy24"
+                  src="/content/przelewy24-logo-footer.webp"
+                  :imgAttrs="{
+                    class: 'w-full w-20 h-20 rounded-md object-cover',
+                  }"
+                />
+              </a>
+              <a href="#" class="m-auto">
+                <NuxtPicture
+                  alt="logo KRS"
+                  src="/content/krs-logo-footer.webp"
+                />
+              </a>
+              <a href="#" class="m-auto">
+                <NuxtPicture
+                  alt="logo InstantSSL"
+                  src="/content/instantssl-logo-footer.png"
               /></a>
             </div>
           </div>
@@ -435,7 +438,7 @@ onBeforeUnmount(() => {
 </template>
 <style>
 .section__main {
-  background-image: url(../assets/img/magazyn.jpg),
+  background-image: url(../assets/img/magazyn.webp),
     linear-gradient(90deg, rgb(39, 73, 96, 1) 25%, rgba(54, 48, 100, 1) 60%);
   background-blend-mode: overlay;
 }

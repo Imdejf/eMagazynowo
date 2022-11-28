@@ -4,10 +4,10 @@
     class="block rounded-lg bg-white p-4 flex flex-col shadow-sm shadow-indigo-100"
   >
     <div class="flex">
-      <img
-        alt="Home"
-        src="https://images.magazynuj.pl/towar/apteczka-przenosna-pierwszej-pomocy-cederroth-din-13157/main.jpg"
-        class="h- w-full w-20 h-20 rounded-md object-cover"
+      <NuxtPicture
+        alt="Apteczka"
+        src="/img/apteczka.webp"
+        :imgAttrs="{ class: 'w-full w-20 h-20 rounded-md object-cover' }"
       />
 
       <div class="mt-2">

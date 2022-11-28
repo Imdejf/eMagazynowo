@@ -4,11 +4,7 @@
       <article
         class="overflow-hidden rounded-lg border border-gray-100 shadow-sm"
       >
-        <img
-          alt="Office"
-          src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-          class="h-56 w-full object-cover"
-        />
+        <NuxtPicture alt="Blog" src="/img/blog.webp" />
 
         <div class="p-4 sm:p-6">
           <a href="#">
