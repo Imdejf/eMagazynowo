@@ -10,12 +10,6 @@ declare module '@nuxt/schema' {
 export default defineNuxtConfig({
   ssr: true,
 
-  // typescripts
-  typescript: {
-    strict: true,
-    typeCheck: true,
-  },
-
   css:[
     'virtual:windi-base.css',
     'virtual:windi-components.css',
@@ -66,6 +60,6 @@ export default defineNuxtConfig({
 
   image: {
     // Options
-    dir: 'assets'
-  }
+    // dir: 'assets'
+  },
 })
