@@ -83,8 +83,10 @@ const openMenu = () => {
             class="<sm:min-w-120px <md:min-w-170px md:min-w-170px xl:min-w-230px"
           >
             <NuxtPicture
-              src="/logo.png"
-              sizes="sm:140px md:170px lg:230px"
+              src="/logo.webp"
+              :imgAttrs="{
+                class: '<sm:w-120px <md:w-170px md:w-170px xl:w-230px',
+              }"
               alt="logo eMagazynowo"
             />
           </a>

@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "@pinia/nuxt": "^0.4.4",
+    "ipx": "^1.0.0-2",
     "nuxt-swiper": "^0.1.6",
     "pinia": "^2.0.24",
     "swiper": "^8.4.5"
