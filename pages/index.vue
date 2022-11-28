@@ -128,20 +128,18 @@ onBeforeUnmount(() => {
         <div class="tracking-3px font-600 text-lg"></div>
       </div>
       <PageSection>
-        <div
-          class="xl:h-2xl <lg:h-3xl <sm:h-xl <md:h-2xl <xl:h-2xl bg-slate-200"
-        >
+        <div class="xl:h-2xl h-xl bg-slate-200">
           <div
-            class="w-full justify-center <lg:h-3xl items-center h-full mt-12 lg:mt-24 relative overflow-x-hidden lg:pt-40 lg:pb-40 xl:pt-40 xl:pb-64"
+            class="w-full justify-center items-center h-full mt-12 lg:mt-24 relative overflow-x-hidden"
           >
             <div
-              class="container max-w-6xl mx-auto h-full flex <md:h-xl flex-col lg:flex-row justify-between items-center -mt-32 px-8 xl:px-0"
+              class="container h-full flex flex-col float-right lg:flex-row <md:text-center justify-content items-center px-8 <lg:pt-12 xl:px-0"
             >
               <div
-                class="flex flex-col items-center items-center w-full max-w-xl lg:w-1/2 pt-48 lg:pt-20 xl:pt-40 text-center lg:text-left z-20"
+                class="flex flex-col items-center md:justify-center h-auto w-full lg:w-1/2 lg:text-left z-20"
               >
                 <h4
-                  class="text-gray-900 font-black text-6xl <xl:text-3xl leading-tight relative mb-4 xl:mb-8"
+                  class="text-gray-900 font-black text-center text-6xl <xl:text-3xl leading-tight relative mb-4 xl:mb-8"
                 >
                   Posiadasz jakieś pytania?
                 </h4>
@@ -157,7 +155,7 @@ onBeforeUnmount(() => {
                 >
                 <!-- Integrates with section -->
                 <svg
-                  class="absolute left-0 max-w-md <xl:h-sm -ml-64 left-svg"
+                  class="absolute left-0 top-25 max-w-md <xl:h-sm -ml-64 left-svg"
                   viewBox="0 0 423 423"
                   xmlns="http://www.w3.org/2000/svg"
                   xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -232,19 +230,16 @@ onBeforeUnmount(() => {
                 </svg>
               </div>
               <div
-                class="flex flex-col items-end justify-center <md:h-20 h-full w-full lg:w-1/2 ms:pl-10 relative z-20"
+                class="flex flex-col items-end justify-center items-center lg:w-1/2 ms:pl-10 relative z-20"
               >
-                <div
-                  class="relative lg:absolute xl:h-h-1xl <lg:20rem max-w-4xl xl:max-w-6xl left-0 container h-lg lg:w-screen w-full"
-                >
-                  <NuxtPicture
+                <div class="relative lg:absolute justify-center">
+                  <img
                     alt="eMagazynowo macbook"
-                    src="/img/macbook-emagazynowo.webp"
-                    :imgAttrs="{
-                      class:
-                        'mt-10 <sm:h-13rem <md:h-sm <lg:h-26rem lg:mt-24 xl:mt-40 w-full b-20 lg:mb-0 lg:h-full ml-0 lg:-ml-12 h-auto',
-                    }"
+                    src="~/assets/img/macbook-emagazynowo.webp"
+                    height="1200"
+                    width="1600"
                   />
+                  <!-- class="mt-10 <sm:h-13rem <md:h-sm <lg:h-26rem lg:mt-24 xl:mt-40 w-full b-20 lg:mb-0 lg:h-full ml-0 lg:-ml-12 h-auto" -->
                 </div>
               </div>
             </div>

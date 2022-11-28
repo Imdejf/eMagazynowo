@@ -37,7 +37,6 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@nuxt/content',
     'nuxt-windicss',
-    '@nuxt/image-edge',
     ['nuxt-swiper', {
       // Swiper options
     }]
