@@ -45,14 +45,23 @@ const openMenu = () => {
               </Anchor>
             </div>
             <div class="flex">
-              <Anchor
+              <a
+                class="<sm:hidden transition-colors duration-300 text-xs font-600 hover:text-cyan-300 gap-1.5 flex justify-between items-center p-2"
+                href="mailto: kontak@emagazynowo.pl"
+              >
+                <Icon
+                  name="material-symbols:mail"
+                  class="text-cyan-300 text-cyan-300 text-base"
+                />
+                <span>kontakt@emagazynowo.pl</span>
+              </a>
+              <!-- <Anchor
                 class="<sm:hidden"
                 text="kontakt@emagazynowo.pl"
                 href="mailto: kontak@emagazynowo.pl"
                 icon="material-symbols:mail"
               >
-              </Anchor>
-              <Anchor> </Anchor>
+              </Anchor> -->
               <a
                 class="tansition-colors font-600 duration-300 text-xs hover:text-cyan-300 gap-1.5 flex justify-between items-center p-2"
                 href="tel:698304621"
