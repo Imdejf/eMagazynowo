@@ -1,8 +1,15 @@
 <script lang="ts" setup>
+const nuxtApp = useNuxtApp()
 const isActive = ref(false)
+const isLoading = ref(false)
+
 const toggleSlideover = () => {
   isActive.value = !isActive.value
 }
+
+nuxtApp.hook('page:finish', () => {
+  isLoading.value = true
+})
 </script>
 
 <template>
@@ -42,11 +49,11 @@ const toggleSlideover = () => {
               </div>
             </div>
           </div>
-          <slot />
+          <slot></slot>
         </div>
       </div>
       <slot name="footer">
-        <PageFooter />
+        <PageFooter v-show="isLoading" />
       </slot>
     </div>
   </div>
