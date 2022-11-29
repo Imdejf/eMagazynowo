@@ -58,7 +58,7 @@ export default defineNuxtConfig({
   },
 
   image: {
-    dir:"assets/",
+    dir:"~/public/assets/test/",
     domains:["agreeable-hill-03c779110.2.azurestaticapps.net"]
   }
 })
