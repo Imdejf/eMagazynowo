@@ -94,7 +94,7 @@ onBeforeUnmount(() => {
             <h2 class="uppercase">Polecane</h2>
 
             <ul
-              class="grid-recommended <sm:grid-cols-2 <md:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 col-auto tracking-normal mt-8"
+              class="grid-recommended <sm:grid-cols-2 <md:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 tracking-normal mt-8"
             >
               <li class="w-auto">
                 <PageTestCard></PageTestCard>
@@ -242,11 +242,17 @@ onBeforeUnmount(() => {
               <div
                 class="relative lg:absolute max-w-4xl <md:mt-15 xl:max-w-6xl left-0 container lg:w-screen w-full"
               >
-                <img
+                <NuxtImg
                   src="/assets/img/macbook-emagazynowo.webp"
                   alt="macbook eMagazynowow"
                   class="mt-20 lg:mt-24 xl:mt-40 w-full h-auto <md:mb-0 mb-20 lg:mb-0 lg:h-full ml-0 lg:-ml-12 h-auto"
+                  loading="lazy"
                 />
+                <!-- <img
+                  src="/assets/img/macbook-emagazynowo.webp"
+                  alt="macbook eMagazynowow"
+                  class="mt-20 lg:mt-24 xl:mt-40 w-full h-auto <md:mb-0 mb-20 lg:mb-0 lg:h-full ml-0 lg:-ml-12 h-auto"
+                /> -->
               </div>
             </div>
           </div>
@@ -284,18 +290,6 @@ onBeforeUnmount(() => {
                 <PageTestCard></PageTestCard>
               </li>
 
-              <li class="w-auto">
-                <PageTestCard></PageTestCard>
-              </li>
-              <li class="w-auto">
-                <PageTestCard></PageTestCard>
-              </li>
-              <li class="w-auto">
-                <PageTestCard></PageTestCard>
-              </li>
-              <li class="w-auto">
-                <PageTestCard></PageTestCard>
-              </li>
               <li class="w-auto">
                 <PageTestCard></PageTestCard>
               </li>
