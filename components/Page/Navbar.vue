@@ -40,7 +40,7 @@ const openMenu = () => {
               >
               </Anchor>
             </div>
-            <div class="hidden lg:block">
+            <div class="hidden xl:block">
               <Anchor class="" text="test" to="" icon="ion:location-sharp">
               </Anchor>
             </div>
