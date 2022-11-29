@@ -128,119 +128,124 @@ onBeforeUnmount(() => {
         <div class="tracking-3px font-600 text-lg"></div>
       </div>
       <PageSection>
-        <div class="xl:h-2xl h-xl bg-slate-200">
+        <div
+          class="w-full justify-center items-center relative bg-slate-300 overflow-x-hidden lg:pt-40 lg:pb-40 xl:pt-40 xl:pb-64"
+        >
           <div
-            class="w-full justify-center items-center h-full mt-12 lg:mt-24 relative overflow-x-hidden"
+            class="max-w-6xl mx-auto h-full p-20 <md:pb-10 flex flex-col lg:flex-row justify-between items-center -mt-32 px-8 xl:px-0"
           >
             <div
-              class="container h-full flex flex-col float-right lg:flex-row <md:text-center justify-content items-center px-8 <lg:pt-12 xl:px-0"
+              class="flex flex-col mt-15 items-center lg:items-start w-full max-w-xl lg:w-1/2 <md:pt-6 pt-48 lg:pt-20 xl:pt-40 text-center z-30"
             >
-              <div
-                class="flex flex-col items-center md:justify-center h-auto w-full lg:w-1/2 lg:text-left z-20"
+              <h1
+                class="text-gray-900 font-black text-3xl sm:text-3xl leading-tight relative mb-4 xl:mb-8"
               >
-                <h4
-                  class="text-gray-900 font-black text-center text-6xl <xl:text-3xl leading-tight relative mb-4 xl:mb-8"
-                >
-                  Posiadasz jakieś pytania?
-                </h4>
+                Potrzebujesz pomocy lub wyceny?
+              </h1>
+              <p
+                class="text-lg sm:text-xl w-full xl:text-xl text-gray-600 mb-8 pr-0"
+              >
+                Skontaktuj się z nami
+              </p>
+              <a
+                href="#_"
+                class="mt-0 sm:mt-1 px-8 py-4 self-center rounded-md fold-bold text-base bg-blue-500 shadow-xl text-white border-t border-gray-200 w-auto font-bold relative self-start inline-block lg:mx-0 mx-auto"
+                >Kontakt!</a
+              >
+              <!-- Integrates with section -->
+              <!-- <div class="hidden sm:flex flex-col mt-12 lg:mt-24">
                 <p
-                  class="text-base sm:text-lg text-xl <xl:text-md text-gray-600 mb-8 pr-0"
+                  class="text-gray-500 uppercase font-medium tracking-widest mb-4 text-sm"
                 >
-                  Skontaktuj się z nami a my postaramy się pomóc
+                  Integrates With
                 </p>
-                <a
-                  href="#_"
-                  class="mt-0 sm:mt-1 px-8 py-4 rounded-md self-center fold-bold text-base bg-blue-500 shadow-xl text-white border-t border-gray-200 w-auto font-bold relative self-start inline-block lg:mx-0 mx-auto"
-                  >Kontakt</a
-                >
-                <!-- Integrates with section -->
-                <svg
-                  class="absolute left-0 top-25 max-w-md <xl:h-sm -ml-64 left-svg"
-                  viewBox="0 0 423 423"
-                  xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                >
-                  <defs>
-                    <linearGradient
-                      x1="100%"
-                      y1="0%"
-                      x2="4.48%"
-                      y2="0%"
-                      id="linearGradient-1"
-                    >
-                      <stop stop-color="#39bcf8" offset="0%"></stop>
-                      <stop stop-color="#6267f1" offset="100%"></stop>
-                    </linearGradient>
-                    <filter
-                      x="-9.3%"
-                      y="-6.7%"
-                      width="118.7%"
-                      height="118.7%"
-                      filterUnits="objectBoundingBox"
-                      id="filter-3"
-                    >
-                      <feOffset
-                        dy="8"
-                        in="SourceAlpha"
-                        result="shadowOffsetOuter1"
-                      ></feOffset>
-                      <feGaussianBlur
-                        stdDeviation="8"
-                        in="shadowOffsetOuter1"
-                        result="shadowBlurOuter1"
-                      ></feGaussianBlur>
-                      <feColorMatrix
-                        values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"
-                        in="shadowBlurOuter1"
-                      ></feColorMatrix>
-                    </filter>
-                    <rect
-                      id="path-2"
-                      x="63"
-                      y="504"
-                      width="300"
-                      height="300"
-                      rx="40"
-                    ></rect>
-                  </defs>
-                  <g
-                    id="Page-1"
-                    stroke="none"
-                    stroke-width="1"
-                    fill="none"
-                    fill-rule="evenodd"
-                    opacity=".9"
+                <div class="flex"></div>
+              </div> -->
+              <svg
+                class="absolute left-0 bottom-10 xl:bottom-30 max-w-md -ml-64 left-svg"
+                viewBox="0 0 423 423"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+              >
+                <defs>
+                  <linearGradient
+                    x1="100%"
+                    y1="0%"
+                    x2="4.48%"
+                    y2="0%"
+                    id="linearGradient-1"
                   >
-                    <g id="Desktop-HD" transform="translate(-39 -531)">
-                      <g id="Hero" transform="translate(43 83)">
-                        <g id="Rectangle-6" transform="rotate(45 213 654)">
-                          <use
-                            fill="#000"
-                            filter="url(#filter-3)"
-                            xlink:href="#path-2"
-                          ></use>
-                          <use
-                            fill="url(#linearGradient-1)"
-                            xlink:href="#path-2"
-                          ></use>
-                        </g>
+                    <stop stop-color="#39bcf8" offset="0%"></stop>
+                    <stop stop-color="#6267f1" offset="100%"></stop>
+                  </linearGradient>
+                  <filter
+                    x="-9.3%"
+                    y="-6.7%"
+                    width="118.7%"
+                    height="118.7%"
+                    filterUnits="objectBoundingBox"
+                    id="filter-3"
+                  >
+                    <feOffset
+                      dy="8"
+                      in="SourceAlpha"
+                      result="shadowOffsetOuter1"
+                    ></feOffset>
+                    <feGaussianBlur
+                      stdDeviation="8"
+                      in="shadowOffsetOuter1"
+                      result="shadowBlurOuter1"
+                    ></feGaussianBlur>
+                    <feColorMatrix
+                      values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"
+                      in="shadowBlurOuter1"
+                    ></feColorMatrix>
+                  </filter>
+                  <rect
+                    id="path-2"
+                    x="63"
+                    y="504"
+                    width="300"
+                    height="300"
+                    rx="40"
+                  ></rect>
+                </defs>
+                <g
+                  id="Page-1"
+                  stroke="none"
+                  stroke-width="1"
+                  fill="none"
+                  fill-rule="evenodd"
+                  opacity=".9"
+                >
+                  <g id="Desktop-HD" transform="translate(-39 -531)">
+                    <g id="Hero" transform="translate(43 83)">
+                      <g id="Rectangle-6" transform="rotate(45 213 654)">
+                        <use
+                          fill="#000"
+                          filter="url(#filter-3)"
+                          xlink:href="#path-2"
+                        ></use>
+                        <use
+                          fill="url(#linearGradient-1)"
+                          xlink:href="#path-2"
+                        ></use>
                       </g>
                     </g>
                   </g>
-                </svg>
-              </div>
+                </g>
+              </svg>
+            </div>
+            <div
+              class="flex flex-col items-end justify-center h-full w-full lg:w-1/2 ms:pl-10 relative z-50"
+            >
               <div
-                class="flex flex-col items-end justify-center items-center lg:w-1/2 ms:pl-10 relative z-20"
+                class="relative lg:absolute max-w-4xl <md:mt-15 xl:max-w-6xl left-0 container lg:w-screen w-full"
               >
-                <div class="relative lg:absolute justify-center">
-                  <img
-                    alt="eMagazynowo macbook"
-                    src="~/assets/img/macbook-emagazynowo.webp"
-                    height="1200"
-                    width="1600"
-                  />
-                  <!-- class="mt-10 <sm:h-13rem <md:h-sm <lg:h-26rem lg:mt-24 xl:mt-40 w-full b-20 lg:mb-0 lg:h-full ml-0 lg:-ml-12 h-auto" -->
-                </div>
+                <img
+                  src="https://cdn.devdojo.com/images/september2020/macbook-mockup.png"
+                  class="mt-20 lg:mt-24 xl:mt-40 w-full h-auto <md:mb-0 mb-20 lg:mb-0 lg:h-full ml-0 lg:-ml-12 h-auto"
+                />
               </div>
             </div>
           </div>
