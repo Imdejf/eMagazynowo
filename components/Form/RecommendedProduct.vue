@@ -6,7 +6,7 @@
     <div class="flex">
       <img
         data-src="/assets/img/apteczka.webp"
-        class="lazyload"
+        class="lazyload w-100px h-100px"
         alt="Apteczka"
       />
 

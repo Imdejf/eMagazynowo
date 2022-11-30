@@ -93,7 +93,7 @@ const openMenu = () => {
           >
             <img
               src="/assets/logo.webp"
-              class="<sm:w-120px <md:w-170px md:w-170px xl:w-230px"
+              class="<sm:w-120px <md:w-170px md:w-170px xl:w-230px h-full"
               alt="logo eMagazynowo"
             />
           </a>

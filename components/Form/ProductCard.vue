@@ -4,7 +4,11 @@
       class="bg-white shadow-md rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700"
     >
       <a href="#">
-        <img data-src="/assets/img/crame.webp" class="lazyload" alt="Krem" />
+        <img
+          data-src="/assets/img/crame.webp"
+          class="lazyload w-80px h-full !w-full"
+          alt="Krem"
+        />
       </a>
       <div class="px-5 pb-5">
         <a href="#">

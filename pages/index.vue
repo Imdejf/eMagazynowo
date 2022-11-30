@@ -453,7 +453,7 @@ onBeforeUnmount(() => {
               <a href="#">
                 <img
                   data-src="/assets/img/content/przelewy24-logo-footer.webp"
-                  class="lazyLoad w-1/3 m-auto"
+                  class="lazyload w-1/3 m-auto"
                   alt="logo Przelewy24"
                 />
               </a>
@@ -461,14 +461,14 @@ onBeforeUnmount(() => {
                 <img
                   alt="logo KRS"
                   data-src="/assets/img/content/krs-logo-footer.webp"
-                  class="lazyLoad w-1/3 m-auto"
+                  class="lazyload w-1/3 m-auto"
                 />
               </a>
               <a href="#">
                 <img
                   alt="logo InstantSSL"
                   data-src="/assets/img/content/instantssl-logo-footer.webp"
-                  class="lazyLoad w-1/3 m-auto"
+                  class="lazyload w-1/3 m-auto"
               /></a>
             </div>
           </div>
