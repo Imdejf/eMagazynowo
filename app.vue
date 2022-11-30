@@ -9,6 +9,10 @@
 </template>
 
 <script lang="ts" setup>
+import 'lazysizes'
+// import a plugin
+import 'lazysizes/plugins/parent-fit/ls.parent-fit'
+
 useHead({
   title: 'eMagazynowo',
   titleTemplate: 'eMagazynowo - eMagazynowo',

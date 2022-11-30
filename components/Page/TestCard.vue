@@ -10,10 +10,7 @@
       <div
         class="w-full items-center group-hover:h-1px h-3/5 flex justify-center group-hover:opacity-0"
       >
-        <NuxtPicture
-          alt="Bariery"
-          src="/img/icon.webp"
-        />
+        <img src="/assets/img/icon.webp" alt="Bariery" />
       </div>
       <div
         class="px-2 pb-4 group-hover:h-1px transition-opacity h-2/5 group-hover:absolute group-hover:opacity-0"

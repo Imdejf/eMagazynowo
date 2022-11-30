@@ -1,17 +1,56 @@
 <script lang="ts" setup>
+import { Size } from '~/composables/useScreen'
 import Swiper, { Navigation, Pagination, Autoplay, SwiperOptions } from 'swiper'
 import 'swiper/css'
 
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
+const screen = useScreen()
+const topDistance = useTopDistance()
 // meta
 definePageMeta({
   layout: 'page',
 })
 
+const isLoadingMacbook = ref(false)
+
+//refs
+const macbook = ref<HTMLElement | null>(null)
+
+const lazyLoad = () => {
+  const onLoad = () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+    if (macbook.value !== null && isLoadingMacbook.value == false) {
+      if (
+        scrollTop >
+        (screen.higherThan(Size.MEDIUM)
+          ? topDistance.distance(macbook.value) - 500
+          : topDistance.distance(macbook.value))
+      ) {
+        console.log(topDistance.distance(macbook.value))
+        isLoadingMacbook.value = true
+      }
+    }
+  }
+
+  // lifecycle hooks
+  window.addEventListener('scroll', onLoad)
+  onUnmounted(() => {
+    window.removeEventListener('scroll', onLoad)
+  })
+
+  return {
+    onLoad,
+  }
+}
+
 let engine = new Swiper('.swiper')
 
 onMounted(() => {
+  console.log(macbook.value?.getBoundingClientRect().top)
+  const { onLoad } = lazyLoad()
+  setTimeout(() => onLoad(), 50)
+
   Swiper.use([Pagination, Autoplay, Navigation])
 
   const swiperOptions: SwiperOptions = {
@@ -58,7 +97,7 @@ onBeforeUnmount(() => {
   <PageWrapper>
     <PageBody class="">
       <PageSection class="section__main pb-15 bg-no-repeatbg-center bg-center">
-        <div class=""></div>
+        <a>sda {{ screen.higherThan(Size.SMALL) }}</a>
         <div class="layer w-full h-full top-0 left-0">
           <div
             class="container mx-auto block lg:px-10 text-center <md:px-2 text-white"
@@ -94,7 +133,8 @@ onBeforeUnmount(() => {
             <h2 class="uppercase">Polecane</h2>
 
             <ul
-              class="grid-recommended <sm:grid-cols-2 <md:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 tracking-normal mt-8"
+              ref="testRec"
+              class="grid-recommended <sm:grid-cols-2 <md:grid-cols-3 md:grid-cols-4 2xl:grid-cols-6 tracking-normal mt-8"
             >
               <li class="w-auto">
                 <PageTestCard></PageTestCard>
@@ -132,10 +172,16 @@ onBeforeUnmount(() => {
           class="w-full justify-center items-center relative bg-slate-300 overflow-x-hidden lg:pt-40 lg:pb-40 xl:pt-40 xl:pb-64"
         >
           <div
+            ref="macbook"
             class="max-w-6xl mx-auto h-full p-20 <md:pb-10 flex flex-col lg:flex-row justify-between items-center -mt-32 px-8 xl:px-0"
           >
             <div
               class="flex flex-col mt-15 items-center lg:items-start w-full max-w-xl lg:w-1/2 <md:pt-6 pt-48 lg:pt-20 xl:pt-40 text-center z-30"
+              :class="
+                isLoadingMacbook == true
+                  ? 'duration-1000 ease-in transition-all opacity-100'
+                  : 'opacity-0 invisible'
+              "
             >
               <h1
                 class="text-gray-900 font-black text-3xl sm:text-3xl leading-tight relative mb-4 xl:mb-8"
@@ -237,23 +283,22 @@ onBeforeUnmount(() => {
               </svg>
             </div>
             <div
-              class="flex flex-col items-end justify-center h-full w-full lg:w-1/2 ms:pl-10 relative z-50"
+              class="opacity-100 flex flex-col items-end justify-center h-full w-full lg:w-1/2 ms:pl-10 relative z-50"
             >
               <div
                 class="relative lg:absolute max-w-4xl <md:mt-15 xl:max-w-6xl left-0 container lg:w-screen w-full"
               >
-                <NuxtImg
-                  provider="fastly"
-                  src="/assets/img/macbook-emagazynowo.webp"
-                  alt="macbook eMagazynowow"
-                  class="mt-20 lg:mt-24 xl:mt-40 w-full h-auto <md:mb-0 mb-20 lg:mb-0 lg:h-full ml-0 lg:-ml-12 h-auto"
+                <img
                   loading="lazy"
-                />
-                <!-- <img
                   src="/assets/img/macbook-emagazynowo.webp"
-                  alt="macbook eMagazynowow"
-                  class="mt-20 lg:mt-24 xl:mt-40 w-full h-auto <md:mb-0 mb-20 lg:mb-0 lg:h-full ml-0 lg:-ml-12 h-auto"
-                /> -->
+                  alt="macbook eMagazynowo"
+                  class="mt-20 lg:mt-24 xl:mt-40 w-full <md:mb-0 mb-20 lg:mb-0 lg:h-full ml-0 lg:-ml-12 h-auto"
+                  :class="
+                    isLoadingMacbook == true
+                      ? 'duration-300 ease-in transition-all opacity-100'
+                      : 'opacity-0 invisible'
+                  "
+                />
               </div>
             </div>
           </div>
@@ -264,44 +309,44 @@ onBeforeUnmount(() => {
           <div class="tracking-3px font-600 text-lg">
             <h2 class="uppercase">Zobacz więcej</h2>
             <ul
-              class="grid-recommended <sm:grid-cols-2 <md:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 col-auto tracking-normal mt-8"
+              class="grid-recommended inset-0 <sm:grid-cols-2 <md:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 col-auto tracking-normal mt-8"
             >
               <li class="w-auto">
-                <PageTestCard></PageTestCard>
+                <LazyPageTestCard></LazyPageTestCard>
               </li>
               <li class="w-auto">
-                <PageTestCard></PageTestCard>
+                <LazyPageTestCard></LazyPageTestCard>
               </li>
               <li class="w-auto">
-                <PageTestCard></PageTestCard>
+                <LazyPageTestCard></LazyPageTestCard>
               </li>
               <li class="w-auto">
-                <PageTestCard></PageTestCard>
+                <LazyPageTestCard></LazyPageTestCard>
               </li>
               <li class="w-auto">
-                <PageTestCard></PageTestCard>
+                <LazyPageTestCard></LazyPageTestCard>
               </li>
               <li class="w-auto">
-                <PageTestCard></PageTestCard>
+                <LazyPageTestCard></LazyPageTestCard>
               </li>
               <li class="w-auto">
-                <PageTestCard></PageTestCard>
+                <LazyPageTestCard></LazyPageTestCard>
               </li>
               <li class="w-auto">
-                <PageTestCard></PageTestCard>
+                <LazyPageTestCard></LazyPageTestCard>
               </li>
 
               <li class="w-auto">
-                <PageTestCard></PageTestCard>
+                <LazyPageTestCard></LazyPageTestCard>
               </li>
               <li class="w-auto">
-                <PageTestCard></PageTestCard>
+                <LazyPageTestCard></LazyPageTestCard>
               </li>
               <li class="w-auto">
-                <PageTestCard></PageTestCard>
+                <LazyPageTestCard></LazyPageTestCard>
               </li>
               <li class="w-auto">
-                <PageTestCard></PageTestCard>
+                <LazyPageTestCard></LazyPageTestCard>
               </li>
             </ul>
           </div>
@@ -316,7 +361,7 @@ onBeforeUnmount(() => {
               Produkty dla ciebie
             </h2>
             <ul
-              class="grid-recommended <sm:grid-cols-2 <md:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 col-auto tracking-normal mt-8"
+              class="grid-recommended <sm:grid-cols-2 <md:grid-cols-3 md:grid-cols-4 2xl:grid-cols-6 col-auto tracking-normal mt-8"
             >
               <li class="w-auto">
                 <FormProductCard />
@@ -404,26 +449,26 @@ onBeforeUnmount(() => {
       <PageSection>
         <div class="section__recommended-product">
           <div class="container mx-auto block my-3 lg:px-10 <md:px-2">
-            <div class="flex items-center">
-              <a href="#" class="m-auto">
-                <NuxtPicture
+            <div class="flex w-max items-center m-auto">
+              <a href="#">
+                <img
                   alt="logo Przelewy24"
-                  src="/content/przelewy24-logo-footer.webp"
-                  :imgAttrs="{
-                    class: 'w-full w-20 h-20 rounded-md object-cover',
-                  }"
+                  src="assets/img/content/przelewy24-logo-footer.webp"
+                  class="w-1/3 m-auto"
                 />
               </a>
-              <a href="#" class="m-auto">
-                <NuxtPicture
+              <a href="#">
+                <img
                   alt="logo KRS"
-                  src="/content/krs-logo-footer.webp"
+                  src="assets/img/content/krs-logo-footer.webp"
+                  class="w-1/3 m-auto"
                 />
               </a>
-              <a href="#" class="m-auto">
-                <NuxtPicture
+              <a href="#">
+                <img
                   alt="logo InstantSSL"
-                  src="/content/instantssl-logo-footer.png"
+                  src="assets/img/content/instantssl-logo-footer.webp"
+                  class="w-1/3 m-auto"
               /></a>
             </div>
           </div>

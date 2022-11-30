@@ -4,10 +4,10 @@
     class="block rounded-lg bg-white p-4 flex flex-col shadow-sm shadow-indigo-100"
   >
     <div class="flex">
-      <NuxtPicture
+      <img
+        data-src="/assets/img/apteczka.webp"
+        class="lazyload"
         alt="Apteczka"
-        src="/img/apteczka.webp"
-        :imgAttrs="{ class: 'w-full w-20 h-20 rounded-md object-cover' }"
       />
 
       <div class="mt-2">

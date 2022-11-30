@@ -91,11 +91,9 @@ const openMenu = () => {
             href="/"
             class="<sm:min-w-120px <md:min-w-170px md:min-w-170px xl:min-w-230px"
           >
-            <NuxtPicture
-              src="/logo.webp"
-              :imgAttrs="{
-                class: '<sm:w-120px <md:w-170px md:w-170px xl:w-230px',
-              }"
+            <img
+              src="/assets/logo.webp"
+              class="<sm:w-120px <md:w-170px md:w-170px xl:w-230px"
               alt="logo eMagazynowo"
             />
           </a>
@@ -162,7 +160,7 @@ const openMenu = () => {
             <li>
               <a
                 href="/"
-                class="duration-300 duration-300 hover:text-cyan-300 hover:text-cyan-300"
+                class="duration-300 hover:text-cyan-300 hover:text-cyan-300"
                 >Home</a
               >
             </li>

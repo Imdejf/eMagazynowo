@@ -4,7 +4,7 @@
       <article
         class="overflow-hidden rounded-lg border border-gray-100 shadow-sm"
       >
-        <NuxtPicture alt="Blog" src="/img/blog.webp" />
+        <img data-src="/assets/img/blog.webp" class="lazyload" alt="Blog" />
 
         <div class="p-4 sm:p-6">
           <a href="#">
