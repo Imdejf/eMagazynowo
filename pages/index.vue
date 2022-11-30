@@ -309,44 +309,44 @@ onBeforeUnmount(() => {
           <div class="tracking-3px font-600 text-lg">
             <h2 class="uppercase">Zobacz więcej</h2>
             <ul
-              class="grid-recommended inset-0 <sm:grid-cols-2 <md:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 col-auto tracking-normal mt-8"
+              class="grid-recommended inset-0 <sm:grid-cols-2 <md:grid-cols-3 md:grid-cols-4 2xl:grid-cols-6 col-auto tracking-normal mt-8"
             >
               <li class="w-auto">
-                <LazyPageTestCard></LazyPageTestCard>
+                <PageTestCard></PageTestCard>
               </li>
               <li class="w-auto">
-                <LazyPageTestCard></LazyPageTestCard>
+                <PageTestCard></PageTestCard>
               </li>
               <li class="w-auto">
-                <LazyPageTestCard></LazyPageTestCard>
+                <PageTestCard></PageTestCard>
               </li>
               <li class="w-auto">
-                <LazyPageTestCard></LazyPageTestCard>
+                <PageTestCard></PageTestCard>
               </li>
               <li class="w-auto">
-                <LazyPageTestCard></LazyPageTestCard>
+                <PageTestCard></PageTestCard>
               </li>
               <li class="w-auto">
-                <LazyPageTestCard></LazyPageTestCard>
+                <PageTestCard></PageTestCard>
               </li>
               <li class="w-auto">
-                <LazyPageTestCard></LazyPageTestCard>
+                <PageTestCard></PageTestCard>
               </li>
               <li class="w-auto">
-                <LazyPageTestCard></LazyPageTestCard>
+                <PageTestCard></PageTestCard>
               </li>
 
               <li class="w-auto">
-                <LazyPageTestCard></LazyPageTestCard>
+                <PageTestCard></PageTestCard>
               </li>
               <li class="w-auto">
-                <LazyPageTestCard></LazyPageTestCard>
+                <PageTestCard></PageTestCard>
               </li>
               <li class="w-auto">
-                <LazyPageTestCard></LazyPageTestCard>
+                <PageTestCard></PageTestCard>
               </li>
               <li class="w-auto">
-                <LazyPageTestCard></LazyPageTestCard>
+                <PageTestCard></PageTestCard>
               </li>
             </ul>
           </div>
@@ -453,7 +453,7 @@ onBeforeUnmount(() => {
               <a href="#">
                 <img
                   data-src="/assets/img/content/przelewy24-logo-footer.webp"
-                  class="lazyload w-1/3 m-auto"
+                  class="lazyload w-1/3 h-full m-auto"
                   alt="logo Przelewy24"
                 />
               </a>
@@ -461,14 +461,14 @@ onBeforeUnmount(() => {
                 <img
                   alt="logo KRS"
                   data-src="/assets/img/content/krs-logo-footer.webp"
-                  class="lazyload w-1/3 m-auto"
+                  class="lazyload w-1/3 h-full m-auto"
                 />
               </a>
               <a href="#">
                 <img
                   alt="logo InstantSSL"
                   data-src="/assets/img/content/instantssl-logo-footer.webp"
-                  class="lazyload w-1/3 m-auto"
+                  class="lazyload w-1/3 h-full m-auto"
               /></a>
             </div>
           </div>
