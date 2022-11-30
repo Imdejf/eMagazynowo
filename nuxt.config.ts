@@ -36,7 +36,6 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@nuxt/content',
     'nuxt-windicss',
-    '@nuxt/image-edge',
     ['nuxt-swiper', {
       // Swiper options
     }]
@@ -56,8 +55,4 @@ export default defineNuxtConfig({
   vueuse: {
     ssrHandlers: true,
   },
-
-  image: {
-    domains:["agreeable-hill-03c779110.2.azurestaticapps.net"]
-  }
 })
