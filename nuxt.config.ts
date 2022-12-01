@@ -32,15 +32,10 @@ export default defineNuxtConfig({
   // modules
   modules: [
     'nuxt-icon',
-    '@intlify/nuxt3',
-    '@pinia/nuxt',
-    '@nuxt/content',
+    // '@pinia/nuxt',
+    // '@nuxt/content',
     'nuxt-windicss',
-    ['nuxt-swiper', {
-      // Swiper options
-      styleLang: 'css',
-      modules: ['navigation', 'pagination'],
-    }]
+    'nuxt-swiper'
   ],
 
   // auto import components
@@ -57,4 +52,10 @@ export default defineNuxtConfig({
   vueuse: {
     ssrHandlers: true,
   },
+
+  //swiper options
+  swiper: {
+    styleLang: 'css',
+    modules: ['navigation', 'pagination'],
+  }
 })

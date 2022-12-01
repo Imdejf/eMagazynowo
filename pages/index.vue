@@ -24,7 +24,7 @@ const lazyLoad = () => {
         scrollTop >
         (screen.higherThan(Size.MEDIUM)
           ? topDistance.distance(macbook.value) - 500
-          : topDistance.distance(macbook.value))
+          : topDistance.distance(macbook.value) - 500)
       ) {
         console.log(topDistance.distance(macbook.value))
         isLoadingMacbook.value = true
@@ -47,46 +47,6 @@ onMounted(() => {
   console.log(macbook.value?.getBoundingClientRect().top)
   const { onLoad } = lazyLoad()
   setTimeout(() => onLoad(), 50)
-
-  // Swiper.use([Pagination, Autoplay, Navigation])
-
-  // const swiperOptions: SwiperOptions = {
-  //   spaceBetween: 20,
-  //   autoplay: {
-  //     delay: 2500,
-  //     disableOnInteraction: false,
-  //   },
-  //   loop: true,
-  //   loopFillGroupWithBlank: true,
-  //   autoHeight: false,
-  //   centeredSlides: true,
-  //   enabled: true,
-  //   observeSlideChildren: true,
-  //   navigation: {
-  //     nextEl: '.swiper-button-next',
-  //     prevEl: '.swiper-button-prev',
-  //   },
-  //   pagination: {
-  //     el: '.swiper-pagination',
-  //     clickable: true,
-  //   },
-  //   breakpoints: {
-  //     640: {
-  //       slidesPerView: 2,
-  //     },
-  //     1024: {
-  //       slidesPerView: 3,
-  //     },
-  //   },
-  // }
-
-  // nextTick(() => {
-  //   engine = new Swiper('.swiper', swiperOptions)
-  // })
-})
-
-onBeforeUnmount(() => {
-  engine?.destroy?.()
 })
 </script>
 
@@ -181,12 +141,12 @@ onBeforeUnmount(() => {
               "
             >
               <h1
-                class="text-gray-900 font-black text-3xl sm:text-3xl leading-tight relative mb-4 xl:mb-8"
+                class="text-gray-900 z-40 font-black text-3xl sm:text-3xl leading-tight relative mb-4 xl:mb-8"
               >
                 Potrzebujesz pomocy lub wyceny?
               </h1>
               <p
-                class="text-lg sm:text-xl w-full xl:text-xl text-gray-600 mb-8 pr-0"
+                class="text-lg sm:text-xl z-40 w-full xl:text-xl text-gray-600 mb-8 pr-0"
               >
                 Skontaktuj się z nami
               </p>
@@ -289,7 +249,7 @@ onBeforeUnmount(() => {
                   loading="lazy"
                   src="/assets/img/macbook-emagazynowo.webp"
                   alt="macbook eMagazynowo"
-                  class="mt-20 lg:mt-24 xl:mt-40 w-full <md:mb-0 mb-20 lg:mb-0 lg:h-full ml-0 lg:-ml-12 h-auto"
+                  class="mt-20 lg:mt-24 xl:mt-40 <sm:hidden < w-full <md:mb-0 mb-20 lg:mb-0 ml-0 lg:-ml-12 h-auto"
                   :class="
                     isLoadingMacbook == true
                       ? 'duration-300 ease-in transition-all opacity-100'
