@@ -317,37 +317,6 @@ onBeforeUnmount(() => {
               <li class="w-auto">
                 <PageTestCard></PageTestCard>
               </li>
-              <li class="w-auto">
-                <PageTestCard></PageTestCard>
-              </li>
-              <li class="w-auto">
-                <PageTestCard></PageTestCard>
-              </li>
-              <li class="w-auto">
-                <PageTestCard></PageTestCard>
-              </li>
-              <li class="w-auto">
-                <PageTestCard></PageTestCard>
-              </li>
-              <li class="w-auto">
-                <PageTestCard></PageTestCard>
-              </li>
-              <li class="w-auto">
-                <PageTestCard></PageTestCard>
-              </li>
-
-              <li class="w-auto">
-                <PageTestCard></PageTestCard>
-              </li>
-              <li class="w-auto">
-                <PageTestCard></PageTestCard>
-              </li>
-              <li class="w-auto">
-                <PageTestCard></PageTestCard>
-              </li>
-              <li class="w-auto">
-                <PageTestCard></PageTestCard>
-              </li>
             </ul>
           </div>
         </div>
@@ -388,24 +357,6 @@ onBeforeUnmount(() => {
             <ul
               class="grid-recommended <sm:grid-cols-1 <md:grid-cols-2 md:grid-cols-2 xl:grid-cols-3 col-auto tracking-normal mt-8"
             >
-              <li class="w-auto">
-                <FormRecommendedProduct />
-              </li>
-              <li class="w-auto">
-                <FormRecommendedProduct />
-              </li>
-              <li class="w-auto">
-                <FormRecommendedProduct />
-              </li>
-              <li class="w-auto">
-                <FormRecommendedProduct />
-              </li>
-              <li class="w-auto">
-                <FormRecommendedProduct />
-              </li>
-              <li class="w-auto">
-                <FormRecommendedProduct />
-              </li>
               <li class="w-auto">
                 <FormRecommendedProduct />
               </li>
