@@ -54,7 +54,6 @@ onMounted(() => {
   <PageWrapper>
     <PageBody class="">
       <PageSection class="section__main pb-15 bg-no-repeatbg-center bg-center">
-        <a>sda {{ screen.higherThan(Size.SMALL) }}</a>
         <div class="layer w-full h-full top-0 left-0">
           <div
             class="container mx-auto block lg:px-10 text-center <md:px-2 text-white"
@@ -73,7 +72,7 @@ onMounted(() => {
             </div>
             <a
               href="/kategorie"
-              class="text-white tracking-wider bg-[#FF9119] font-600 hover:bg-[#FF9119]/80 focus:ring-4 focus:ring-[#FF9119]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:hover:bg-[#FF9119]/80 dark:focus:ring-[#FF9119]/40 mr-2 mb-2"
+              class="text-white tracking-wider bg-orange-900 font-600 hover:bg-orange-900/90 focus:ring-4 focus:ring-orange-900/50 font-medium rounded-lg text-14px px-5 py-2.5 text-center inline-flex items-center dark:hover:bg-[#FF9119]/80 dark:focus:ring-[#FF9119]/40 mr-2 mb-2"
             >
               <Icon
                 name="material-symbols:shopping-cart-checkout-rounded"
@@ -378,7 +377,7 @@ onMounted(() => {
           <div class="bg-white pt-15 pb-30">
             <div class="md:h-530px xl:h-630px <md:h-580px sm:h-650px">
               <div class="text-center font-600 uppercase mt-10">
-                <h4 class="text-sm section-title text-gray-400">
+                <h4 class="text-sm section-title text-gray-500">
                   Porady i wskazówki
                 </h4>
                 <h2 class="pb-1 blog-title tracking-3px font-600 text-lg">

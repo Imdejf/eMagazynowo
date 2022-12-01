@@ -10,7 +10,7 @@
           alt="Blog"
         />
 
-        <div class="p-4 sm:p-6">
+        <div class="p-4 sm:p-6 bg-slate-300">
           <a href="#">
             <h3 class="text-lg font-medium text-gray-900">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -18,7 +18,7 @@
           </a>
 
           <p
-            class="mt-2 card-text text-sm leading-relaxed text-gray-500 line-clamp-3"
+            class="mt-2 card-text text-sm leading-relaxed text-gray-600 line-clamp-3"
           >
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae
             dolores, possimus pariatur animi temporibus nesciunt praesentium
@@ -29,7 +29,7 @@
 
           <a
             href="#"
-            class="group mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-600"
+            class="group mt-4 inline-flex items-center gap-1 text-sm font-medium text-blue-700 text_line section_text"
           >
             Find out more
 

@@ -1,5 +1,5 @@
 <template>
-  <a href="" class="group relative block h-60 <sm:w-40 <lg:w-40">
+  <a href="#" class="group relative block h-60 <sm:w-40 <lg:w-40">
     <span
       class="absolute inset-0 border-2 rounded-3xl border-dashed border-gray-400"
     ></span>
@@ -10,7 +10,11 @@
       <div
         class="w-full items-center group-hover:h-1px h-3/5 flex justify-center group-hover:opacity-0"
       >
-        <img src="/assets/img/icon.webp" alt="Bariery" class="w-80px h-80px" />
+        <img
+          src="/assets/img/icon.webp"
+          alt="Bariery"
+          class="w-80px h-80px <sm:w-2.5rem <sm:h-2.5rem"
+        />
       </div>
       <div
         class="px-2 pb-4 group-hover:h-1px transition-opacity h-2/5 group-hover:absolute group-hover:opacity-0"

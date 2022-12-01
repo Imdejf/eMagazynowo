@@ -41,7 +41,12 @@ const openMenu = () => {
               </Anchor>
             </div>
             <div class="hidden 2xl:block">
-              <Anchor class="" text="test" to="" icon="ion:location-sharp">
+              <Anchor
+                to="/rate"
+                class=""
+                text="Ocena"
+                icon="ion:location-sharp"
+              >
               </Anchor>
             </div>
             <div class="flex">
@@ -93,7 +98,7 @@ const openMenu = () => {
           >
             <img
               src="/assets/logo.webp"
-              class="<sm:w-120px <sm:h-40px <md:w-170px md:w-170px xl:w-230px h-full"
+              class="<sm:w-120px <sm:h-25px <md:w-170px md:w-170px xl:w-230px h-full"
               alt="logo eMagazynowo"
             />
           </a>

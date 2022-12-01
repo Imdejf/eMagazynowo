@@ -1,6 +1,6 @@
 <template>
-  <Html class="min-height scroll-smooth">
-    <Body class="bg-light-400 text-gray-600">
+  <Html class="min-height scroll-smooth" lang="pl">
+    <Body class="bg-light-600 text-gray-600">
       <NuxtLayout>
         <NuxtPage />
       </NuxtLayout>

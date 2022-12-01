@@ -24,7 +24,7 @@
         <div class="pt-3">
           <a
             href="#"
-            class="block w-full text-center rounded-xl font-600 bg-yellow-500 hover:bg-yellow-400 py-4 text-sm font-medium"
+            class="block w-full text-center rounded-xl font-600 bg-orange-900 hover:bg-orange-900/90 py-4 text-14px font-medium"
           >
             Sprawdź produkt!
           </a>

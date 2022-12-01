@@ -1,7 +1,7 @@
 <template>
   <a
     href="#"
-    class="block rounded-lg bg-white p-4 flex flex-col shadow-sm shadow-indigo-100"
+    class="relative transform hover:scale-102 hover:shadow-2xl transition duration-400 ease-in-out rounded-lg bg-white p-4 flex flex-col shadow-sm shadow-indigo-100"
   >
     <div class="flex">
       <img
@@ -16,11 +16,11 @@
           <h3 class="sr-only">Name</h3>
           <h3 class="font-medium">Apteczka przenośna pierwszej pomocy</h3>
           <p class="sr-only">Price</p>
-          <p class="text-blue-400 font-600 text-lg">$240,00</p>
+          <p class="text-blue-600 font-600 text-lg">$240,00</p>
         </div>
       </div>
     </div>
-    <div class="mt-6 h-15 flex items-center text-xs gap-8">
+    <div class="mt-6 h-15 flex items-center text-14px gap-8">
       <div
         class="<md:w-1/3 sm:inline-flex sm:shrink-0 sm:items-center text-center"
       >
@@ -28,7 +28,7 @@
         <div class="w-full">
           <p>Dostępność:</p>
 
-          <p class="font-600 text-yellow-500">3-4 tygodnie</p>
+          <p class="font-600 text-orange-900">3-4 tygodnie</p>
         </div>
       </div>
 
@@ -39,7 +39,7 @@
         <div>
           <p>Producent:</p>
 
-          <p class="font-600 text-yellow-500">Nazwa producenta</p>
+          <p class="font-600 text-orange-900">Nazwa producenta</p>
         </div>
       </div>
 

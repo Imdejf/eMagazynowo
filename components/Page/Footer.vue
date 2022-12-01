@@ -20,7 +20,7 @@
             />
 
             <button
-              class="absolute top-2/28 right-1 -translate-y-1/2 rounded-full bg-blue-500 px-5 py-3 text-sm font-medium text-white transition hover:bg-blue-600"
+              class="absolute top-2/28 right-1 -translate-y-1/2 rounded-full bg-blue-600 px-5 py-3 text-sm font-600 text-white transition hover:bg-blue-600"
               type="button"
             >
               Subscribe
@@ -42,19 +42,21 @@
                 class="mt-6 flex flex-col space-y-1"
               >
                 <a class="transition text-white hover:text-white/75" href="/">
-                  <span class="section__footer_text">O nas</span>
+                  <span class="section_text text_line">O nas</span>
                 </a>
                 <a class="transition text-white hover:text-white/75" href="/">
-                  <span class="section__footer_text">Jak kupować?</span>
+                  <span class="section_text text_line">Jak kupować?</span>
                 </a>
                 <a class="transition text-white hover:text-white/75" href="/">
-                  <span class="section__footer_text">Oferta sklepu</span>
+                  <span class="section_text text_line">Oferta sklepu</span>
                 </a>
                 <a class="transition text-white hover:text-white/75" href="/">
-                  <span class="section__footer_text">Polityka prywatności</span>
+                  <span class="section_text text_line"
+                    >Polityka prywatności</span
+                  >
                 </a>
                 <a class="transition text-white hover:text-white/75" href="/">
-                  <span class="section__footer_text">Regulamin</span>
+                  <span class="section_text text_line">Regulamin</span>
                 </a>
               </nav>
             </div>
@@ -67,19 +69,19 @@
                 class="mt-6 flex flex-col space-y-1"
               >
                 <a class="transition text-white hover:text-white/75" href="/">
-                  <span class="section__footer_text">Kontakt</span>
+                  <span class="section_text text_line">Kontakt</span>
                 </a>
                 <a class="transition text-white hover:text-white/75" href="/">
-                  <span class="section__footer_text"> Dostawa produktu</span>
+                  <span class="section_text text_line"> Dostawa produktu</span>
                 </a>
                 <a class="transition text-white hover:text-white/75" href="/">
-                  <span class="section__footer_text">Zwrot produktu</span>
+                  <span class="section_text text_line">Zwrot produktu</span>
                 </a>
                 <a class="transition text-white hover:text-white/75" href="/">
-                  <span class="section__footer_text">Płatności</span>
+                  <span class="section_text text_line">Płatności</span>
                 </a>
                 <a class="transition text-white hover:text-white/75" href="/">
-                  <span class="section__footer_text">Gwarancja</span>
+                  <span class="section_text text_line">Gwarancja</span>
                 </a>
               </nav>
             </div>
@@ -94,11 +96,11 @@
                 class="mt-6 flex flex-col space-y-1"
               >
                 <a class="transition text-white hover:text-white/75" href="/">
-                  <span class="section__footer_text">Blog</span>
+                  <span class="section_text text_line">Blog</span>
                 </a>
 
                 <a class="transition text-white hover:text-white/75" href="/">
-                  <span class="section__footer_text">Kontakt</span>
+                  <span class="section_text text_line">Kontakt</span>
                 </a>
               </nav>
             </div>
@@ -107,7 +109,7 @@
           <div class="mt-6 flex justify-center gap-4 lg:justify-start">
             <a
               class="transition text-cyan-300 hover:text-cyan-400"
-              href=""
+              href="#"
               target="_blank"
               rel="noreferrer"
             >
@@ -118,7 +120,7 @@
 
             <a
               class="transition text-cyan-300 hover:text-cyan-400"
-              href=""
+              href="#"
               target="_blank"
               rel="noreferrer"
             >
@@ -142,10 +144,12 @@
               class="mt-6 flex flex-col space-y-1"
             >
               <a class="transition text-white hover:text-white/75" href="/">
-                <span class="section__footer_text">kontakt@emagazynowo.pl</span>
+                <span class="section_text text_line"
+                  >kontakt@emagazynowo.pl</span
+                >
               </a>
               <a class="transition text-white hover:text-white/75" href="/">
-                <span class="section__footer_text"
+                <span class="section_text text_line"
                   >tel.kom.: +48 698 304 621</span
                 >
               </a>
@@ -177,13 +181,11 @@
           <br />
 
           Created with
-          <a href="" class="underline transition text-white hover:text-white/75"
+          <a
+            href="https://nuxt.com/"
+            class="underline transition text-white hover:text-white/75"
             >Nuxt 3</a
           >
-          and
-          <a href="" class="underline transition text-white hover:text-white/75"
-            >Laravel Livewire</a
-          >.
         </p>
       </div>
     </div>
@@ -191,13 +193,13 @@
 </template>
 
 <style>
-.section__footer_text {
+.text_line {
   position: relative;
   text-decoration: none;
   transition: all 0.35s ease;
 }
 
-.section__footer_text::before {
+.text_line::before {
   content: '';
   position: absolute;
   width: 100%;
@@ -212,10 +214,10 @@
   transition: all 0.3s ease-in-out 0s;
 }
 
-.section__footer_text:hover {
+.section_text:hover {
   color: #3b82f6;
 }
-.section__footer_text:hover::before {
+.section_text:hover::before {
   visibility: visible;
   -webkit-transform: scaleX(1);
   transform: scaleX(1);

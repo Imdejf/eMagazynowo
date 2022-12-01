@@ -35,7 +35,7 @@ const MyTheme = {
       '300': '#52B8FF',
       '400': '#29A7FF',
       '500': '#0096FF',
-      '600': '#0075C7',
+      '600': '#0073E6',
       '700': '#00548F',
       '800': '#003357',
       '900': '#0a2540',
@@ -53,6 +53,9 @@ const MyTheme = {
       '800': '#BB0000',
       '900': '#830000',
     },
+    orange: {
+      '900': "#E03100"
+    }
   },
 }
 
@@ -83,6 +86,7 @@ export default defineConfig({
         green: MyTheme.colors.green,
         blue: MyTheme.colors.blue,
         red: MyTheme.colors.red,
+        orange: MyTheme.colors.orange,
         slate: colors.slate,
       },
       fontFamily: {
