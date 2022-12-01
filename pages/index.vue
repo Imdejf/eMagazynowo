@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { Size } from '~/composables/useScreen'
-import Swiper, { Navigation, Pagination, Autoplay, SwiperOptions } from 'swiper'
 import 'swiper/css'
 
 import 'swiper/css/pagination'
@@ -44,48 +43,46 @@ const lazyLoad = () => {
   }
 }
 
-let engine = new Swiper('.swiper')
-
 onMounted(() => {
   console.log(macbook.value?.getBoundingClientRect().top)
   const { onLoad } = lazyLoad()
   setTimeout(() => onLoad(), 50)
 
-  Swiper.use([Pagination, Autoplay, Navigation])
+  // Swiper.use([Pagination, Autoplay, Navigation])
 
-  const swiperOptions: SwiperOptions = {
-    spaceBetween: 20,
-    autoplay: {
-      delay: 2500,
-      disableOnInteraction: false,
-    },
-    loop: true,
-    loopFillGroupWithBlank: true,
-    autoHeight: false,
-    centeredSlides: true,
-    enabled: true,
-    observeSlideChildren: true,
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-    breakpoints: {
-      640: {
-        slidesPerView: 2,
-      },
-      1024: {
-        slidesPerView: 3,
-      },
-    },
-  }
+  // const swiperOptions: SwiperOptions = {
+  //   spaceBetween: 20,
+  //   autoplay: {
+  //     delay: 2500,
+  //     disableOnInteraction: false,
+  //   },
+  //   loop: true,
+  //   loopFillGroupWithBlank: true,
+  //   autoHeight: false,
+  //   centeredSlides: true,
+  //   enabled: true,
+  //   observeSlideChildren: true,
+  //   navigation: {
+  //     nextEl: '.swiper-button-next',
+  //     prevEl: '.swiper-button-prev',
+  //   },
+  //   pagination: {
+  //     el: '.swiper-pagination',
+  //     clickable: true,
+  //   },
+  //   breakpoints: {
+  //     640: {
+  //       slidesPerView: 2,
+  //     },
+  //     1024: {
+  //       slidesPerView: 3,
+  //     },
+  //   },
+  // }
 
-  nextTick(() => {
-    engine = new Swiper('.swiper', swiperOptions)
-  })
+  // nextTick(() => {
+  //   engine = new Swiper('.swiper', swiperOptions)
+  // })
 })
 
 onBeforeUnmount(() => {
@@ -139,7 +136,7 @@ onBeforeUnmount(() => {
               <li class="w-auto">
                 <PageTestCard></PageTestCard>
               </li>
-              <li class="w-auto">
+              <!-- <li class="w-auto">
                 <PageTestCard></PageTestCard>
               </li>
               <li class="w-auto">
@@ -159,7 +156,7 @@ onBeforeUnmount(() => {
               </li>
               <li class="w-auto">
                 <PageTestCard></PageTestCard>
-              </li>
+              </li> -->
             </ul>
           </div>
         </div>
@@ -317,6 +314,37 @@ onBeforeUnmount(() => {
               <li class="w-auto">
                 <PageTestCard></PageTestCard>
               </li>
+              <!-- <li class="w-auto">
+                <PageTestCard></PageTestCard>
+              </li>
+              <li class="w-auto">
+                <PageTestCard></PageTestCard>
+              </li>
+              <li class="w-auto">
+                <PageTestCard></PageTestCard>
+              </li>
+              <li class="w-auto">
+                <PageTestCard></PageTestCard>
+              </li>
+              <li class="w-auto">
+                <PageTestCard></PageTestCard>
+              </li>
+              <li class="w-auto">
+                <PageTestCard></PageTestCard>
+              </li>
+
+              <li class="w-auto">
+                <PageTestCard></PageTestCard>
+              </li>
+              <li class="w-auto">
+                <PageTestCard></PageTestCard>
+              </li>
+              <li class="w-auto">
+                <PageTestCard></PageTestCard>
+              </li>
+              <li class="w-auto">
+                <PageTestCard></PageTestCard>
+              </li> -->
             </ul>
           </div>
         </div>
@@ -363,14 +391,32 @@ onBeforeUnmount(() => {
               <li class="w-auto">
                 <FormRecommendedProduct />
               </li>
+              <li class="w-auto">
+                <FormRecommendedProduct />
+              </li>
+              <li class="w-auto">
+                <FormRecommendedProduct />
+              </li>
+              <li class="w-auto">
+                <FormRecommendedProduct />
+              </li>
+              <li class="w-auto">
+                <FormRecommendedProduct />
+              </li>
+              <li class="w-auto">
+                <FormRecommendedProduct />
+              </li>
+              <li class="w-auto">
+                <FormRecommendedProduct />
+              </li>
             </ul>
           </div>
         </div>
       </PageSection>
       <PageSection>
         <div class="section__recommended-product">
-          <div class="bg-white h-155 md:h-170">
-            <div class="swiper md:h-630px <md:h-580px sm:h-650px">
+          <div class="bg-white pt-15 pb-30">
+            <div class="md:h-530px xl:h-630px <md:h-580px sm:h-650px">
               <div class="text-center font-600 uppercase mt-10">
                 <h4 class="text-sm section-title text-gray-400">
                   Porady i wskazówki
@@ -380,16 +426,34 @@ onBeforeUnmount(() => {
                 </h2>
               </div>
               <!-- Additional required wrapper -->
-              <div class="swiper-wrapper h-md">
-                <!-- Slides -->
-                <div class="swiper-slide"><FormBlogCard /></div>
-                <div class="swiper-slide"><FormBlogCard /></div>
-                <div class="swiper-slide"><FormBlogCard /></div>
-              </div>
-              <div class="swiper-pagination"></div>
-              <div class="swiper-button-prev"></div>
-              <div class="swiper-button-next"></div>
-              <div class="swiper-pagination"></div>
+              <Swiper
+                :modules="[SwiperNavigation, SwiperPagination]"
+                :slidesPerGroup="3"
+                :loop="true"
+                :loopFillGroupWithBlank="true"
+                :breakpoints="{
+                  '640': {
+                    slidesPerView: 2,
+                    spaceBetween: 15,
+                  },
+                  '1024': {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                  },
+                }"
+                :pagination="{
+                  clickable: true,
+                }"
+                :navigation="true"
+                class="swiper-wrapper h-md"
+              >
+                <SwiperSlide><FormBlogCard /></SwiperSlide>
+                <SwiperSlide><FormBlogCard /></SwiperSlide>
+                <SwiperSlide><FormBlogCard /></SwiperSlide>
+                <SwiperSlide><FormBlogCard /></SwiperSlide>
+                <SwiperSlide><FormBlogCard /></SwiperSlide>
+                <SwiperSlide><FormBlogCard /></SwiperSlide>
+              </Swiper>
             </div>
           </div>
         </div>

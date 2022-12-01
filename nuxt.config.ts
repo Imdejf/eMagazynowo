@@ -38,6 +38,8 @@ export default defineNuxtConfig({
     'nuxt-windicss',
     ['nuxt-swiper', {
       // Swiper options
+      styleLang: 'css',
+      modules: ['navigation', 'pagination'],
     }]
   ],
 

@@ -93,7 +93,7 @@ const openMenu = () => {
           >
             <img
               src="/assets/logo.webp"
-              class="<sm:w-120px <md:w-170px md:w-170px xl:w-230px h-full"
+              class="<sm:w-120px <sm:h-40px <md:w-170px md:w-170px xl:w-230px h-full"
               alt="logo eMagazynowo"
             />
           </a>
@@ -152,7 +152,7 @@ const openMenu = () => {
             </button>
           </div>
           <div
-            class="border-r-2 h-7 border-gray-200 text-center self-center <sm:hidden"
+            class="border-r-2 h-7 border-gray-200 text-center self-center sm:hidden"
           ></div>
           <ul
             class="uppercase mx-5 font-600 justify-center text-gray-600 inline-flex my-4"
