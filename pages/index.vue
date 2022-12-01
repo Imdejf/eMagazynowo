@@ -249,7 +249,7 @@ onMounted(() => {
                   loading="lazy"
                   src="/assets/img/macbook-emagazynowo.webp"
                   alt="macbook eMagazynowo"
-                  class="mt-20 lg:mt-24 xl:mt-40 <sm:hidden < w-full <md:mb-0 mb-20 lg:mb-0 ml-0 lg:-ml-12 h-auto"
+                  class="mt-20 lg:mt-24 xl:mt-40 <sm:hidden w-full <md:mb-0 mb-20 lg:mb-0 ml-0 lg:-ml-12 h-full"
                   :class="
                     isLoadingMacbook == true
                       ? 'duration-300 ease-in transition-all opacity-100'
