@@ -9,6 +9,7 @@ declare module '@nuxt/schema' {
 
 export default defineNuxtConfig({
   ssr: true,
+  
   css:[
     'virtual:windi-base.css',
     'virtual:windi-components.css',
@@ -35,7 +36,7 @@ export default defineNuxtConfig({
     // '@pinia/nuxt',
     // '@nuxt/content',
     'nuxt-windicss',
-    'nuxt-swiper'
+    'nuxt-swiper',
   ],
 
   // auto import components

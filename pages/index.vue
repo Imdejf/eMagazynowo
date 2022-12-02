@@ -52,7 +52,7 @@ onMounted(() => {
 
 <template>
   <PageWrapper>
-    <PageBody class="">
+    <PageBody>
       <PageSection class="section__main pb-15 bg-no-repeatbg-center bg-center">
         <div class="layer w-full h-full top-0 left-0">
           <div
@@ -87,36 +87,7 @@ onMounted(() => {
         <div class="container mx-auto block lg:px-10 <md:px-2">
           <div class="tracking-3px font-600 text-lg">
             <h2 class="uppercase">Polecane</h2>
-
-            <ul
-              ref="testRec"
-              class="grid-recommended <sm:grid-cols-2 <md:grid-cols-3 md:grid-cols-4 2xl:grid-cols-6 tracking-normal mt-8"
-            >
-              <li class="w-auto">
-                <PageTestCard></PageTestCard>
-              </li>
-              <!-- <li class="w-auto">
-                <PageTestCard></PageTestCard>
-              </li>
-              <li class="w-auto">
-                <PageTestCard></PageTestCard>
-              </li>
-              <li class="w-auto">
-                <PageTestCard></PageTestCard>
-              </li>
-              <li class="w-auto">
-                <PageTestCard></PageTestCard>
-              </li>
-              <li class="w-auto">
-                <PageTestCard></PageTestCard>
-              </li>
-              <li class="w-auto">
-                <PageTestCard></PageTestCard>
-              </li>
-              <li class="w-auto">
-                <PageTestCard></PageTestCard>
-              </li> -->
-            </ul>
+            <GridRecommendedCategory></GridRecommendedCategory>
           </div>
         </div>
       </PageSection>
@@ -136,7 +107,7 @@ onMounted(() => {
               :class="
                 isLoadingMacbook == true
                   ? 'duration-1000 ease-in transition-all opacity-100'
-                  : 'opacity-0 invisible'
+                  : 'opacity-0 iFnvisible'
               "
             >
               <h1
@@ -154,15 +125,6 @@ onMounted(() => {
                 class="mt-0 sm:mt-1 px-8 py-4 self-center rounded-md fold-bold text-base bg-blue-500 shadow-xl text-white border-t border-gray-200 w-auto font-bold relative self-start inline-block lg:mx-0 mx-auto"
                 >Kontakt!</a
               >
-              <!-- Integrates with section -->
-              <!-- <div class="hidden sm:flex flex-col mt-12 lg:mt-24">
-                <p
-                  class="text-gray-500 uppercase font-medium tracking-widest mb-4 text-sm"
-                >
-                  Integrates With
-                </p>
-                <div class="flex"></div>
-              </div> -->
               <svg
                 class="absolute left-0 bottom-10 xl:bottom-30 max-w-md -ml-64 left-svg"
                 viewBox="0 0 423 423"
@@ -264,47 +226,7 @@ onMounted(() => {
         <div class="container mx-auto block lg:px-10 <md:px-2">
           <div class="tracking-3px font-600 text-lg">
             <h2 class="uppercase">Zobacz więcej</h2>
-            <ul
-              class="grid-recommended inset-0 <sm:grid-cols-2 <md:grid-cols-3 md:grid-cols-4 2xl:grid-cols-6 col-auto tracking-normal mt-8"
-            >
-              <li class="w-auto">
-                <PageTestCard></PageTestCard>
-              </li>
-              <li class="w-auto">
-                <PageTestCard></PageTestCard>
-              </li>
-              <!-- <li class="w-auto">
-                <PageTestCard></PageTestCard>
-              </li>
-              <li class="w-auto">
-                <PageTestCard></PageTestCard>
-              </li>
-              <li class="w-auto">
-                <PageTestCard></PageTestCard>
-              </li>
-              <li class="w-auto">
-                <PageTestCard></PageTestCard>
-              </li>
-              <li class="w-auto">
-                <PageTestCard></PageTestCard>
-              </li>
-              <li class="w-auto">
-                <PageTestCard></PageTestCard>
-              </li>
-
-              <li class="w-auto">
-                <PageTestCard></PageTestCard>
-              </li>
-              <li class="w-auto">
-                <PageTestCard></PageTestCard>
-              </li>
-              <li class="w-auto">
-                <PageTestCard></PageTestCard>
-              </li>
-              <li class="w-auto">
-                <PageTestCard></PageTestCard>
-              </li> -->
-            </ul>
+            <GridMoreCategory />
           </div>
         </div>
       </PageSection>
@@ -316,22 +238,7 @@ onMounted(() => {
             <h2 class="uppercase tracking-3px font-600 text-lg">
               Produkty dla ciebie
             </h2>
-            <ul
-              class="grid-recommended <sm:grid-cols-2 <md:grid-cols-3 md:grid-cols-4 2xl:grid-cols-6 col-auto tracking-normal mt-8"
-            >
-              <li class="w-auto">
-                <FormProductCard />
-              </li>
-              <li class="w-auto">
-                <FormProductCard />
-              </li>
-              <li class="w-auto">
-                <FormProductCard />
-              </li>
-              <li class="w-auto">
-                <FormProductCard />
-              </li>
-            </ul>
+            <GridRecommendedForYou />
           </div>
         </div>
       </PageSection>
@@ -341,34 +248,7 @@ onMounted(() => {
             <h2 class="uppercase tracking-3px font-600 text-lg">
               Rekomendowane produkty
             </h2>
-            <ul
-              class="grid-recommended <sm:grid-cols-1 <md:grid-cols-2 md:grid-cols-2 xl:grid-cols-3 col-auto tracking-normal mt-8"
-            >
-              <li class="w-auto">
-                <FormRecommendedProduct />
-              </li>
-              <li class="w-auto">
-                <FormRecommendedProduct />
-              </li>
-              <li class="w-auto">
-                <FormRecommendedProduct />
-              </li>
-              <li class="w-auto">
-                <FormRecommendedProduct />
-              </li>
-              <li class="w-auto">
-                <FormRecommendedProduct />
-              </li>
-              <li class="w-auto">
-                <FormRecommendedProduct />
-              </li>
-              <li class="w-auto">
-                <FormRecommendedProduct />
-              </li>
-              <li class="w-auto">
-                <FormRecommendedProduct />
-              </li>
-            </ul>
+            <GridRecommendedProduct />
           </div>
         </div>
       </PageSection>
@@ -385,34 +265,7 @@ onMounted(() => {
                 </h2>
               </div>
               <!-- Additional required wrapper -->
-              <Swiper
-                :modules="[SwiperNavigation, SwiperPagination]"
-                :slidesPerGroup="3"
-                :loop="true"
-                :loopFillGroupWithBlank="true"
-                :breakpoints="{
-                  '640': {
-                    slidesPerView: 2,
-                    spaceBetween: 15,
-                  },
-                  '1024': {
-                    slidesPerView: 3,
-                    spaceBetween: 30,
-                  },
-                }"
-                :pagination="{
-                  clickable: true,
-                }"
-                :navigation="true"
-                class="swiper-wrapper h-md"
-              >
-                <SwiperSlide><FormBlogCard /></SwiperSlide>
-                <SwiperSlide><FormBlogCard /></SwiperSlide>
-                <SwiperSlide><FormBlogCard /></SwiperSlide>
-                <SwiperSlide><FormBlogCard /></SwiperSlide>
-                <SwiperSlide><FormBlogCard /></SwiperSlide>
-                <SwiperSlide><FormBlogCard /></SwiperSlide>
-              </Swiper>
+              <GridBlogCard />
             </div>
           </div>
         </div>

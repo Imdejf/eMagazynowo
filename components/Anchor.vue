@@ -37,7 +37,7 @@ const to = toRef(props, 'to')
   >
     <i v-if="icon" class="text-cyan-300 justify-between text-base"
       ><icon :class="classToIcon" :name="icon" /></i
-    >{{ text }}
+    ><slot>{{ text }}</slot>
   </NuxtLink>
   <a
     v-else

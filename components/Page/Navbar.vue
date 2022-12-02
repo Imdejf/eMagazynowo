@@ -1,11 +1,28 @@
 <script lang="ts" setup>
+export interface IMenuItem {
+  type: 'link'
+  text: string
+  href?: any
+  route?: any
+}
 const app = useAppConfig()
-const navbar = ref(null)
 const emit = defineEmits(['toogleSlide'])
 
 const openMenu = () => {
   emit('toogleSlide')
 }
+
+const menus = computed((): IMenuItem[] => [
+  // {
+  //   type: 'link',
+  //   text: 'Home',
+  //   route: { name: 'home' },
+  // },
+  { type: 'link', text: 'home', route: { name: '' } },
+  { type: 'link', text: 'contact', route: { name: 'contact' } },
+  { type: 'link', text: 'blog', route: { name: 'blog' } },
+  { type: 'link', text: 'faq', route: { name: 'faq' } },
+])
 </script>
 
 <template>
@@ -18,7 +35,7 @@ const openMenu = () => {
               <Anchor
                 class="<sm:hidden"
                 text="Szybka dostawa"
-                to="/newsletter"
+                to="#"
                 icon="mdi:truck-fast"
                 classToIcon=""
               >
@@ -26,7 +43,7 @@ const openMenu = () => {
               <Anchor
                 class=""
                 text="Śledź zamówienie"
-                to="/newsletter"
+                to="#"
                 icon="ion:location-sharp"
                 classToIcon=""
               >
@@ -34,7 +51,7 @@ const openMenu = () => {
               <Anchor
                 class="<md:hidden"
                 text="Zapisz się do newslettera"
-                to="/newsletter"
+                to="#"
                 icon="ion:notifications-outline"
                 classToIcon="text-orange-300"
               >
@@ -119,8 +136,12 @@ const openMenu = () => {
             </button>
             <a
               href="#"
-              class="flex flex-col items-center px-4 hover:text-blue-400 duration-300"
+              class="relative flex flex-col items-center px-4 hover:text-blue-400 duration-300"
             >
+              <span
+                class="absolute -top-2 right-5.5 flex h-4 w-4 items-center justify-center rounded-full bg-blue-500 text-xs font-bold text-white"
+                >2</span
+              >
               <Icon name="mdi:heart-outline" class="w-5 h-5" />
               <span class="uppercase">Ulubione</span>
             </a>
@@ -133,8 +154,12 @@ const openMenu = () => {
             </a>
             <a
               href="#"
-              class="flex flex-col items-center pl-4 hover:text-blue-400 duration-300"
+              class="flex relative flex-col items-center pl-4 hover:text-blue-400 duration-300"
             >
+              <span
+                class="absolute -top-2 right-1px flex h-4 w-4 items-center justify-center rounded-full bg-blue-500 text-xs font-bold text-white"
+                >2</span
+              >
               <Icon name="uil:shopping-cart" class="w-5 h-5" />
               <span class="uppercase">Koszyk</span>
             </a>
@@ -162,7 +187,16 @@ const openMenu = () => {
           <ul
             class="uppercase mx-5 font-600 justify-center text-gray-600 inline-flex my-4"
           >
-            <li>
+            <li v-for="(item, i) in menus" :key="i">
+              <Anchor
+                v-if="item.type === 'link'"
+                :to="item.route ? item.route : undefined"
+                :href="item.href ? item.href : undefined"
+                class="duration-300 hover:text-cyan-300 hover:text-cyan-300"
+                >{{ item.text }}</Anchor
+              >
+            </li>
+            <!-- <li>
               <a
                 href="/"
                 class="duration-300 hover:text-cyan-300 hover:text-cyan-300"
@@ -177,7 +211,7 @@ const openMenu = () => {
             </li>
             <li href="/faq">
               <a href="/faq" class="p-3 hover:text-sky-400">Faq</a>
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>
