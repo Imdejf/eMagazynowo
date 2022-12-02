@@ -207,10 +207,9 @@ onMounted(() => {
                 class="relative lg:absolute max-w-4xl <md:mt-15 xl:max-w-6xl left-0 container lg:w-screen w-full"
               >
                 <img
-                  loading="lazy"
-                  src="/assets/img/macbook-emagazynowo.webp"
+                  data-src="/assets/img/macbook-emagazynowo.webp"
                   alt="macbook eMagazynowo"
-                  class="mt-20 lg:mt-24 xl:mt-40 <sm:hidden w-full <md:mb-0 mb-20 lg:mb-0 ml-0 lg:-ml-12 h-full"
+                  class="lazyload mt-20 lg:mt-24 xl:mt-40 w-full <md:mb-0 mb-20 lg:mb-0 ml-0 lg:-ml-12 h-full"
                   :class="
                     isLoadingMacbook == true
                       ? 'duration-300 ease-in transition-all opacity-100'

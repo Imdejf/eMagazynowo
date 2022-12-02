@@ -35,7 +35,6 @@ const blogs = computed((): IMenuItem[] => [
 <template>
   <Swiper
     :modules="[SwiperNavigation, SwiperPagination]"
-    :slidesPerGroup="3"
     :loop="true"
     :loopFillGroupWithBlank="true"
     :breakpoints="{
