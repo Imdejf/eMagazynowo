@@ -11,10 +11,10 @@ definePageMeta({
     </PageHeader>
     <PageBody>
       <PageSection>
-        <div class="px-6 py-12 md:px-12 text-center">
+        <div class="px-6 <sm:py-2 py-12 md:px-12 text-center">
           <div class="container mx-auto xl:px-32">
             <div class="grid lg:grid-cols-2 flex items-center">
-              <div class="md:mt-12 lg:mt-0 mb-12 lg:mb-0 w-xl">
+              <div class="md:mt-12 lg:mt-0 mb-12 lg:mb-0">
                 <div
                   class="block rounded-lg shadow-lg"
                   style="

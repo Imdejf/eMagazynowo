@@ -54,10 +54,13 @@ const categories = computed((): IMenuItem[] => [
 
 <template>
   <ul
-    ref="testRec"
     class="grid-recommended <sm:grid-cols-2 <md:grid-cols-3 md:grid-cols-4 2xl:grid-cols-6 tracking-normal mt-8"
   >
-    <li v-for="category in categories" :key="category.categoryName">
+    <li
+      v-for="category in categories"
+      :key="category.categoryName"
+      class="w-auto"
+    >
       <a href="#" class="group relative block w-45 h-40 <sm:w-40 <lg:w-40">
         <span
           class="absolute inset-0 border-2 rounded-3xl border-dashed border-gray-400"

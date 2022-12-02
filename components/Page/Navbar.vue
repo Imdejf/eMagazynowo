@@ -182,7 +182,7 @@ const menus = computed((): IMenuItem[] => [
             </button>
           </div>
           <div
-            class="border-r-2 h-7 border-gray-200 text-center self-center sm:hidden"
+            class="border-r-2 h-7 border-gray-200 text-center self-center <sm:hidden"
           ></div>
           <ul
             class="uppercase mx-5 font-600 justify-center text-gray-600 inline-flex my-4"
