@@ -4,4 +4,17 @@ definePageMeta({
   layout: 'page',
 })
 </script>
-<template>dsa</template>
+<template>
+  <PageWrapper>
+    <PageHeader>
+      <PageTitle></PageTitle>
+    </PageHeader>
+    <PageBody>
+      <PageSection>
+        <div class="pb-5">
+          <GridBlogCard />
+        </div>
+      </PageSection>
+    </PageBody>
+  </PageWrapper>
+</template>
