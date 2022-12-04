@@ -152,13 +152,13 @@ const openShoppingCart = () => {
               <Icon name="mdi:heart-outline" class="w-5 h-5" />
               <span class="uppercase">Ulubione</span>
             </a>
-            <a
-              href="#"
+            <NuxtLink
+              href="/login"
               class="flex flex-col items-center px-4 hover:text-blue-400 duration-300"
             >
               <Icon name="mingcute:user-3-line" class="w-5 h-5" />
               <span class="uppercase">Zaloguj</span>
-            </a>
+            </NuxtLink>
             <a
               href="#"
               @click="openShoppingCart()"
