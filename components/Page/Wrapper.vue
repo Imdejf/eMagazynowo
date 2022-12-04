@@ -1,4 +1,4 @@
-<template>
+]<template>
   <mian class="app-main">
     <slot />
   </mian>

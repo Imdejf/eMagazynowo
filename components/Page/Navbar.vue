@@ -23,6 +23,13 @@ const menus = computed((): IMenuItem[] => [
   { type: 'link', text: 'blog', route: { name: 'blog' } },
   { type: 'link', text: 'faq', route: { name: 'faq' } },
 ])
+
+const popupRef = ref()
+
+const openShoppingCart = () => {
+  console.log(popupRef.value)
+  popupRef.value.toggleShoppingCart()
+}
 </script>
 
 <template>
@@ -154,6 +161,7 @@ const menus = computed((): IMenuItem[] => [
             </a>
             <a
               href="#"
+              @click="openShoppingCart()"
               class="flex relative flex-col items-center pl-4 hover:text-blue-400 duration-300"
             >
               <span
@@ -164,6 +172,7 @@ const menus = computed((): IMenuItem[] => [
               <span class="uppercase">Koszyk</span>
             </a>
           </div>
+          <ShoppingCartPopup ref="popupRef" />
         </div>
       </div>
       <div class="text-sm text-white shadow-lg">
