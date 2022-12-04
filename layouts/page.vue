@@ -37,15 +37,18 @@ nuxtApp.hook('page:finish', () => {
                 :class="isActive ? 'sm:w-4/5 <sm:w-11/12' : 'translate-x-full'"
               >
                 <div
-                  @click="toggleSlideover()"
-                  class="absolute cursor-pointer text-gray-600 top-0 w-8 h-8 flex items-center justify-center right-0 mt-5 mr-5"
+                  class="text-gray-600 top-0 w-full h-8 flex items-center justify-end right-0 mt-5 mr-5"
                 >
                   <Icon
+                    @click="toggleSlideover()"
                     name="majesticons:close"
-                    class="w-10 h-10"
+                    class="w-10 h-10 cursor-pointer mr-10"
                     viewBox="0 0 24 24"
                   ></Icon>
                 </div>
+                <GridPopupCategory
+                  :class="isActive ? 'opacity-100' : 'opacity-0'"
+                />
               </div>
             </div>
           </div>
