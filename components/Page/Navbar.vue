@@ -172,7 +172,7 @@ const openShoppingCart = () => {
               <span class="uppercase">Koszyk</span>
             </a>
           </div>
-          <ShoppingCartPopup ref="popupRef" />
+          <GridPopupShoppingCart ref="popupRef" />
         </div>
       </div>
       <div class="text-sm text-white shadow-lg">

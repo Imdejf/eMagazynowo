@@ -28,7 +28,7 @@ defineExpose({
   -->
     <div
       @click="toggleShoppingCart()"
-      class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity ease-in-out duration-500"
+      class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity ease-in-out duration-400"
       :class="shoppingCartActive ? 'opacity-100' : 'opacity-0 invisible'"
     ></div>
 
@@ -48,7 +48,7 @@ defineExpose({
             To: "translate-x-full"
         -->
           <div
-            class="pointer-events-auto w-screen max-w-md transform transition ease-in-out duration-500 sm:duration-700"
+            class="pointer-events-auto w-screen max-w-md transform transition ease-in-out duration-400 sm:duration-700"
             :class="shoppingCartActive ? 'translate-x-0' : 'translate-x-full'"
           >
             <div
