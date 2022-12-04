@@ -29,7 +29,7 @@ defineExpose({
     <div
       @click="toggleShoppingCart()"
       class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity ease-in-out duration-500"
-      :class="shoppingCartActive ? 'opacity-100' : 'opacity-0'"
+      :class="shoppingCartActive ? 'opacity-100' : 'opacity-0 invisible'"
     ></div>
 
     <div class="fixed overflow-hidden">
