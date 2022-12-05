@@ -18,7 +18,7 @@ const test = ref('')
           <div
             class="login__section m-0 bg-white shadow sm:rounded-lg flex justify-center flex-1"
           >
-            <div class="lg:w-1/2 xl:w-5/12 p-6 sm:p-6">
+            <div class="lg:w-1/2 p-6 sm:p-6">
               <div class="flex flex-col items-center">
                 <h1 class="text-2xl xl:text-3xl font-extrabold text-blue-500">
                   Zaloguj się
@@ -93,6 +93,12 @@ const test = ref('')
                         >Zapamiętaj mnie</label
                       >
                     </div>
+                    <div class="flex justify-center mt-3 sm:hidden">
+                      <span>Nie masz konta?</span>
+                      <NuxtLink href="/register" class="ml-2 text-blue-400"
+                        >Zarejestruj się</NuxtLink
+                      >
+                    </div>
                   </div>
                 </div>
               </div>
@@ -101,9 +107,7 @@ const test = ref('')
               <div
                 class="xl:m-16 w-full bg-contain bg-center bg-no-repeat p-6 sm:p-6"
               >
-                <ol
-                  class="relative border-l ml-10 border-red-400 dark:border-red-700"
-                >
+                <ol class="relative border-l ml-10 border-red-400">
                   <li class="mb-10 ml-6">
                     <span
                       class="flex absolute -left-3 justify-center items-center w-6 h-6 bg-blue-200 rounded-full ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900"
