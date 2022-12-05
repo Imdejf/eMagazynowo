@@ -3,6 +3,8 @@
 definePageMeta({
   layout: 'page',
 })
+
+const test = ref('')
 </script>
 
 <template>
@@ -51,15 +53,18 @@ definePageMeta({
                   </div>
 
                   <div class="mx-auto max-w-xs">
-                    <input
-                      class="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
-                      type="email"
-                      placeholder="Email"
+                    <FormTextInput
+                      v-model="test"
+                      placeholder="Login"
+                      size="md"
+                      class="w-full"
                     />
-                    <input
-                      class="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
-                      type="password"
+                    <FormTextInput
+                      v-model="test"
                       placeholder="Hasło"
+                      type="password"
+                      size="md"
+                      class="w-full"
                     />
                     <button
                       class="mt-5 tracking-wide font-semibold bg-blue-500 text-gray-100 w-full py-4 rounded-lg hover:bg-blue-600 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"
@@ -216,11 +221,12 @@ definePageMeta({
                     </p>
                   </li>
                 </ol>
-                <button
+                <NuxtLink
+                  href="/register"
                   class="mt-5 tracking-wide font-semibold bg-blue-500 text-gray-100 w-full py-4 rounded-lg hover:bg-blue-600 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"
                 >
                   <span class="ml-3"> Załóż konto </span>
-                </button>
+                </NuxtLink>
               </div>
             </div>
           </div>
