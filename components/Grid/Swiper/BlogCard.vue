@@ -1,3 +1,4 @@
+@@ -1,100 +0,0 @@
 <script lang="ts" setup>
 export interface IMenuItem {
   title: string

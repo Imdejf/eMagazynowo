@@ -107,7 +107,10 @@ const test = ref('')
               <div
                 class="xl:m-16 w-full bg-contain bg-center bg-no-repeat p-6 sm:p-6"
               >
-                <ol class="relative border-l ml-10 border-red-400">
+                <h1 class="text-2xl xl:text-3xl font-extrabold text-blue-500">
+                  Nie masz konta?
+                </h1>
+                <ol class="relative border-l ml-10 border-gray-400 mt-8">
                   <li class="mb-10 ml-6">
                     <span
                       class="flex absolute -left-3 justify-center items-center w-6 h-6 bg-blue-200 rounded-full ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900"

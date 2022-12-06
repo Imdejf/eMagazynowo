@@ -264,7 +264,7 @@ onMounted(() => {
                 </h2>
               </div>
               <!-- Additional required wrapper -->
-              <GridSwipperBlogCard />
+              <GridSwiperBlogCard />
             </div>
           </div>
         </div>
