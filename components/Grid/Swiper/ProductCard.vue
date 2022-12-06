@@ -1,11 +1,11 @@
-<!-- <script lang="ts" setup>
-// import required modules
+<script lang="ts">
 const thumbsSwiper = ref(null)
 
-const setThumbsSwiper = (swiper) => {
-  thumbsSwiper = swiper
+const setThumbsSwiper = (swiper: Swiper) => {
+  thumbsSwiper.value = swiper
 }
 </script>
+>
 
 <template>
   <Swiper
@@ -17,7 +17,7 @@ const setThumbsSwiper = (swiper) => {
     :spaceBetween="10"
     :navigation="true"
     :thumbs="{ swiper: thumbsSwiper }"
-    :modules="[SwiperNavigation, SwiperFreeMode, SwiperThumbs]"
+    :modules="[SwiperFreeMode, SwiperNavigation, SwiperThumbs]"
     class="mySwiper2"
   >
     <swiper-slide
@@ -51,14 +51,14 @@ const setThumbsSwiper = (swiper) => {
       ><img src="https://swiperjs.com/demos/images/nature-10.jpg"
     /></swiper-slide>
   </Swiper>
-  <swiper
+  <Swiper
     @swiper="setThumbsSwiper"
     :loop="true"
     :spaceBetween="10"
     :slidesPerView="4"
     :freeMode="true"
     :watchSlidesProgress="true"
-    :modules="modules"
+    :modules="[SwiperFreeMode, SwiperNavigation, SwiperThumbs]"
     class="mySwiper"
   >
     <swiper-slide
@@ -91,6 +91,84 @@ const setThumbsSwiper = (swiper) => {
     ><swiper-slide
       ><img src="https://swiperjs.com/demos/images/nature-10.jpg"
     /></swiper-slide>
-  </swiper>
-</template> -->
-<template></template>
+  </Swiper>
+</template>
+
+<style>
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+body {
+  background: #000;
+  color: #000;
+}
+
+.swiper {
+  width: 100%;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.swiper-slide {
+  background-size: cover;
+  background-position: center;
+}
+
+.mySwiper2 {
+  height: 80%;
+  width: 100%;
+}
+
+.mySwiper {
+  height: 20%;
+  box-sizing: border-box;
+  padding: 10px 0;
+}
+
+.mySwiper .swiper-slide {
+  width: 25%;
+  height: 100%;
+  opacity: 0.4;
+}
+
+.mySwiper .swiper-slide-thumb-active {
+  opacity: 1;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+</style>

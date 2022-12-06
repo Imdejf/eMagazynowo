@@ -57,6 +57,6 @@ export default defineNuxtConfig({
   //swiper options
   swiper: {
     styleLang: 'css',
-    modules: ['navigation', 'pagination'],
+    modules: ['navigation', 'pagination', 'free-mode', 'thumbs'],
   }
 })
