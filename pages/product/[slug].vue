@@ -9,306 +9,210 @@ definePageMeta({
     <PageTitle></PageTitle>
   </PageHeader>
   <PageBody>
-    <PageWrapper class="flex flex-col">
-      <PageSection class="blog__section__title">
+    <PageWrapper class="flex flex-col mx-5">
+      <PageSection class="product__section__title">
         <div
-          class="container w-full h-full mx-auto block mb-2 rounded- text-center <md:px-2 self-center h-full bg-white"
+          class="mx-auto w-full h-full block mb-2 rounded-md <md:px-2 self-center h-full bg-white"
         >
-          <div class="dashed">
-            <h1
-              class="text-xl py-4 mx-8 font-bold leading-none text-left sm:text-2xl"
-            >
+          <div class="border-b-3 border-dashed <lg:border-b-2">
+            <h1 class="text-xl py-4 mx-8 font-bold leading-none sm:text-2xl">
               Tytuł
             </h1>
           </div>
-          <div class="relative mx-auto max-w-screen-xl px-4 py-8">
-            <div class="grid grid-cols-1 items-start gap-8 md:grid-cols-2">
-              <div class="flex flex-row-reverse">
-                <!-- <img
-                  alt="Les Paul"
-                  src="https://images.unsplash.com/photo-1456948927036-ad533e53865c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-                  class="aspect-square w-full rounded-xl object-cover"
-                /> -->
+          <div class="relative mx-auto">
+            <div class="flex">
+              <div class="pt-4 w-4/6">
                 <GridSwiperProductCard />
-              </div>
-
-              <div class="sticky top-0">
-                <strong
-                  class="rounded-full border border-blue-600 bg-gray-100 px-3 py-0.5 text-xs font-medium tracking-wide text-blue-600"
-                >
-                  Pre Order
-                </strong>
-
-                <div class="mt-8 flex justify-between">
-                  <div class="max-w-[35ch]">
-                    <h1 class="text-2xl font-bold">
-                      Fun Product That Does Something Cool
-                    </h1>
-
-                    <p class="mt-0.5 text-sm">Highest Rated Product</p>
-
-                    <div class="mt-2 -ml-0.5 flex">
-                      <svg
-                        class="h-5 w-5 text-yellow-400"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                        />
-                      </svg>
-
-                      <svg
-                        class="h-5 w-5 text-yellow-400"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                        />
-                      </svg>
-
-                      <svg
-                        class="h-5 w-5 text-yellow-400"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                        />
-                      </svg>
-
-                      <svg
-                        class="h-5 w-5 text-yellow-400"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                        />
-                      </svg>
-
-                      <svg
-                        class="h-5 w-5 text-gray-200"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 20 20"
-                        fill="currentColor"
-                      >
-                        <path
-                          d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                        />
-                      </svg>
+                <div class="mt-10 px-4">
+                  <p class="font-600 text-lg">Opis produktu:</p>
+                  <p class="mt-4">
+                    Pojemnik do segregacji odpadów na kółkach 360 l. Wygodna,
+                    ergonomiczna i bezpieczna segregacja aż 360 litrów odpadów!
+                    Ten pojemnik na odpady to gwarancja jeszcze łatwiejszej
+                    segregacji śmieci w magazynach, halach produkcyjnych czy
+                    warsztatach. Producent wykonał go z bardzo wysokiej jakości
+                    tworzywa, dzięki czemu kosz jest niezwykle odporny na
+                    uszkodzenia mechaniczne, a także działanie niekorzystnych
+                    warunków atmosferycznych. Ergonomia przede wszystkim.
+                    Pojemnik do segregacji odpadów na kółkach 360 l został
+                    wyposażony w bardzo wytrzymałe koła do swobodnego
+                    transportowania oraz przestawiania pojemnika. Ergonomiczny
+                    uchwyt pozwala na wygodne przenoszenie go, opróżnianie z
+                    odpadów oraz otwieranie i zamykanie. Doskonale dopasowana
+                    pokrywa szczelnie zabezpiecza przed wydobywającymi się z
+                    wnętrza kosza nieprzyjemnymi zapachami. Pojemnik z uchwytem
+                    grzebieniowym dzięki czemu śmieciarka może go opróżniać.
+                  </p>
+                </div>
+                <div class="mt-5 flex w-full gap-5 px-4">
+                  <div class="w-1/3">
+                    <p class="font-600 text-lg border-b pb-3 border-gray-300">
+                      Cechy:
+                    </p>
+                    <ul class="list_characteristics list-square list-inside">
+                      <li class="characteristics">test</li>
+                      <li class="characteristics">test</li>
+                      <li class="characteristics">test</li>
+                    </ul>
+                  </div>
+                  <div class="w-2/3">
+                    <div>
+                      <p class="font-600 text-lg border-b pb-3 border-gray-300">
+                        Szczegóły:
+                      </p>
+                      <ul class="list_details">
+                        <li class="details">
+                          <span class="justify-start">Gramatura [gr/m2]</span>
+                          <span class="justify-end">80</span>
+                        </li>
+                        <li class="details">
+                          <span class="justify-start">Gramatura [gr/m2]</span>
+                          <span class="justify-end">80</span>
+                        </li>
+                        <li class="details">
+                          <span class="justify-start">Gramatura [gr/m2]</span>
+                          <span class="justify-end">80</span>
+                        </li>
+                        <li class="details">
+                          <span class="justify-start">Gramatura [gr/m2]</span>
+                          <span class="justify-end">80</span>
+                        </li>
+                        <li class="details">
+                          <span class="justify-start">Gramatura [gr/m2]</span>
+                          <span class="justify-end">80</span>
+                        </li>
+                      </ul>
                     </div>
                   </div>
-
-                  <p class="text-lg font-bold">$119.99</p>
                 </div>
+              </div>
+              <div
+                class="lg:sticky top-31 border-l-3 flex-1 w-2/6 <lg:border-l-2 border-dashed h-full"
+              >
+                <div>
+                  <div class="flex justify-between">
+                    <strong
+                      class="rounded-full border self-center border-blue-600 bg-gray-100 px-3 py-0.5 text-xs font-medium tracking-wide text-blue-600"
+                    >
+                      BestSeller
+                    </strong>
+                    <strong
+                      class="inline-flex items-center gap-1 rounded-tl-xl rounded-bl-xl bg-[#00309a] py-1.5 px-3 text-white"
+                    >
+                      <Icon
+                        name="game-icons:european-flag"
+                        class="w-20px h-20px text-[#ffd700]"
+                      />
 
-                <details class="group relative mt-4">
-                  <summary class="block">
-                    <div>
-                      <div class="prose max-w-none group-open:hidden">
-                        <p>
-                          Lorem ipsum dolor sit amet consectetur adipisicing
-                          elit. Ipsa veniam dicta beatae eos ex error culpa
-                          delectus rem tenetur, architecto quam nesciunt, dolor
-                          veritatis nisi minus inventore, rerum at recusandae?
+                      <span class="text-[10px] font-medium sm:text-xs"
+                        >Wyprodukowano w UE</span
+                      >
+                    </strong>
+                  </div>
+                  <form class="space-y-2 pt-2">
+                    <div class="rounded px-5 pb-6 border-b-3 border-dashed">
+                      <p class="text-sm">
+                        <span class="block font-600 text-xl">
+                          Twoja cena:
+                        </span>
+                      </p>
+                      <p class="text-sm relative pt-4 w-60">
+                        <span
+                          class="absolute -top-1 right-22 line-through decoration-red-700 font-600 text-lg text-red-500"
+                        >
+                          6,47 zł
+                        </span>
+                        <strong class="font-600 text-4xl text-blue-600">
+                          3,47 zł
+                        </strong>
+                        <span class="font-600 text-md text-gray-400">
+                          4,47 zł (brutto)
+                        </span>
+                      </p>
+                    </div>
+
+                    <div class="px-5">
+                      <div class="flex pt-3">
+                        <p class="text-lg w-5/12 font-600 text-gray-400">
+                          Dostępność:
+                        </p>
+                        <p class="text-lg w-3/12 font-800 text-gray-600">
+                          24-48 h
                         </p>
                       </div>
-
-                      <span
-                        class="mt-4 cursor-pointer text-sm font-medium underline group-open:absolute group-open:bottom-0 group-open:left-0 group-open:mt-0"
-                      >
-                        Read More
-                      </span>
-                    </div>
-                  </summary>
-
-                  <div class="prose max-w-none pb-6">
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Ipsa veniam dicta beatae eos ex error culpa delectus rem
-                      tenetur, architecto quam nesciunt, dolor veritatis nisi
-                      minus inventore, rerum at recusandae?
-                    </p>
-
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Placeat nam sapiente nobis ea veritatis error consequatur
-                      nisi exercitationem iure laudantium culpa, animi
-                      temporibus non! Maxime et quisquam amet. A, deserunt!
-                    </p>
-                  </div>
-                </details>
-
-                <form class="mt-8">
-                  <fieldset>
-                    <legend class="mb-1 text-sm font-medium">Color</legend>
-
-                    <div class="flow-root">
-                      <div class="-m-0.5 flex flex-wrap">
-                        <label for="color_tt" class="cursor-pointer p-0.5">
-                          <input
-                            type="radio"
-                            name="color"
-                            id="color_tt"
-                            class="peer sr-only"
-                          />
-
-                          <span
-                            class="group inline-block rounded-full border px-3 py-1 text-xs font-medium peer-checked:bg-black peer-checked:text-white"
-                          >
-                            Texas Tea
-                          </span>
-                        </label>
-
-                        <label for="color_fr" class="cursor-pointer p-0.5">
-                          <input
-                            type="radio"
-                            name="color"
-                            id="color_fr"
-                            class="peer sr-only"
-                          />
-
-                          <span
-                            class="group inline-block rounded-full border px-3 py-1 text-xs font-medium peer-checked:bg-black peer-checked:text-white"
-                          >
-                            Fiesta Red
-                          </span>
-                        </label>
-
-                        <label for="color_cb" class="cursor-pointer p-0.5">
-                          <input
-                            type="radio"
-                            name="color"
-                            id="color_cb"
-                            class="peer sr-only"
-                          />
-
-                          <span
-                            class="group inline-block rounded-full border px-3 py-1 text-xs font-medium peer-checked:bg-black peer-checked:text-white"
-                          >
-                            Cobalt Blue
-                          </span>
-                        </label>
+                      <div class="flex">
+                        <p class="text-lg w-5/12 font-600 text-gray-400">
+                          Jednostka:
+                        </p>
+                        <p class="text-lg w-3/12 font-800 text-gray-600">
+                          szt.
+                        </p>
                       </div>
-                    </div>
-                  </fieldset>
-
-                  <fieldset class="mt-4">
-                    <legend class="mb-1 text-sm font-medium">Size</legend>
-
-                    <div class="flow-root">
-                      <div class="-m-0.5 flex flex-wrap">
-                        <label for="size_xs" class="cursor-pointer p-0.5">
-                          <input
-                            type="radio"
-                            name="size"
-                            id="size_xs"
-                            class="peer sr-only"
-                          />
-
-                          <span
-                            class="group inline-flex h-8 w-8 items-center justify-center rounded-full border text-xs font-medium peer-checked:bg-black peer-checked:text-white"
-                          >
-                            XS
-                          </span>
-                        </label>
-
-                        <label for="size_s" class="cursor-pointer p-0.5">
-                          <input
-                            type="radio"
-                            name="size"
-                            id="size_s"
-                            class="peer sr-only"
-                          />
-
-                          <span
-                            class="group inline-flex h-8 w-8 items-center justify-center rounded-full border text-xs font-medium peer-checked:bg-black peer-checked:text-white"
-                          >
-                            S
-                          </span>
-                        </label>
-
-                        <label for="size_m" class="cursor-pointer p-0.5">
-                          <input
-                            type="radio"
-                            name="size"
-                            id="size_m"
-                            class="peer sr-only"
-                          />
-
-                          <span
-                            class="group inline-flex h-8 w-8 items-center justify-center rounded-full border text-xs font-medium peer-checked:bg-black peer-checked:text-white"
-                          >
-                            M
-                          </span>
-                        </label>
-
-                        <label for="size_l" class="cursor-pointer p-0.5">
-                          <input
-                            type="radio"
-                            name="size"
-                            id="size_l"
-                            class="peer sr-only"
-                          />
-
-                          <span
-                            class="group inline-flex h-8 w-8 items-center justify-center rounded-full border text-xs font-medium peer-checked:bg-black peer-checked:text-white"
-                          >
-                            L
-                          </span>
-                        </label>
-
-                        <label for="size_xl" class="cursor-pointer p-0.5">
-                          <input
-                            type="radio"
-                            name="size"
-                            id="size_xl"
-                            class="peer sr-only"
-                          />
-
-                          <span
-                            class="group inline-flex h-8 w-8 items-center justify-center rounded-full border text-xs font-medium peer-checked:bg-black peer-checked:text-white"
-                          >
-                            XL
-                          </span>
-                        </label>
+                      <div class="">
+                        <p
+                          class="font-600 text-lg mt-8 w-full pb-4 border-b border-gray-300"
+                        >
+                          Wybierz wariant
+                        </p>
+                        <FormDropdownProduct />
+                        <FormDropdownProduct />
                       </div>
-                    </div>
-                  </fieldset>
-
-                  <div class="mt-8 flex">
-                    <div>
-                      <label for="quantity" class="sr-only">Qty</label>
-
-                      <input
-                        type="number"
-                        id="quantity"
-                        min="1"
-                        value="1"
-                        class="w-12 rounded border-gray-200 py-3 text-center text-xs [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
-                      />
                     </div>
 
                     <button
                       type="submit"
-                      class="ml-3 block rounded bg-green-600 px-5 py-3 text-xs font-medium text-white hover:bg-green-500"
+                      class="w-full rounded bg-blue-600 px-6 py-3 text-sm font-bold uppercase tracking-wide text-white"
                     >
-                      Add to Cart
+                      Dodaj do koszyka
                     </button>
-                  </div>
-                </form>
+
+                    <div class="flex gap-2">
+                      <button
+                        type="button"
+                        class="w-full rounded border border-gray-300 bg-gray-100 py-3 text-0.75rem font-bold uppercase tracking-wide"
+                      >
+                        <Icon
+                          name="openmoji:white-question-mark"
+                          class="w-5 h-5"
+                        />
+                        Zapytaj o produkt
+                      </button>
+                      <button
+                        type="button"
+                        class="w-full rounded border border-gray-300 bg-gray-100 py-3 text-0.75rem font-bold uppercase tracking-wide"
+                      >
+                        <Icon name="mdi:heart-outline" class="w-5 h-5" />
+
+                        Do ulubionych
+                      </button>
+                    </div>
+                  </form>
+                </div>
               </div>
+            </div>
+            <div class="h-90">
+              <GridSwiperCheckAlos />
+            </div>
+            <div class="!-mb-10">
+              <GridRecommendedForYou />
             </div>
           </div>
         </div>
       </PageSection>
-      <!-- <PageContentDoc /> -->
     </PageWrapper>
   </PageBody>
 </template>
+
+<style>
+.details {
+  border-bottom: 1px solid #cbd5e1;
+  padding: 8px;
+  justify-content: space-between;
+  display: flex;
+}
+
+.characteristics {
+  border-bottom: 1px solid #cbd5e1;
+  padding: 8px;
+}
+</style>

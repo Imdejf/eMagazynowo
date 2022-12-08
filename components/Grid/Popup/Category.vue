@@ -25,7 +25,7 @@ const categories = computed((): IMenuItem[] => [
     <div
       v-for="category in categories"
       :key="category.categoryName"
-      class="flex self-center h-full dashed transform hover:scale-102 hover:shadow-2xl transition duration-400 ease-in-out"
+      class="flex self-center h-full dashed-bottom transform hover:scale-102 hover:shadow-2xl transition duration-400 ease-in-out"
     >
       <a
         href="#"

@@ -1,4 +1,4 @@
-<script lang="ts">
+<script lang="ts" setup>
 const thumbsSwiper = ref(null)
 
 const setThumbsSwiper = (swiper: Swiper) => {
@@ -8,167 +8,143 @@ const setThumbsSwiper = (swiper: Swiper) => {
 >
 
 <template>
-  <Swiper
-    :style="{
-      '--swiper-navigation-color': '#fff',
-      '--swiper-pagination-color': '#fff',
-    }"
-    :loop="true"
-    :spaceBetween="10"
-    :navigation="true"
-    :thumbs="{ swiper: thumbsSwiper }"
-    :modules="[SwiperFreeMode, SwiperNavigation, SwiperThumbs]"
-    class="mySwiper2"
-  >
-    <swiper-slide
-      ><img
-        src="https://swiperjs.com/demos/images/nature-1.jpg" /></swiper-slide
-    ><swiper-slide
-      ><img
-        src="https://swiperjs.com/demos/images/nature-2.jpg" /></swiper-slide
-    ><swiper-slide
-      ><img
-        src="https://swiperjs.com/demos/images/nature-3.jpg" /></swiper-slide
-    ><swiper-slide
-      ><img
-        src="https://swiperjs.com/demos/images/nature-4.jpg" /></swiper-slide
-    ><swiper-slide
-      ><img
-        src="https://swiperjs.com/demos/images/nature-5.jpg" /></swiper-slide
-    ><swiper-slide
-      ><img
-        src="https://swiperjs.com/demos/images/nature-6.jpg" /></swiper-slide
-    ><swiper-slide
-      ><img
-        src="https://swiperjs.com/demos/images/nature-7.jpg" /></swiper-slide
-    ><swiper-slide
-      ><img
-        src="https://swiperjs.com/demos/images/nature-8.jpg" /></swiper-slide
-    ><swiper-slide
-      ><img
-        src="https://swiperjs.com/demos/images/nature-9.jpg" /></swiper-slide
-    ><swiper-slide
-      ><img src="https://swiperjs.com/demos/images/nature-10.jpg"
-    /></swiper-slide>
-  </Swiper>
-  <Swiper
-    @swiper="setThumbsSwiper"
-    :loop="true"
-    :spaceBetween="10"
-    :slidesPerView="4"
-    :freeMode="true"
-    :watchSlidesProgress="true"
-    :modules="[SwiperFreeMode, SwiperNavigation, SwiperThumbs]"
-    class="mySwiper"
-  >
-    <swiper-slide
-      ><img
-        src="https://swiperjs.com/demos/images/nature-1.jpg" /></swiper-slide
-    ><swiper-slide
-      ><img
-        src="https://swiperjs.com/demos/images/nature-2.jpg" /></swiper-slide
-    ><swiper-slide
-      ><img
-        src="https://swiperjs.com/demos/images/nature-3.jpg" /></swiper-slide
-    ><swiper-slide
-      ><img
-        src="https://swiperjs.com/demos/images/nature-4.jpg" /></swiper-slide
-    ><swiper-slide
-      ><img
-        src="https://swiperjs.com/demos/images/nature-5.jpg" /></swiper-slide
-    ><swiper-slide
-      ><img
-        src="https://swiperjs.com/demos/images/nature-6.jpg" /></swiper-slide
-    ><swiper-slide
-      ><img
-        src="https://swiperjs.com/demos/images/nature-7.jpg" /></swiper-slide
-    ><swiper-slide
-      ><img
-        src="https://swiperjs.com/demos/images/nature-8.jpg" /></swiper-slide
-    ><swiper-slide
-      ><img
-        src="https://swiperjs.com/demos/images/nature-9.jpg" /></swiper-slide
-    ><swiper-slide
-      ><img src="https://swiperjs.com/demos/images/nature-10.jpg"
-    /></swiper-slide>
-  </Swiper>
+  <div class="flex h-sm flex-row-reverse">
+    <Swiper
+      :style="{
+        '--swiper-navigation-color': '#fff',
+        '--swiper-pagination-color': '#fff',
+      }"
+      :loop="true"
+      :spaceBetween="10"
+      :navigation="true"
+      :thumbs="{ swiper: thumbsSwiper }"
+      :modules="[
+        SwiperPagination,
+        SwiperThumbs,
+        SwiperNavigation,
+        SwiperFreeMode,
+      ]"
+      class="mySwiper2 w-full"
+    >
+      <SwiperSlide
+        ><img
+          src="https://images.magazynuj.pl/towar/skrzyniopaleta-plastikowa-na-3-plozach-z-kranikiem-wym-zew-1200x1000x760mm-z/gallery0.jpg" /></SwiperSlide
+      ><SwiperSlide
+        ><img
+          src="https://images.magazynuj.pl/towar/wieszak-do-zawieszania-pojemnikow-warsztatowych-o-wym-315-x-200-x-150-mm-wym-wieszaka-455-x-182-mm-2-pojemniki/gallery0.jpg" /></SwiperSlide
+      ><SwiperSlide
+        ><img
+          src="https://images.magazynuj.pl/towar/pojemnik-plastikowy-warsztatowy-z-przekladkami-wym-600x240x95mm/gallery0.jpg" /></SwiperSlide
+      ><SwiperSlide
+        ><img
+          src="https://images.magazynuj.pl/towar/okragly-pojemnik-plastikowy-bez-pokrywy-60l/gallery1.jpg" /></SwiperSlide
+      ><SwiperSlide
+        ><img
+          src="https://images.magazynuj.pl/towar/okragly-pojemnik-plastikowy-bez-pokrywy-60l/gallery0.jpg"
+      /></SwiperSlide>
+    </Swiper>
+    <swiper
+      @swiper="setThumbsSwiper"
+      :loop="true"
+      :spaceBetween="10"
+      :slidesPerView="6"
+      :freeMode="true"
+      :direction="'vertical'"
+      :watchSlidesProgress="true"
+      :modules="[
+        SwiperPagination,
+        SwiperNavigation,
+        SwiperThumbs,
+        SwiperFreeMode,
+      ]"
+      class="mySwiper"
+    >
+      <SwiperSlide>
+        <div className="slider__image">
+          <img
+            src="https://images.magazynuj.pl/towar/skrzyniopaleta-plastikowa-na-3-plozach-z-kranikiem-wym-zew-1200x1000x760mm-z/gallery0.jpg"
+          />
+        </div>
+      </SwiperSlide>
+      <SwiperSlide>
+        <div className="slider__image">
+          <img
+            src="https://images.magazynuj.pl/towar/wieszak-do-zawieszania-pojemnikow-warsztatowych-o-wym-315-x-200-x-150-mm-wym-wieszaka-455-x-182-mm-2-pojemniki/gallery0.jpg"
+          />
+        </div>
+      </SwiperSlide>
+      <SwiperSlide>
+        <div className="slider__image">
+          <img
+            src="https://images.magazynuj.pl/towar/pojemnik-plastikowy-warsztatowy-z-przekladkami-wym-600x240x95mm/gallery0.jpg"
+          />
+        </div>
+      </SwiperSlide>
+      <SwiperSlide>
+        <div className="slider__image">
+          <img
+            src="https://images.magazynuj.pl/towar/okragly-pojemnik-plastikowy-bez-pokrywy-60l/gallery1.jpg"
+          />
+        </div>
+      </SwiperSlide>
+      <SwiperSlide>
+        <div className="slider__image">
+          <img
+            src="https://images.magazynuj.pl/towar/okragly-pojemnik-plastikowy-bez-pokrywy-60l/gallery0.jpg"
+          />
+        </div>
+      </SwiperSlide>
+    </swiper>
+  </div>
 </template>
 
 <style>
-.swiper {
-  width: 100%;
+.mySwiper {
   height: 100%;
+  margin: 10px;
 }
 
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
-
-  /* Center slide text vertically */
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-}
-
-.swiper-slide img {
+.slider__image img {
   display: block;
   width: 100%;
   height: 100%;
+  -o-object-fit: cover;
   object-fit: cover;
 }
 
-body {
-  background: #000;
-  color: #000;
-}
-
-.swiper {
+.slider__image {
   width: 100%;
-  height: 300px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.swiper-slide {
-  background-size: cover;
-  background-position: center;
-}
-
-.mySwiper2 {
-  height: 80%;
-  width: 100%;
-}
-
-.mySwiper {
-  height: 20%;
-  box-sizing: border-box;
-  padding: 10px 0;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .mySwiper .swiper-slide {
-  width: 25%;
-  height: 100%;
-  opacity: 0.4;
+  opacity: 0.5;
 }
 
 .mySwiper .swiper-slide-thumb-active {
   opacity: 1;
+  border-radius: 10px;
+
+  border: 2px solid #0ea5e9;
 }
 
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.swiper-button-prev {
+  color: #0ea5e9;
+}
+
+.swiper-button-next {
+  color: #0ea5e9;
+}
+
+.mySwiper2 .swiper-slide img {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 200px;
 }
 </style>
