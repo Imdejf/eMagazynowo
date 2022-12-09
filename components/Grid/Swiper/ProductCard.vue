@@ -8,7 +8,7 @@ const setThumbsSwiper = (swiper: Swiper) => {
 >
 
 <template>
-  <div class="flex h-sm flex-row-reverse">
+  <div class="flex h-sm <sm:h-50 flex-row-reverse">
     <Swiper
       :style="{
         '--swiper-navigation-color': '#fff',
@@ -47,7 +47,17 @@ const setThumbsSwiper = (swiper: Swiper) => {
       @swiper="setThumbsSwiper"
       :loop="true"
       :spaceBetween="10"
-      :slidesPerView="6"
+      :slidesPerView="4"
+      :breakpoints="{
+        '640': {
+          slidesPerView: 4,
+          spaceBetween: 10,
+        },
+        '1024': {
+          slidesPerView: 6,
+          spaceBetween: 10,
+        },
+      }"
       :freeMode="true"
       :direction="'vertical'"
       :watchSlidesProgress="true"
@@ -146,5 +156,10 @@ const setThumbsSwiper = (swiper: Swiper) => {
   right: 0;
   bottom: 0;
   height: 200px;
+}
+
+@media only screen and (max-width: 640px) {
+  .mySwiper2 {
+  }
 }
 </style>

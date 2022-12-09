@@ -85,7 +85,7 @@ const products = computed((): IMenuItem[] => [
                 <div class="pt-3">
                   <a
                     href="#"
-                    class="block w-full text-center rounded-xl font-600 bg-orange-900 hover:bg-orange-900/90 py-4 text-14px font-medium"
+                    class="block w-full text-center rounded-xl font-600 bg-orange-900 hover:bg-orange-900/90 py-4 <md:text-11px text-14px font-medium"
                   >
                     Sprawdź produkt!
                   </a>
@@ -98,3 +98,14 @@ const products = computed((): IMenuItem[] => [
     </div>
   </div>
 </template>
+
+<style>
+.section__selected_product {
+  background: rgb(98, 96, 249);
+  background: linear-gradient(
+    90deg,
+    rgba(98, 96, 249, 1) 0%,
+    rgba(137, 234, 254, 1) 100%
+  );
+}
+</style>

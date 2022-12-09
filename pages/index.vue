@@ -301,15 +301,6 @@ onMounted(() => {
   background-blend-mode: overlay;
 }
 
-.section__selected_product {
-  background: rgb(98, 96, 249);
-  background: linear-gradient(
-    90deg,
-    rgba(98, 96, 249, 1) 0%,
-    rgba(137, 234, 254, 1) 100%
-  );
-}
-
 .card-text {
   overflow: hidden;
   display: -webkit-box;
