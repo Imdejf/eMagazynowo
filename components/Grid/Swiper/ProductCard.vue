@@ -28,19 +28,29 @@ const setThumbsSwiper = (swiper: Swiper) => {
     >
       <SwiperSlide
         ><img
-          src="https://images.magazynuj.pl/towar/skrzyniopaleta-plastikowa-na-3-plozach-z-kranikiem-wym-zew-1200x1000x760mm-z/gallery0.jpg" /></SwiperSlide
+          data-src="https://images.magazynuj.pl/towar/skrzyniopaleta-plastikowa-na-3-plozach-z-kranikiem-wym-zew-1200x1000x760mm-z/gallery0.jpg"
+          class="lazyload"
+          alt="Skrzynia" /></SwiperSlide
       ><SwiperSlide
         ><img
-          src="https://images.magazynuj.pl/towar/wieszak-do-zawieszania-pojemnikow-warsztatowych-o-wym-315-x-200-x-150-mm-wym-wieszaka-455-x-182-mm-2-pojemniki/gallery0.jpg" /></SwiperSlide
+          data-src="https://images.magazynuj.pl/towar/wieszak-do-zawieszania-pojemnikow-warsztatowych-o-wym-315-x-200-x-150-mm-wym-wieszaka-455-x-182-mm-2-pojemniki/gallery0.jpg"
+          class="lazyload"
+          alt="Wieszak" /></SwiperSlide
       ><SwiperSlide
         ><img
-          src="https://images.magazynuj.pl/towar/pojemnik-plastikowy-warsztatowy-z-przekladkami-wym-600x240x95mm/gallery0.jpg" /></SwiperSlide
+          data-src="https://images.magazynuj.pl/towar/pojemnik-plastikowy-warsztatowy-z-przekladkami-wym-600x240x95mm/gallery0.jpg"
+          class="lazyload"
+          alt="Pojemnik" /></SwiperSlide
       ><SwiperSlide
         ><img
-          src="https://images.magazynuj.pl/towar/okragly-pojemnik-plastikowy-bez-pokrywy-60l/gallery1.jpg" /></SwiperSlide
+          data-src="https://images.magazynuj.pl/towar/okragly-pojemnik-plastikowy-bez-pokrywy-60l/gallery1.jpg"
+          class="lazyload"
+          alt="Pojemnik okrągły" /></SwiperSlide
       ><SwiperSlide
         ><img
-          src="https://images.magazynuj.pl/towar/okragly-pojemnik-plastikowy-bez-pokrywy-60l/gallery0.jpg"
+          data-src="https://images.magazynuj.pl/towar/okragly-pojemnik-plastikowy-bez-pokrywy-60l/gallery0.jpg"
+          class="lazyload"
+          alt="Pojemnik okrągły"
       /></SwiperSlide>
     </Swiper>
     <swiper
@@ -73,6 +83,7 @@ const setThumbsSwiper = (swiper: Swiper) => {
         <div className="slider__image">
           <img
             src="https://images.magazynuj.pl/towar/skrzyniopaleta-plastikowa-na-3-plozach-z-kranikiem-wym-zew-1200x1000x760mm-z/gallery0.jpg"
+            alt="Skrzyniopaleta"
           />
         </div>
       </SwiperSlide>
@@ -80,6 +91,7 @@ const setThumbsSwiper = (swiper: Swiper) => {
         <div className="slider__image">
           <img
             src="https://images.magazynuj.pl/towar/wieszak-do-zawieszania-pojemnikow-warsztatowych-o-wym-315-x-200-x-150-mm-wym-wieszaka-455-x-182-mm-2-pojemniki/gallery0.jpg"
+            alt="Pojemnik"
           />
         </div>
       </SwiperSlide>
@@ -87,6 +99,7 @@ const setThumbsSwiper = (swiper: Swiper) => {
         <div className="slider__image">
           <img
             src="https://images.magazynuj.pl/towar/pojemnik-plastikowy-warsztatowy-z-przekladkami-wym-600x240x95mm/gallery0.jpg"
+            alt="Pojemnik"
           />
         </div>
       </SwiperSlide>
@@ -94,6 +107,7 @@ const setThumbsSwiper = (swiper: Swiper) => {
         <div className="slider__image">
           <img
             src="https://images.magazynuj.pl/towar/okragly-pojemnik-plastikowy-bez-pokrywy-60l/gallery1.jpg"
+            alt="Pojemnik"
           />
         </div>
       </SwiperSlide>
@@ -101,6 +115,7 @@ const setThumbsSwiper = (swiper: Swiper) => {
         <div className="slider__image">
           <img
             src="https://images.magazynuj.pl/towar/okragly-pojemnik-plastikowy-bez-pokrywy-60l/gallery0.jpg"
+            alt="Pojemnik"
           />
         </div>
       </SwiperSlide>

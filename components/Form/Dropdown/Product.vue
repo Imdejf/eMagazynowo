@@ -20,9 +20,9 @@ const toggleVariant = () => {
       <div
         class="w-6 h-6 bg-gradient-to-b from-gray-900 to-indigo-500 ml-3 mr-4 cursor-pointer"
       ></div>
-      <img
-        src="https://tuk-cdn.s3.amazonaws.com/can-uploader/productDetail3-svg2.svg"
-        alt="next"
+      <Icon
+        name="ic:round-keyboard-arrow-right"
+        class="text-gray-400 w-5 h-5"
       />
     </div>
     <div
