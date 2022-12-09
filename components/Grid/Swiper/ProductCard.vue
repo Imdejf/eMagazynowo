@@ -8,7 +8,7 @@ const setThumbsSwiper = (swiper: Swiper) => {
 >
 
 <template>
-  <div class="flex h-sm <sm:h-50 flex-row-reverse">
+  <div class="flex h-sm <sm:h-50 <sm:w-full flex-row-reverse">
     <Swiper
       :style="{
         '--swiper-navigation-color': '#fff',
@@ -67,7 +67,7 @@ const setThumbsSwiper = (swiper: Swiper) => {
         SwiperThumbs,
         SwiperFreeMode,
       ]"
-      class="mySwiper"
+      class="mySwiper w-20"
     >
       <SwiperSlide>
         <div className="slider__image">
@@ -159,6 +159,8 @@ const setThumbsSwiper = (swiper: Swiper) => {
 }
 
 @media only screen and (max-width: 640px) {
+  .mySwiper {
+  }
   .mySwiper2 {
   }
 }
