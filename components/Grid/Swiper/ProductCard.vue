@@ -54,7 +54,7 @@ const setThumbsSwiper = (swiper: Swiper) => {
           spaceBetween: 10,
         },
         '1024': {
-          slidesPerView: 6,
+          slidesPerView: 5,
           spaceBetween: 10,
         },
       }"

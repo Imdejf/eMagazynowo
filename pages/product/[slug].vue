@@ -121,7 +121,7 @@ definePageMeta({
                   </div>
                 </form>
               </div>
-              <div class="md:w-4/6">
+              <div class="md:w-4/6 relative md:-top-22">
                 <div class="pt-4">
                   <div class="px-4">
                     <p class="font-600 text-lg">Opis produktu:</p>
