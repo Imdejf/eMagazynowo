@@ -47,7 +47,7 @@ const products = computed((): IMenuItem[] => [
 </script>
 
 <template>
-  <div class="container my-10 mx-auto block lg:px-10 <md:px-2">
+  <div class="container my-10 mx-auto block <md:px-2">
     <h2 class="uppercase tracking-3px font-600 text-lg">Sprwadź również</h2>
   </div>
   <Swiper

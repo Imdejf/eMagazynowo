@@ -55,9 +55,7 @@ onMounted(() => {
     <PageBody>
       <PageSection class="section__main pb-15 bg-no-repeatbg-center bg-center">
         <div class="layer w-full h-full top-0 left-0">
-          <div
-            class="container mx-auto block lg:px-10 text-center <md:px-2 text-white"
-          >
+          <div class="container mx-auto block text-center <md:px-2 text-white">
             <div
               class="section__main__header w-full uppercase text-center pt-5 text-xl text-600 text-cyan-400"
             >
@@ -84,14 +82,14 @@ onMounted(() => {
         </div>
       </PageSection>
       <PageSection class="section__recommended pt-5">
-        <div class="container mx-auto block lg:px-10 <md:px-2">
+        <div class="container mx-auto block <md:px-2">
           <div class="tracking-3px font-600 text-lg">
             <h2 class="uppercase">Polecane</h2>
             <GridRecommendedCategory></GridRecommendedCategory>
           </div>
         </div>
       </PageSection>
-      <div class="container mx-auto block lg:px-10 <md:px-2">
+      <div class="container mx-auto block <md:px-2">
         <div class="tracking-3px font-600 text-lg"></div>
       </div>
       <PageSection>
@@ -222,7 +220,7 @@ onMounted(() => {
         </div>
       </PageSection>
       <PageSection class="section__see-more pt-5">
-        <div class="container mx-auto block lg:px-10 <md:px-2">
+        <div class="container mx-auto block <md:px-2">
           <div class="tracking-3px font-600 text-lg">
             <h2 class="uppercase">Zobacz więcej</h2>
             <GridMoreCategory />
@@ -234,7 +232,7 @@ onMounted(() => {
       </PageSection>
       <PageSection>
         <div class="section__recommended-product">
-          <div class="container mx-auto block lg:px-10 <md:px-2">
+          <div class="container mx-auto block <md:px-2">
             <h2 class="uppercase tracking-3px font-600 text-lg">
               Rekomendowane produkty
             </h2>
@@ -265,7 +263,7 @@ onMounted(() => {
       </PageSection>
       <PageSection>
         <div class="section__recommended-product">
-          <div class="container mx-auto block my-3 lg:px-10 <md:px-2">
+          <div class="container mx-auto block my-3 <md:px-2">
             <div class="flex w-max items-center m-auto">
               <a href="#">
                 <img

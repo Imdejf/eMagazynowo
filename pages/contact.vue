@@ -165,7 +165,7 @@ definePageMeta({
       </PageSection>
       <PageSection>
         <div class="section__selected_product">
-          <div class="container py-5 mx-auto block lg:px-10 <md:px-2">
+          <div class="container py-5 mx-auto block <md:px-2">
             <h2 class="uppercase tracking-3px font-600 text-lg">
               Zobacz również
             </h2>

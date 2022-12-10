@@ -48,7 +48,7 @@ const products = computed((): IMenuItem[] => [
 
 <template>
   <div class="section__selected_product">
-    <div class="container pt-5 mx-auto block lg:px-10 <md:px-2 text-white">
+    <div class="container pt-5 mx-auto block <md:px-2 text-white">
       <h2 class="uppercase tracking-3px font-600 text-lg">
         Produkty dla ciebie
       </h2>

@@ -36,7 +36,7 @@ const openShoppingCart = () => {
   <BuilderNavbar>
     <template #banner>
       <div class="navbar__banner bg-gray-900 text-sm">
-        <div class="container mx-auto lg:px-10 <md:px-2">
+        <div class="container mx-auto <md:px-2">
           <div class="flex justify-between text-slate-100">
             <div class="flex">
               <Anchor
@@ -114,7 +114,7 @@ const openShoppingCart = () => {
       </div>
     </template>
     <template #search>
-      <div class="container mx-auto lg:px-10 bg-white">
+      <div class="container mx-auto bg-white">
         <div class="py-1 flex items-center <md:px-2">
           <a
             href="/"
@@ -176,7 +176,7 @@ const openShoppingCart = () => {
         </div>
       </div>
       <div class="text-sm text-white shadow-lg">
-        <div class="container mx-auto lg:px-10 text-center <md:px-2 md:flex">
+        <div class="container mx-auto text-center <md:px-2 md:flex">
           <div class="<sm:w-120px <md:w-170px md:w-170px xl:w-230px <md:hidden">
             <button
               @click="openMenu()"
