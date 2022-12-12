@@ -220,11 +220,18 @@ defineExpose({
                   Transport i podatek liczony jest w koszyku.
                 </p>
                 <div class="mt-6">
-                  <a
+                  <Anchor
+                    @click="toggleShoppingCart()"
+                    class="!block items-center !px-0 text-center justify-center rounded-md border border-transparent bg-blue-600 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
+                    text="Śledź zamówienie"
+                    to="checkout/cart"
+                    >Koszyk</Anchor
+                  >
+                  <!-- <a
                     href="#"
                     class="flex items-center justify-center rounded-md border border-transparent bg-blue-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
                     >Koszyk</a
-                  >
+                  > -->
                 </div>
                 <div
                   class="mt-6 flex justify-center text-center text-sm text-gray-500"
