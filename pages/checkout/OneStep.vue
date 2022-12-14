@@ -66,7 +66,7 @@ const changeSection = (value: ISectionItem) => {
             </h1>
           </div>
 
-          <div class="<sm:bg-white">
+          <div class="<sm:bg-white mb-5">
             <div class="hidden <sm:inline-block w-full">
               <div
                 class="container flex justify-between h-13 mx-auto md:justify-center md:space-x-8 border-b-1 border-gray-300 mb-3"
@@ -473,14 +473,16 @@ const changeSection = (value: ISectionItem) => {
               </div>
 
               <div
-                class="relative md:w-1/3 <sm:top-0 transform duration-600 ease-out transition-all"
-                :class="
+                class="relative md:w-1/3 <sm:top-0 <sm:transform duration-600 ease-out transition-all"
+                :class="`${activeSectionId.section != 'data' ? '' : 'hidden'}
+                ${
                   activeSectionId.section == 'summary'
                     ? 'opacity-100 !-translate-x-0/2 <sm:p-0'
                     : activeSectionId.id >= lastSectionId
-                    ? '<sm:opacity-0 <sm:translate-x-3/2  <sm:absolute'
-                    : '<sm:opacity-0 <sm:translate-x-3/2 <sm:absolute'
-                "
+                    ? '<sm:opacity-0 !translate-x-3/2  <sm:absolute'
+                    : '<sm:opacity-0 !translate-x-3/2 <sm:absolute'
+                }
+                `"
               >
                 <div class="border-1 rounded-md border-gray-300 bg-white">
                   <div class="p-3">
@@ -642,6 +644,38 @@ const changeSection = (value: ISectionItem) => {
                           serwisu i akceptuję jego postanowienia.</label
                         >
                       </div>
+                      <div class="border-b border-gray-400 mt-7">
+                        <button
+                          class="items-center rounded border-2 w-full border-blue-600 px-8 py-3 text-white bg-blue-600 hover:bg-white hover:text-blue-600 focus:outline-none focus:ring active:bg-blue-500 duration-400"
+                        >
+                          <span class="text-sm font-600 uppercase">
+                            Zamawiam i płacę
+                          </span>
+
+                          <Icon
+                            name="material-symbols:arrow-right-alt-rounded"
+                            class="w-6 h-6"
+                          />
+                        </button>
+                      </div>
+                      <div
+                        class="text-12px text-gray-500 leading-5 mt-3 text-font"
+                      >
+                        <p>
+                          Administratorem Twoich danych osobowych jest Data
+                          Sharp z siedzibą w Przytocznej . Twoje dane osobowe
+                          będą przetwarzane w celu realizacji procesu
+                          zakupowego, działań marketingowych, wypełnienia
+                          obowiązków wynikających z przepisów prawa oraz obrony
+                          i dochodzenia ewentualnych roszczeń. Szczegółowe
+                          informacje na temat przetwarzania Twoich danych
+                          osobowych, w tym o przysługujących Ci prawach
+                          znajdziesz w [<a
+                            class="text-gray-600 font-600 hover:underline cursor-pointer"
+                            >Polityce Prywatności: Złożenie zamówienia</a
+                          >]
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -653,3 +687,9 @@ const changeSection = (value: ISectionItem) => {
     </PageBody>
   </PageWrapper>
 </template>
+
+<style>
+.text-font {
+  font-family: Arial, Helvetica, sans-serif;
+}
+</style>
