@@ -26,7 +26,7 @@ const paddingStyles = reactive<{
   [key: string]: string
 }>({
   xs: 'px-2 py-1.5',
-  sm: 'px-4 py-1.5',
+  sm: 'px-4 py-1.9',
   md: 'px-6 py-2',
   lg: 'px-8 py-4',
 })
@@ -63,29 +63,63 @@ const selectedFontSizeStyle = computed(
   <div :class="`text-input-container relative flex`">
     <div
       v-if="slots['prefix-disabled']"
-      :class="`flex rounded-l bg-gray-100 dark:bg-slate-800 text-gray-500 border ${selectedBorderStyle}`"
+      :class="`flex rounded-l  bg-gray-100 dark:bg-slate-800 text-gray-500 border ${selectedBorderStyle}`"
     >
       <slot name="prefix-disabled" />
     </div>
     <div
       v-if="slots.prefix"
-      :class="`flex rounded-l border ${selectedBorderStyle}`"
+      :class="`flex rounded-l  border ${selectedBorderStyle}`"
     >
       <slot name="prefix" />
     </div>
-    <div class="text-input-wrapper relative flex flex-1">
+
+    <div class="text-field my-2 w-full">
       <input
         v-model="modelValue"
-        :class="`w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5 ${selectedBorderStyle} ${selectedOnHoverBorderStyle} ${selectedPaddingStyle} ${selectedFontSizeStyle}`"
-        :type="type"
-        :placeholder="placeholder"
+        type="text"
+        required
+        :class="`p-1 w-full border-1 border-gray-300 bg-gray-100  ${selectedBorderStyle} ${selectedOnHoverBorderStyle} ${selectedPaddingStyle} ${selectedFontSizeStyle}`"
       />
+      <label :class="` ${selectedFontSizeStyle}`">{{ placeholder }}</label>
     </div>
     <div
       v-if="slots.suffix"
-      :class="`flex rounded-r border ${selectedBorderStyle}`"
+      :class="`flex rounded-r border  ${selectedBorderStyle}`"
     >
       <slot name="suffix" />
     </div>
   </div>
 </template>
+<style>
+.text-field {
+  position: relative;
+}
+
+.text-field input {
+  display: inline-block;
+  border-radius: 10px;
+}
+
+.text-field input:focus {
+  background-color: #fff;
+}
+
+.text-field label {
+  color: #999;
+  position: absolute;
+  pointer-events: none;
+  left: 10px;
+  top: 10px;
+  transition: 0.2s;
+}
+
+.text-field input:focus ~ label,
+.text-field input:valid ~ label {
+  top: -10px;
+  left: 15px;
+  font-size: small;
+  background-color: #fff;
+  padding: 0 5px 0 5px;
+}
+</style>
