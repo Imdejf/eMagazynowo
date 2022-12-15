@@ -45,6 +45,20 @@ const changeSection = (value: ISectionItem) => {
     section: value.section,
   }
 }
+
+const nextSection = () => {
+  const nextStep = sections.value.find(
+    (c) => c.id == activeSectionId.value.id + 1
+  )
+  lastSectionId.value = activeSectionId.value.id
+  if (nextStep) {
+    activeSectionId.value = {
+      id: nextStep.id,
+      section: nextStep.section,
+    }
+  }
+  window.scrollTo(0, 150)
+}
 </script>
 
 <template>
@@ -325,6 +339,22 @@ const changeSection = (value: ISectionItem) => {
                         class="mt-3"
                       />
                     </div>
+                    <p class="mt-4">* Wymagane pola</p>
+                    <div class="border-b border-gray-400 mt-7">
+                      <button
+                        @click="nextSection()"
+                        class="items-center rounded border-2 w-full border-blue-600 px-8 py-3 text-white bg-blue-600 hover:bg-white hover:text-blue-600 focus:outline-none focus:ring active:bg-blue-500 duration-400"
+                      >
+                        <span class="text-sm font-600 uppercase">
+                          Przejdź do wyboru metody dostawy
+                        </span>
+
+                        <Icon
+                          name="material-symbols:arrow-right-alt-rounded"
+                          class="w-6 h-6"
+                        />
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -348,24 +378,31 @@ const changeSection = (value: ISectionItem) => {
                     <div>
                       <h2 class="font-600 text-xl mb-4">2. Metoda dostawy</h2>
                     </div>
-                    <div class="flex items-center">
-                      <input
-                        id="disabled-radio-1"
-                        type="radio"
-                        value=""
-                        name="disabled-radio"
-                        class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500"
-                      />
-                      <Icon name="mdi:truck-fast" class="h-10 w-10 ml-3" />
-                      <label
-                        for="disabled-radio-1"
-                        class="ml-2 text-sm mr-2 text-md font-medium text-black"
-                        >Kurier</label
-                      >
-                      <label
-                        class="ml-auto text-sm justify-end mr-2 text-lg font-600 text-black"
-                        >243,53</label
-                      >
+                    <div class="items-center">
+                      <div class="flex">
+                        <input
+                          id="disabled-radio-1"
+                          type="radio"
+                          value=""
+                          name="disabled-radio"
+                          class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500"
+                        />
+                        <Icon name="mdi:truck-fast" class="h-10 w-10 ml-3" />
+                        <label
+                          for="disabled-radio-1"
+                          class="ml-2 text-sm mr-2 text-md font-medium text-black"
+                          >Kurier</label
+                        >
+                        <label
+                          class="ml-auto text-sm justify-end mr-2 text-lg font-600 text-black"
+                          >243,53</label
+                        >
+                      </div>
+                      <div class="pt-3 text-13px text-wrap leading-4">
+                        Szczegóły odnośnie przewoźnika realizującego Twoją
+                        dostawę otrzymasz mailowo po złożeniu zamówienia.
+                        <br />Przewidywana dostawa w 1-2 dni robocze
+                      </div>
                     </div>
                     <div class="flex items-center mt-4">
                       <input
@@ -389,20 +426,39 @@ const changeSection = (value: ISectionItem) => {
                         >0,00</label
                       >
                     </div>
+                    <div class="border-b border-gray-400 mt-7">
+                      <button
+                        @click="nextSection()"
+                        class="items-center rounded border-2 w-full border-blue-600 px-8 py-3 text-white bg-blue-600 hover:bg-white hover:text-blue-600 focus:outline-none focus:ring active:bg-blue-500 duration-400"
+                      >
+                        <span class="text-sm font-600 uppercase">
+                          Przejdź do wyboru metody dostawy
+                        </span>
+
+                        <Icon
+                          name="material-symbols:arrow-right-alt-rounded"
+                          class="w-6 h-6"
+                        />
+                      </button>
+                    </div>
                   </div>
                 </div>
                 <div
-                  class="relative rounded-md border-1 border-gray-300 p-3 <sm:p-1 <sm:top-0 w-full <sm:transform duration-600 ease-out transition-all bg-white md:mt-5"
+                  class="relative rounded-md border-1 border-gray-300 p-3 <sm:top-0 w-full <sm:transform duration-600 ease-out transition-all bg-white md:mt-5"
                   :class="
                     activeSectionId.section == 'payment'
-                      ? 'opacity-100 !-translate-x-0/2 <sm:p-0'
+                      ? 'opacity-100 !-translate-x-0/2 '
                       : activeSectionId.id >= lastSectionId &&
                         activeSectionId.id > 3
                       ? '<sm:opacity-0 !-translate-x-3/2 <sm:absolute'
                       : '<sm:opacity-0 !translate-x-3/2 <sm:absolute'
                   "
                 >
-                  <div>
+                  <div
+                    :class="
+                      activeSectionId.section != 'payment' ? '<sm:hidden' : ''
+                    "
+                  >
                     <h2 class="font-600 text-xl mb-4">3. Metoda płatności</h2>
                   </div>
                   <div class="flex items-center mt-4">
@@ -469,22 +525,44 @@ const changeSection = (value: ISectionItem) => {
                       >0,00</label
                     >
                   </div>
+                  <div class="border-b border-gray-400 mt-7">
+                    <button
+                      @click="nextSection()"
+                      class="items-center rounded border-2 w-full border-blue-600 px-8 py-3 text-white bg-blue-600 hover:bg-white hover:text-blue-600 focus:outline-none focus:ring active:bg-blue-500 duration-400"
+                    >
+                      <span class="text-sm font-600 uppercase">
+                        Przejdź do podsumowania
+                      </span>
+
+                      <Icon
+                        name="material-symbols:arrow-right-alt-rounded"
+                        class="w-6 h-6"
+                      />
+                    </button>
+                  </div>
                 </div>
               </div>
 
               <div
-                class="relative md:w-1/3 <sm:top-0 <sm:transform duration-600 ease-out transition-all"
-                :class="`${activeSectionId.section != 'data' ? '' : 'hidden'}
+                class="md:w-1/3 <sm:top-0 <sm:transform duration-600 ease-out transition-all"
+                :class="`${
+                  activeSectionId.section != 'data' ? '' : '<sm:hidden'
+                }
                 ${
                   activeSectionId.section == 'summary'
-                    ? 'opacity-100 !-translate-x-0/2 <sm:p-0'
+                    ? 'opacity-100 !-translate-x-0/2 <sm:p-0 relative'
                     : activeSectionId.id >= lastSectionId
                     ? '<sm:opacity-0 !translate-x-3/2  <sm:absolute'
-                    : '<sm:opacity-0 !translate-x-3/2 <sm:absolute'
+                    : '<sm:opacity-0 !translate-x-3/2 <sm:!absolute'
                 }
                 `"
               >
-                <div class="border-1 rounded-md border-gray-300 bg-white">
+                <div
+                  class="border-1 rounded-md border-gray-300 bg-white"
+                  :class="
+                    activeSectionId.section != 'summary' ? '<sm:hidden' : ''
+                  "
+                >
                   <div class="p-3">
                     <div class="border-b-2 border-gray-300">
                       <h2 class="font-600 text-xl mb-1">4. Podsumowanie</h2>
