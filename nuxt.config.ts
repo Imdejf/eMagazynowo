@@ -22,7 +22,7 @@ export default defineNuxtConfig({
 
   // build
   build: {
-    transpile: ['@headlessui/vue'],
+    transpile: ['@headlessui/vue','yup', 'lodash', '@vee-validate/rules'],
   },
 
   // experimental features
