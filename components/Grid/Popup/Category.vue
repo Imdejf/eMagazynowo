@@ -20,12 +20,12 @@ const categories = computed((): IMenuItem[] => [
 
 <template>
   <div
-    class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-3 gap-5"
+    class="p-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-3 gap-5"
   >
     <div
       v-for="category in categories"
       :key="category.categoryName"
-      class="flex self-center h-full dashed-bottom transform hover:scale-102 hover:shadow-2xl transition duration-400 ease-in-out"
+      class="flex self-center h-full border-b-2 border-dashed transform hover:scale-101 hover:shadow-md transition duration-400 ease-in-out"
     >
       <a
         href="#"
