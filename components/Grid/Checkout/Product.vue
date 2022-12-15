@@ -34,7 +34,8 @@
                 </div>
               </div>
               <div class="self-end"><FormQuantityPlusMinus /></div>
-              <div class="flex flex-1 justify-between text-sm">
+              <div class="flex flex-1 md:justify-betwe
+              en text-sm mt-5">
                 <div class="flex divide-x">
                   <button
                     type="button"
@@ -48,7 +49,7 @@
                     class="font-medium text-red-400 hover:text-red-700 pl-2 py-1 space-x-1"
                   >
                     <Icon name="octicon:trash-24" class="w-4 h-4" />
-                    Remove
+                    Usuń
                   </button>
                 </div>
               </div>

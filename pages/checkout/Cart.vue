@@ -16,13 +16,13 @@ definePageMeta({
           <h2 class="text-xl font-semibold">Twój koszyk</h2>
         </div>
         <PageSection>
-          <div class="flex gap-5 w-full mt-5">
-            <div class="w-2/3">
+          <div class="flex <sm:flex-col gap-5 w-full mt-5">
+            <div class="md:w-2/3">
               <GridCheckoutProduct />
               <GridCheckoutProduct />
             </div>
             <div
-              class="w-1/3 bg-slate-200 h-min sticky !top-31 rounded-lg border-1 border-slate-300 shadow-xl text-blue-800 p-5"
+              class="md:w-1/3 bg-slate-200 h-min sticky !top-31 rounded-lg border-1 border-slate-300 shadow-xl text-blue-800 p-5"
             >
               <div class="mb-5">
                 <span class="text-lg font-600">Twoje zamówienie:</span>

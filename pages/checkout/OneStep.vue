@@ -340,7 +340,7 @@ const nextSection = () => {
                       />
                     </div>
                     <p class="mt-4">* Wymagane pola</p>
-                    <div class="border-b border-gray-400 mt-7">
+                    <div class="border-b border-gray-400 mt-7 md:hidden">
                       <button
                         @click="nextSection()"
                         class="items-center rounded border-2 w-full border-blue-600 px-8 py-3 text-white bg-blue-600 hover:bg-white hover:text-blue-600 focus:outline-none focus:ring active:bg-blue-500 duration-400"
@@ -426,7 +426,7 @@ const nextSection = () => {
                         >0,00</label
                       >
                     </div>
-                    <div class="border-b border-gray-400 mt-7">
+                    <div class="border-b border-gray-400 mt-7 md:hidden">
                       <button
                         @click="nextSection()"
                         class="items-center rounded border-2 w-full border-blue-600 px-8 py-3 text-white bg-blue-600 hover:bg-white hover:text-blue-600 focus:outline-none focus:ring active:bg-blue-500 duration-400"
@@ -525,7 +525,7 @@ const nextSection = () => {
                       >0,00</label
                     >
                   </div>
-                  <div class="border-b border-gray-400 mt-7">
+                  <div class="border-b border-gray-400 mt-7 md:hidden">
                     <button
                       @click="nextSection()"
                       class="items-center rounded border-2 w-full border-blue-600 px-8 py-3 text-white bg-blue-600 hover:bg-white hover:text-blue-600 focus:outline-none focus:ring active:bg-blue-500 duration-400"
