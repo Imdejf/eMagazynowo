@@ -9,6 +9,10 @@ declare module '@nuxt/schema' {
 
 export default defineNuxtConfig({
   ssr: true,
+
+  alias: {
+    yup: 'yup/lib/index.js'
+  },
   
   css:[
     'virtual:windi-base.css',
@@ -22,7 +26,7 @@ export default defineNuxtConfig({
 
   // build
   build: {
-    transpile: ['@headlessui/vue','yup', 'lodash', '@vee-validate/rules'],
+    transpile: ['@headlessui/vue', '@vee-validate/rules'],
   },
 
   // experimental features

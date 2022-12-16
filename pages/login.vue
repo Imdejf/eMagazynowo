@@ -1,10 +1,39 @@
 <script lang="ts" setup>
+import { object, string, ref as yupRef } from 'yup'
+import { configure } from 'vee-validate'
+
 // compiler macro
 definePageMeta({
   layout: 'page',
 })
 
 const test = ref('')
+
+const debug = ref(false)
+onMounted(() => {
+  debug.value =
+    useRouter().currentRoute.value.query.debug === 'true' ? true : false
+})
+
+const handleSubmit = (values, actions) => {
+  console.log(values)
+  actions.resetForm()
+}
+configure({
+  validateOnBlur: true, // controls if `blur` events should trigger validation with `handleChange` handler
+  validateOnChange: true, // controls if `change` events should trigger validation with `handleChange` handler
+  validateOnInput: false, // controls if `input` events should trigger validation with `handleChange` handler
+  validateOnModelUpdate: true, // controls if `update:modelValue` events should trigger validation with `handleChange` handler
+})
+const schema = object({
+  email: string().required().email().label('Email Address'),
+  password: string().required().min(8).label('Your Password'),
+  confirmed: string()
+    .required()
+    .oneOf([yupRef('password')], 'Passwords do not match') //Cross-Field Validation
+    .label('Your Confirmation Password'),
+})
+const initialValues = { email: '', password: '', confirmed: '' }
 </script>
 
 <template>
@@ -43,7 +72,7 @@ const test = ref('')
                       <span class="ml-4"> Zaloguj się przez Facebook </span>
                     </button>
                   </div>
-
+                  <VField />
                   <div class="my-6 border-b text-center">
                     <div
                       class="leading-none px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform translate-y-1/2"
@@ -51,21 +80,30 @@ const test = ref('')
                       Lub zaloguj się mailem
                     </div>
                   </div>
-
-                  <div class="mx-auto max-w-xs">
-                    <FormTextInput
-                      v-model="test"
-                      placeholder="Login"
-                      size="md"
-                      class="w-full"
+                  <VForm
+                    class="mx-auto max-w-xs"
+                    :validation-schema="schema"
+                    :initial-values="initialValues"
+                    v-slot="{ meta: formMeta, errors: formErrors }"
+                    @submit="handleSubmit"
+                  >
+                    <FormVTextInput
+                      type="text"
+                      name="email"
+                      label="Email"
+                      placeholder="Email"
+                      :debug="debug"
+                      leftIcon="material-symbols:mail"
                     />
-                    <FormTextInput
-                      v-model="test"
-                      placeholder="Hasło"
+                    <FormVTextInput
                       type="password"
-                      size="md"
-                      class="w-full"
+                      name="confirmed"
+                      label="Confirm Password"
+                      placeholder="Confirm Password"
+                      :debug="debug"
+                      leftIcon="ic:sharp-lock-person"
                     />
+
                     <button
                       class="mt-5 tracking-wide font-semibold bg-blue-500 text-gray-100 w-full py-4 rounded-lg hover:bg-blue-600 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"
                     >
@@ -83,6 +121,9 @@ const test = ref('')
                       </svg>
                       <span class="ml-3"> Zaloguj się </span>
                     </button>
+                    <div class="debug" v-if="debug">
+                      <pre>{{ formMeta }}</pre>
+                    </div>
                     <div class="form-group form-check text-center mt-4">
                       <input
                         type="checkbox"
@@ -99,7 +140,7 @@ const test = ref('')
                         >Zarejestruj się</NuxtLink
                       >
                     </div>
-                  </div>
+                  </VForm>
                 </div>
               </div>
             </div>

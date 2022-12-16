@@ -91,26 +91,26 @@ const selectedFontSizeStyle = computed(
         <input
           required
           v-bind="field"
-          :class="
-            {
-              'is-success': meta.valid && meta.touched,
-              'is-danger': !meta.valid && meta.touched,
-            } &&
-            `p-1 w-full border-1 border-gray-300 bg-gray-100  ${selectedBorderStyle} ${selectedOnHoverBorderStyle} ${selectedPaddingStyle} ${selectedFontSizeStyle}`
-          "
+          :class="` w-full border-1  bg-gray-100 ${
+            !meta.valid && meta.touched == true
+              ? 'border-red-300'
+              : 'border-gray-300'
+          } ${selectedBorderStyle} ${selectedOnHoverBorderStyle} ${selectedPaddingStyle} ${selectedFontSizeStyle}`"
           :type="type"
         />
-        <span class="icon is-small is-left">
-          <i class="fas" :class="leftIcon"></i>
+        <span class="absolute color text-gray-400 top-2 left-1 is-left">
+          <Icon :name="leftIcon" class="h-5 w-5" />
         </span>
         <span class="icon is-small is-right" v-if="meta.valid && meta.touched">
           <i class="fas fa-check has-text-success"></i>
         </span>
         <span
-          class="icon is-small is-right"
+          class="absolute color text-gray-400 top-2 right-2 is-left"
           v-else-if="!meta.valid && meta.touched"
         >
-          <i class="fas fa-x has-text-danger"></i>
+          <span
+            ><Icon name="majesticons:close" class="text-red-500 w-4 h-4"
+          /></span>
         </span>
         <!-- <template v-if="Object.keys(errors).length">
                   <ul>
@@ -123,13 +123,19 @@ const selectedFontSizeStyle = computed(
                     </li>
                   </ul>
                 </template> -->
-        <VErrorMessage :name="name" as="div" class="help is-danger" />
+        <VErrorMessage
+          :name="name"
+          as="div"
+          class="help text-red-600 text-sm"
+        />
         <div class="debug" v-if="debug">
           <pre>{{ errors }}</pre>
           <pre>{{ meta }}</pre>
         </div>
       </VField>
-      <label :class="` ${selectedFontSizeStyle}`">{{ placeholder }}</label>
+      <label :class="` ${leftIcon ? 'ml-6' : ''} ${selectedFontSizeStyle}`">{{
+        placeholder
+      }}</label>
     </div>
     <div
       v-if="slots.suffix"
@@ -167,11 +173,13 @@ const selectedFontSizeStyle = computed(
 }
 
 .text-field input:focus ~ label,
-.text-field input:valid ~ label {
+.text-field input:valid ~ label,
+.text-field input[type='email'] ~ label {
   top: -10px;
   left: 15px;
   font-size: small;
   background-color: #fff !important;
   padding: 0 5px 0 5px;
+  margin-left: 3px !important;
 }
 </style>

@@ -40,6 +40,7 @@
     "nuxt-swiper": "^0.1.6",
     "pinia": "^2.0.24",
     "swiper": "^8.4.5",
-    "vee-validate": "^4.7.3"
+    "vee-validate": "^4.7.3",
+    "yup": "^0.32.11"
   }
 }
