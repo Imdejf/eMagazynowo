@@ -19,6 +19,7 @@ const props = defineProps({
 // state
 const currentStyle = toRef(props, 'type')
 const localeSetting = useState<string>('locale.setting')
+const currentLang = availableLocales[localeSetting.value]
 </script>
 
 <template>
@@ -35,12 +36,13 @@ const localeSetting = useState<string>('locale.setting')
         title="Change Language"
         class="transition-colors duration-300"
       >
-        <span class="justify-center items-center flex">
-          <IconLa:language />
+        <span class="justify-center items-center flex mr-1">
+          <Icon :name="currentLang.flag" class="mr-2" />
+          {{ currentLang.name }}
         </span>
       </ListboxButton>
       <ListboxOptions
-        class="p-1 absolute z-50 top-full right-0 outline-none bg-white rounded-lg ring-1 ring-gray-900/10 shadow-lg overflow-hidden w-36 py-1 text-sm text-gray-700 font-semibold dark:bg-gray-800 dark:ring-0 dark:highlight-white/5 dark:text-gray-300"
+        class="p-1 absolute z-999 top-full right-0 outline-none bg-white rounded-lg ring-1 ring-gray-900/10 shadow-lg overflow-hidden w-36 py-1 text-sm text-gray-700 font-semibold dark:bg-gray-800 dark:ring-0 dark:highlight-white/5 dark:text-gray-300"
       >
         <ListboxOption
           v-for="lang in availableLocales"
@@ -55,7 +57,7 @@ const localeSetting = useState<string>('locale.setting')
           }"
         >
           <span class="text-sm mr-2">
-            {{ lang.flag }}
+            <Icon :name="lang.flag" />
           </span>
           <span class="flex-1 truncate">
             {{ lang.name }}

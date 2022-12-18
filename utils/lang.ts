@@ -12,12 +12,22 @@ export const availableLocales: ILocales = {
   en: {
     name: 'English',
     iso: 'en',
-    flag: '🇺🇸',
+    flag: 'twemoji:flag-for-flag-united-states',
   },
   pl: {
     name: 'Polish',
     iso: 'pl',
-    flag: 'pl',
+    flag: 'twemoji:flag-poland',
+  },
+  ua: {
+    name: 'Ukraine',
+    iso: 'ua',
+    flag: 'twemoji:flag-ukraine'
+  },
+  de: {
+    name: 'Germany',
+    iso: 'de',
+    flag: 'twemoji:flag-germany'
   }
 }
 
@@ -49,6 +59,7 @@ export function LanguageManager() {
   watch(localeSetting, (localeSetting) => {
     localeUserSetting.value = localeSetting
     locale.value = localeSetting
+    window.location.reload()
   })
 
   // init locale

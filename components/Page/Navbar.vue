@@ -74,6 +74,8 @@ const openShoppingCart = () => {
               </Anchor>
             </div>
             <div class="flex">
+              <LanguageSwitcher />
+
               <a
                 class="<sm:hidden transition-colors duration-300 text-xs font-600 hover:text-cyan-300 gap-1.5 flex justify-between items-center p-2"
                 href="mailto: kontak@emagazynowo.pl"
