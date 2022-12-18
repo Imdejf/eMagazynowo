@@ -10,9 +10,9 @@ declare module '@nuxt/schema' {
 export default defineNuxtConfig({
   ssr: true,
 
-  alias: {
-    yup: 'yup/lib/index.js'
-  },
+  // alias: {
+  //   yup: 'yup/lib/index.js'
+  // },
   
   css:[
     'virtual:windi-base.css',

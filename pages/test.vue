@@ -116,7 +116,6 @@ const initialValues = { email: '', password: '', confirmed: '' }
 .wrapper {
   min-width: 100%;
   min-height: 100%;
-  background-image: url('~/assets/images/hero-2.jpg');
   background-size: cover;
   background-position: center;
 }
