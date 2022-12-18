@@ -10,10 +10,16 @@ declare module '@nuxt/schema' {
 export default defineNuxtConfig({
   ssr: true,
 
-  // alias: {
-  //   yup: 'yup/lib/index.js'
-  // },
-  
+  // localization - i18n config
+  intlify: {
+    localeDir: 'locales',
+    vueI18n: {
+      locale: 'pl',
+      fallbackLocale: 'en',
+      availableLocales: ['en', 'pl'],
+    },
+  },
+
   css:[
     'virtual:windi-base.css',
     'virtual:windi-components.css',
@@ -38,7 +44,8 @@ export default defineNuxtConfig({
   modules: [
     'nuxt-icon',
     // '@pinia/nuxt',
-    // '@nuxt/content',
+    '@intlify/nuxt3',
+    '@nuxt/content',
     'nuxt-windicss',
     'nuxt-swiper',
   ],

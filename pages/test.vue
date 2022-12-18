@@ -4,6 +4,10 @@
       <div
         class="column is-11-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-third-fullhd"
       >
+        <a>dsa</a>
+        <LanguageSwitcher type="select-box" />
+        <a>daw</a>
+        {{ $t('components.theme_switcher.theme') }}
         <h2 class="title is-2 has-text-centered mb-6 has-text-white">
           VeeValidate Tutorial
         </h2>

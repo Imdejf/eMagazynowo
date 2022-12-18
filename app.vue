@@ -9,6 +9,11 @@
 </template>
 
 <script lang="ts" setup>
+import { AppSetup } from './utils/app'
+AppSetup()
+const locale = useState<string>('locale.setting')
+const app = useAppConfig()
+
 import 'lazysizes'
 // import a plugin
 import 'lazysizes/plugins/parent-fit/ls.parent-fit'
