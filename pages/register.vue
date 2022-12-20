@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { object, string, ref as yupRef } from 'yup'
 import { configure } from 'vee-validate'
+import { Fetch } from '~/composables/useFetch'
 
 // compiler macro
 definePageMeta({
@@ -9,8 +10,10 @@ definePageMeta({
 
 const registerForm = ref(null)
 
-const handleRegister = () => {
-  alert()
+const handleRegister = (values, actions) => {
+  console.log(values)
+  var test = Fetch('User/Identity/CreateUser', { method: 'post', body: values })
+  console.log(test)
 }
 
 const invalidHandleRegister = () => {

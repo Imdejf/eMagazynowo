@@ -11,6 +11,7 @@
         <h2 class="title is-2 has-text-centered mb-6 has-text-white">
           VeeValidate Tutorial
         </h2>
+        <button @click="handleSubmit" class="bg-red-400">clicke me</button>
         <VForm
           class="card p-5"
           :validation-schema="schema"
@@ -87,6 +88,8 @@
 <script setup>
 import { object, string, ref as yupRef } from 'yup'
 import { configure } from 'vee-validate'
+import { Fetch } from '~/composables/useFetch'
+
 const debug = ref(false)
 onMounted(() => {
   debug.value =
@@ -94,8 +97,14 @@ onMounted(() => {
 })
 const handleSubmit = (values, actions) => {
   console.log(values)
+  var test = Fetch('/User/Identity/test', { method: 'get' })
+  console.log(test)
   actions.resetForm()
 }
+
+await useAsyncData('data-test', () =>
+  useRequest('/User/Identity/test', { headers: useRequestHeaders(['cookie']) })
+)
 configure({
   validateOnBlur: true, // controls if `blur` events should trigger validation with `handleChange` handler
   validateOnChange: true, // controls if `change` events should trigger validation with `handleChange` handler

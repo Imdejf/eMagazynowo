@@ -36,6 +36,7 @@ const currentLang = availableLocales[localeSetting.value]
         title="Change Language"
         class="transition-colors duration-300"
       >
+        {{ currentLang }}
         <span class="justify-center items-center flex mr-1">
           <Icon :name="currentLang.flag" class="mr-2" />
           {{ currentLang.name }}

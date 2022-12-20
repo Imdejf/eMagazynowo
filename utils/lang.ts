@@ -5,6 +5,7 @@ export interface ILocales {
     name: string
     iso: string
     flag: string
+    id: string
   }
 }
 
@@ -13,21 +14,25 @@ export const availableLocales: ILocales = {
     name: 'English',
     iso: 'en',
     flag: 'twemoji:flag-for-flag-united-states',
+    id: '',
   },
   pl: {
     name: 'Polish',
     iso: 'pl',
     flag: 'twemoji:flag-poland',
+    id: '',
   },
   ua: {
     name: 'Ukraine',
     iso: 'ua',
-    flag: 'twemoji:flag-ukraine'
+    flag: 'twemoji:flag-ukraine',
+    id: '',
   },
   de: {
     name: 'Germany',
     iso: 'de',
-    flag: 'twemoji:flag-germany'
+    flag: 'twemoji:flag-germany',
+    id: '',
   }
 }
 

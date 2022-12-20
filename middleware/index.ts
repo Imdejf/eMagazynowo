@@ -1,13 +1,7 @@
-import express from "express";
-const app = express();
-
-app.use(express.json());
-
-app.get("/", (req, res) => {
-  res.json({
-    message: "🦄🌈✨👋🌎🌍🌏✨🌈🦄",
-  });
-});
-
-
-export default app;
+export default defineNuxtPlugin(() => {
+  addRouteMiddleware('global-middleware', (to, from) => {
+      console.log('global middleware that runs on every route change')
+    },
+    { global: true }
+  )
+})

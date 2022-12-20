@@ -10,13 +10,19 @@ declare module '@nuxt/schema' {
 export default defineNuxtConfig({
   ssr: true,
 
+  runtimeConfig: {
+    public: {
+      baseURL: process.env.API_BASE_URL || 'http://localhost:5000/api/',
+    },
+  },
+
   // localization - i18n config
   intlify: {
     localeDir: 'locales',
     vueI18n: {
       locale: 'pl',
       fallbackLocale: 'en',
-      availableLocales: ['en', 'pl'],
+      availableLocales: ['en', 'pl', 'ua', 'de'],
     },
   },
 
@@ -43,12 +49,16 @@ export default defineNuxtConfig({
   // modules
   modules: [
     'nuxt-icon',
-    // '@pinia/nuxt',
+    '@pinia/nuxt',
     '@intlify/nuxt3',
     '@nuxt/content',
     'nuxt-windicss',
     'nuxt-swiper',
   ],
+
+  imports: {
+    dirs: ['stores'],
+  },
 
   // auto import components
   components: true,
