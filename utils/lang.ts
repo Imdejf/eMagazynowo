@@ -1,40 +1,16 @@
 import { useI18n } from 'vue-i18n'
 
 export interface ILocales {
-  [key: string]: {
-    name: string
-    iso: string
-    flag: string
-    id: string
-  }
+  nameInternational: string
+  nameOriginal: string
+  isoCode: string
+  flag: string
+  id: string
+  storeId: string,
+  defaultLanguage: Boolean
 }
 
-export const availableLocales: ILocales = {
-  en: {
-    name: 'English',
-    iso: 'en',
-    flag: 'twemoji:flag-for-flag-united-states',
-    id: '',
-  },
-  pl: {
-    name: 'Polish',
-    iso: 'pl',
-    flag: 'twemoji:flag-poland',
-    id: '',
-  },
-  ua: {
-    name: 'Ukraine',
-    iso: 'ua',
-    flag: 'twemoji:flag-ukraine',
-    id: '',
-  },
-  de: {
-    name: 'Germany',
-    iso: 'de',
-    flag: 'twemoji:flag-germany',
-    id: '',
-  }
-}
+export const availableLocales: ILocales[] = [];
 
 export function LanguageManager() {
   // composable
@@ -44,17 +20,21 @@ export function LanguageManager() {
   // methods
   const getSystemLocale = (): string => {
     try {
+      const defaultLocale = availableLocales.find(locale => locale.defaultLanguage === true);
+      const defaultIsoCode = defaultLocale ? defaultLocale.isoCode : '';
       const foundLang = window
-        ? window.navigator.language.substring(0, 2)
-        : 'en'
-      return availableLocales[foundLang] ? foundLang : 'en'
-    } catch (error) {
-      return 'en'
+      ? window.navigator.language.substring(0, 2) + "-" + window.navigator.language.substring(0, 2).toUpperCase()
+      : defaultIsoCode
+        return foundLang
+      } catch (error) {
+        const defaultLocale = availableLocales.find(locale => locale.defaultLanguage === true);
+        const defaultIsoCode = defaultLocale ? defaultLocale.isoCode : '';
+        return defaultIsoCode;
     }
   }
   const getUserLocale = (): string =>
     localeUserSetting.value || getSystemLocale()
-
+    
   // state
   const localeSetting = useState<string>('locale.setting', () =>
     getUserLocale()
@@ -69,6 +49,19 @@ export function LanguageManager() {
 
   // init locale
   const init = () => {
+    const application = useApplication()
+    for(const item of application.locales) {
+      const mappedItem: ILocales = {
+        nameInternational: item.nameInternational,
+        nameOriginal: item.nameOrginal,
+        isoCode: item.isoCode,
+        flag: item.flag,
+        id: item.id,
+        storeId: item.storeId,
+        defaultLanguage: item.defaultLanguage
+      }
+      availableLocales.push(mappedItem)    
+    }    
     localeSetting.value = getUserLocale()
   }
   locale.value = localeSetting.value

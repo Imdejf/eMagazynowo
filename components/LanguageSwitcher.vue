@@ -19,7 +19,10 @@ const props = defineProps({
 // state
 const currentStyle = toRef(props, 'type')
 const localeSetting = useState<string>('locale.setting')
-const currentLang = availableLocales[localeSetting.value]
+console.log(availableLocales)
+const currentLang =
+  availableLocales.find((c) => c.isoCode == localeSetting.value) ||
+  availableLocales[0]
 </script>
 
 <template>
@@ -36,10 +39,9 @@ const currentLang = availableLocales[localeSetting.value]
         title="Change Language"
         class="transition-colors duration-300"
       >
-        {{ currentLang }}
         <span class="justify-center items-center flex mr-1">
-          <Icon :name="currentLang.flag" class="mr-2" />
-          {{ currentLang.name }}
+          <Icon :name="currentLang?.flag" class="mr-2" />
+          {{ currentLang?.nameInternational }}
         </span>
       </ListboxButton>
       <ListboxOptions
@@ -47,22 +49,22 @@ const currentLang = availableLocales[localeSetting.value]
       >
         <ListboxOption
           v-for="lang in availableLocales"
-          :key="lang.iso"
-          :value="lang.iso"
+          :key="lang.isoCode"
+          :value="lang.isoCode"
           :class="{
             'py-2 px-2 flex items-center cursor-pointer': true,
             'text-sky-500 bg-gray-100 dark:bg-gray-600/30':
-              localeSetting === lang.iso,
+              localeSetting === lang.isoCode,
             'hover:bg-gray-50 dark:hover:bg-gray-700/30':
-              localeSetting !== lang.iso,
+              localeSetting !== lang.isoCode,
           }"
         >
           <span class="text-sm mr-2">
             <Icon :name="lang.flag" />
           </span>
           <span class="flex-1 truncate">
-            {{ lang.name }}
-            <span class="text-xs">({{ lang.iso }})</span>
+            {{ lang.nameInternational }}
+            <span class="text-xs">({{ lang.isoCode }})</span>
           </span>
         </ListboxOption>
       </ListboxOptions>
@@ -74,11 +76,11 @@ const currentLang = availableLocales[localeSetting.value]
     >
       <option
         v-for="lang in availableLocales"
-        :key="lang.iso"
-        :value="lang.iso"
+        :key="lang.isoCode"
+        :value="lang.isoCode"
         class="flex items-center space-x-2"
       >
-        {{ lang.flag }} {{ lang.name }} ({{ lang.iso }})
+        {{ lang.flag }} {{ lang.nameInternational }} ({{ lang.isoCode }})
       </option>
     </select>
   </div>

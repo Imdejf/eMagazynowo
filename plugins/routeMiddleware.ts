@@ -1,6 +1,11 @@
+import { useApplication } from '~/stores/application'
+
+
 export default defineNuxtPlugin(() => {
-    addRouteMiddleware('global-middleware', (to, from) => {
-        if(process.client){
+    addRouteMiddleware('global-middleware',async (to, from) => {
+      const application = useApplication()
+      await application.fetchLanguage()
+      if(process.client){
         localStorage.getItem('lang') 
         }
       },

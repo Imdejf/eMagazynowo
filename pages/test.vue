@@ -89,22 +89,19 @@
 import { object, string, ref as yupRef } from 'yup'
 import { configure } from 'vee-validate'
 import { Fetch } from '~/composables/useFetch'
+import { useApplication } from '~/stores/application'
 
 const debug = ref(false)
-onMounted(() => {
-  debug.value =
-    useRouter().currentRoute.value.query.debug === 'true' ? true : false
-})
-const handleSubmit = (values, actions) => {
-  console.log(values)
-  var test = Fetch('/User/Identity/test', { method: 'get' })
-  console.log(test)
-  actions.resetForm()
-}
 
-await useAsyncData('data-test', () =>
-  useRequest('/User/Identity/test', { headers: useRequestHeaders(['cookie']) })
-)
+const handleSubmit = async (values, actions) => {
+  const application = useApplication()
+  application.fetchLanguage()
+  console.log()
+  // const result = await Fetch('/User/Identity/test', { method: 'get' })
+  // onMounted(() => console.log(document.cookie))
+}
+onMounted(() => console.log(document.cookie))
+
 configure({
   validateOnBlur: true, // controls if `blur` events should trigger validation with `handleChange` handler
   validateOnChange: true, // controls if `change` events should trigger validation with `handleChange` handler

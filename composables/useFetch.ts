@@ -18,6 +18,7 @@ export function Fetch<T>(
 
   return useFetch<T>(request, {
     baseURL: config.public.baseURL,
+    credentials: 'include',
     ...opts,
   })
 }
