@@ -92,6 +92,9 @@ import { Fetch } from '~/composables/useFetch'
 import { useApplication } from '~/stores/application'
 
 const debug = ref(false)
+const config = useRuntimeConfig()
+
+console.log(config.public.baseURL)
 
 const handleSubmit = async (values, actions) => {
   const application = useApplication()
