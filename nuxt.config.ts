@@ -12,7 +12,7 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      baseURL: process.env.API_BASE_URL || process.env.API_BASE_URL,
+      baseURL: 'http://api.emagazynowo.pl/api' || 'http://api.emagazynowo.pl/api',
     },
   },
 
