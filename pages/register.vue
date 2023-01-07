@@ -9,11 +9,21 @@ definePageMeta({
 })
 
 const registerForm = ref(null)
+const showInvoice = ref(false)
 
 const handleRegister = (values, actions) => {
   console.log(values)
-  var test = Fetch('User/Identity/CreateUser', { method: 'post', body: values })
-  console.log(test)
+  Fetch('User/Identity/CreateUser', { method: 'post', body: values }).then(
+    (response) => {
+      if (!response.error.value) {
+        navigateTo('/')
+      }
+    }
+  )
+}
+
+const changeShowInvoice = () => {
+  showInvoice.value = !showInvoice.value
 }
 
 const invalidHandleRegister = () => {
@@ -21,15 +31,15 @@ const invalidHandleRegister = () => {
 }
 
 const schema = object({
-  username: string().required().email().label('Username'),
+  username: string().required().label('Username'),
   email: string().required().email().label('Email Address'),
   password: string().required().min(8).label('Your Password'),
   repeatedPassword: string()
     .required()
     .oneOf([yupRef('password')], 'Passwords do not match') //Cross-Field Validation
     .label('Your Confirmation Password'),
-  name: string().required().email().label('Name'),
-  surname: string().required().email().label('Surname'),
+  name: string().required().label('Name'),
+  surname: string().required().label('Surname'),
 })
 
 const initialValues = {
@@ -45,7 +55,22 @@ const initialValues = {
   country: '',
   postalCode: '',
   region: '',
-  address: '',
+  addresses: [
+    {
+      firstName: '',
+      lastName: '',
+      email: '',
+      company: '',
+      stateProvince: '',
+      city: '',
+      address1: '',
+      address2: '',
+      zipPostalCode: '',
+      phoneNumber: '',
+      faxNumber: '',
+      addressType: 2,
+    },
+  ],
 }
 </script>
 
@@ -138,80 +163,102 @@ const initialValues = {
                       />
                     </div>
                   </div>
-
-                  <hr class="mt-6 border-b-1 border-blueGray-300" />
-                  <div class="rounded-t bg-white mb-0 px-6 py-6">
-                    <div class="text-center flex justify-end">
-                      <a
-                        class="bg-blue-500 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow"
-                        type="button"
-                      >
-                        Faktura
-                      </a>
-                    </div>
+                  <div class="form-group form-check mt-4">
+                    <input
+                      type="checkbox"
+                      class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain mr-2 cursor-pointer"
+                      @click="changeShowInvoice"
+                    />
+                    <label
+                      class="form-check-label inline-block text-gray-800 cursor-pointer"
+                      >Chcę podać dane do faktury i zamawiać szybciej</label
+                    >
                   </div>
-                  <h6
-                    class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase"
-                  >
-                    Dane do wystawienia faktury
-                  </h6>
-                  <div class="flex flex-wrap">
-                    <div class="w-full lg:w-12/12 px-4">
-                      <FormVTextInput
-                        type="text"
-                        name="companyName"
-                        label="Imię i nazwisko lub nazwa firmy"
-                        placeholder="Imię i nazwisko lub nazwa firmy"
-                      />
+                  <hr class="mt-6 border-b-1 border-blueGray-300" />
+
+                  <div v-show="showInvoice">
+                    <div class="rounded-t bg-white mb-0 py-6">
+                      <div class="text-center flex justify-end">
+                        <a
+                          class="bg-blue-500 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow"
+                          type="button"
+                        >
+                          Faktura
+                        </a>
+                      </div>
                     </div>
-                    <div class="w-full lg:w-8/12 px-4">
-                      <FormVTextInput
-                        type="text"
-                        name="nip"
-                        label="NIP"
-                        placeholder="NIP"
-                      />
+                    <h6
+                      class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase"
+                    >
+                      Dane do wystawienia faktury
+                    </h6>
+                    <div class="flex flex-wrap">
+                      <div class="w-full lg:w-12/12 px-4">
+                        <FormVTextInput
+                          type="text"
+                          name="addresses[0].company"
+                          label="Imię i nazwisko lub nazwa firmy"
+                          placeholder="Imię i nazwisko lub nazwa firmy"
+                        />
+                      </div>
+                      <div class="w-full lg:w-8/12 px-4">
+                        <FormVTextInput
+                          type="text"
+                          name="addresses[0].nip"
+                          label="NIP"
+                          placeholder="NIP"
+                        />
+                      </div>
+                      <div class="w-full lg:w-4/12 px-4">
+                        <FormVTextInput
+                          type="text"
+                          name="addresses[0].city"
+                          label="Miejscowość"
+                          placeholder="Miejscowość"
+                        />
+                      </div>
+                      <div class="w-full lg:w-4/12 px-4">
+                        <FormVTextInput
+                          type="text"
+                          name="addresses[0].country"
+                          label="Kraj"
+                          placeholder="Kraj"
+                        />
+                      </div>
+                      <div class="w-full lg:w-4/12 px-4">
+                        <FormVTextInput
+                          type="text"
+                          name="addresses[0].zipPostalCode"
+                          label="Kod pocztowy"
+                          placeholder="Kod pocztowy"
+                        />
+                      </div>
+                      <div class="w-full lg:w-4/12 px-4">
+                        <FormVTextInput
+                          type="text"
+                          name="addresses[0].region"
+                          label="Województwo"
+                          placeholder="Województwo"
+                        />
+                      </div>
+                      <div class="w-full lg:w-8/12 px-4">
+                        <FormVTextInput
+                          type="text"
+                          name="addresses[0].address1"
+                          label="Adres/ulica"
+                          placeholder="Adres/ulica"
+                        />
+                      </div>
+                      <div class="w-full lg:w-4/12 px-4">
+                        <FormVTextInput
+                          type="text"
+                          name="addresses[0].phoneNumber"
+                          label="Numer telefonu"
+                          placeholder="Numer telefonu"
+                        />
+                      </div>
                     </div>
-                    <div class="w-full lg:w-4/12 px-4">
-                      <FormVTextInput
-                        type="text"
-                        name="city"
-                        label="Miejscowość"
-                        placeholder="Miejscowość"
-                      />
-                    </div>
-                    <div class="w-full lg:w-4/12 px-4">
-                      <FormVTextInput
-                        type="text"
-                        name="country"
-                        label="Kraj"
-                        placeholder="Kraj"
-                      />
-                    </div>
-                    <div class="w-full lg:w-4/12 px-4">
-                      <FormVTextInput
-                        type="text"
-                        name="postalCode"
-                        label="Kod pocztowy"
-                        placeholder="Kod pocztowy"
-                      />
-                    </div>
-                    <div class="w-full lg:w-4/12 px-4">
-                      <FormVTextInput
-                        type="text"
-                        name="region"
-                        label="Województwo"
-                        placeholder="Województwo"
-                      />
-                    </div>
-                    <div class="w-full lg:w-6/12 px-4">
-                      <FormVTextInput
-                        type="text"
-                        name="address"
-                        label="Adres/ulica"
-                        placeholder="Adres/ulica"
-                      />
-                    </div>
+                    <hr class="mt-6 border-b-1 border-blueGray-300" />
                   </div>
                   <div class="form-group form-check text-left mt-4">
                     <input

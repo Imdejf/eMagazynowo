@@ -167,7 +167,7 @@
             >
               <p class="text-white" href="/">
                 Data Sharp<br />Polna 7 66-340 Przytoczna <br />
-                NIP: 13123123
+                NIP: 523999467
               </p>
             </div>
           </div>

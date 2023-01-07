@@ -11,34 +11,34 @@ definePageMeta({
     </PageHeader>
     <PageBody>
       <PageSection>
-        <div class="px-6 <sm:py-2 py-12 md:px-12 text-center">
-          <div class="container mx-auto xl:px-32">
+        <div class="px-6 <sm:py-2 py-12 text-center">
+          <div class="mx-auto xl:px-32">
             <div class="grid lg:grid-cols-2 flex items-center">
-              <div class="md:mt-12 lg:mt-0 mb-12 lg:mb-0">
+              <div class="md:mt-12 lg:mt-0 mb-12 lg:mb-0 px-2">
                 <div
-                  class="block rounded-lg shadow-lg md:w-xl"
+                  class="block rounded-lg shadow-lg"
                   style="
                     background: hsla(0, 0%, 100%, 0.55);
                     backdrop-filter: blur(30px);
                   "
                 >
                   <div class="grow-0 shrink-0 basis-auto w-full">
-                    <div class="flex flex-wrap pt-10">
+                    <div class="flex flex-wrap pt-10 px-2">
                       <div
-                        class="mb-12 grow-0 shrink-0 basis-auto w-full lg:w-6/12 px-3 lg:px-6"
+                        class="mb-12 grow-0 shrink-0 basis-auto w-full lg:w-6/12"
                       >
-                        <div class="flex items-center <sm:justify-center">
+                        <div class="flex items-center h-20 <sm:justify-center">
                           <div class="shrink-0">
                             <div
-                              class="p-4 bg-blue-600 rounded-md shadow-md w-12 h-12 flex items-center justify-center"
+                              class="bg-blue-600 rounded-md shadow-md w-9 h-9 xl:w-12 xl:h-12 flex items-center justify-center"
                             >
                               <Icon
                                 name="fa6-solid:headset"
-                                class="text-white"
+                                class="text-white w-4 h-4"
                               />
                             </div>
                           </div>
-                          <div class="grow ml-2">
+                          <div class="grow ml-2 w-full">
                             <p class="font-bold mb-1">Pomoc</p>
                             <p class="text-gray-500">kontakt@emagazynowo.com</p>
                             <p class="text-gray-500">698 304 621</p>
@@ -46,19 +46,19 @@ definePageMeta({
                         </div>
                       </div>
                       <div
-                        class="mb-12 grow-0 shrink-0 basis-auto w-full lg:w-6/12 px-3 lg:px-6"
+                        class="mb-12 grow-0 shrink-0 basis-auto w-full lg:w-6/12"
                       >
-                        <div class="flex items-center <sm:justify-center">
+                        <div class="flex items-center h-20 <sm:justify-center">
                           <div class="shrink-0">
                             <div
-                              class="p-4 bg-blue-600 rounded-md shadow-md w-12 h-12 flex items-center justify-center"
+                              class="bg-blue-600 rounded-md shadow-md w-9 h-9 xl:w-12 xl:h-12 flex items-center justify-center"
                             >
                               <svg
                                 aria-hidden="true"
                                 focusable="false"
                                 data-prefix="fas"
                                 data-icon="dollar-sign"
-                                class="w-2.5 text-white"
+                                class="text-white text-base w-4 h-4"
                                 role="img"
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 288 512"
@@ -70,7 +70,7 @@ definePageMeta({
                               </svg>
                             </div>
                           </div>
-                          <div class="grow ml-2">
+                          <div class="grow ml-2 w-full">
                             <p class="font-bold mb-1">Sprzedaż</p>
                             <p class="text-gray-500">handel@emagazynowo.com</p>
                             <p class="text-gray-500">698 304 621</p>
@@ -78,22 +78,22 @@ definePageMeta({
                         </div>
                       </div>
                       <div
-                        class="mb-12 grow-0 shrink-0 basis-auto w-full lg:w-6/12 px-3 lg:px-6"
+                        class="mb-12 grow-0 shrink-0 basis-auto w-full lg:w-6/12"
                       >
                         <div
-                          class="flex align-start items-center <sm:justify-center"
+                          class="flex align-start items-center h-20 <sm:justify-center"
                         >
                           <div class="shrink-0">
                             <div
-                              class="p-4 bg-blue-600 rounded-md shadow-md w-12 h-12 flex items-center justify-center"
+                              class="bg-blue-600 rounded-md shadow-md w-9 h-9 xl:w-12 xl:h-12 flex items-center justify-center"
                             >
                               <Icon
                                 name="material-symbols:mail"
-                                class="text-white text-base w-6 h-6"
+                                class="text-white text-base w-4 h-4"
                               />
                             </div>
                           </div>
-                          <div class="grow ml-2">
+                          <div class="grow ml-2 w-full">
                             <p class="font-bold mb-1">Wiadomość</p>
                             <p class="text-gray-500">kontakt@emagazynowo.com</p>
                           </div>
@@ -102,31 +102,33 @@ definePageMeta({
                     </div>
                   </div>
                   <div class="px-6 py-12 md:px-12">
-                    <h3 class="text-3xl font-bold mb-12">Contact us</h3>
-                    <form>
+                    <h3 class="text-3xl font-bold mb-12">Kontakt</h3>
+                    <VForm>
                       <div class="form-group mb-6">
-                        <input
+                        <FormVTextInput
                           type="text"
-                          class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                          id="exampleInput7"
-                          placeholder="Name"
-                        />
+                          name="username"
+                          label="Imię*"
+                          placeholder="Imię*"
+                        ></FormVTextInput>
                       </div>
                       <div class="form-group mb-6">
-                        <input
-                          type="email"
-                          class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                          id="exampleInput8"
-                          placeholder="Email address"
-                        />
+                        <FormVTextInput
+                          type="text"
+                          name="username"
+                          label="Temat*"
+                          placeholder="Temat*"
+                        ></FormVTextInput>
                       </div>
                       <div class="form-group mb-6">
-                        <textarea
-                          class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                          id="exampleFormControlTextarea13"
-                          rows="3"
-                          placeholder="Message"
-                        ></textarea>
+                        <FormVTextInput
+                          type="text"
+                          textarea="true"
+                          name="username"
+                          label="Treść wiadomości*"
+                          placeholder="Treść wiadomości*"
+                          class="font-bold"
+                        ></FormVTextInput>
                       </div>
                       <div class="form-group form-check text-center mb-6">
                         <input
@@ -144,17 +146,17 @@ definePageMeta({
                         type="submit"
                         class="w-full px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
                       >
-                        Send
+                        Wyślij
                       </button>
-                    </form>
+                    </VForm>
                   </div>
                 </div>
               </div>
-              <div class="md:mb-12 lg:mb-0">
-                <div class="h-700px -z-1 relative shadow-lg rounded-lg">
+              <div class="h-full md:mb-12 lg:mb-0 px-2">
+                <div class="h-full relative shadow-lg rounded-lg">
                   <iframe
                     title="eMagazynowo"
-                    src="https://maps.google.com/maps?width=700&amp;height=700&amp;hl=en&amp;q=Przytoczna%20Polna%207+(eMagazynowo)&amp;ie=UTF8&amp;t=&amp;z=15&amp;iwloc=B&amp;output=embed"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d752.8212919687434!2d15.680698657802472!3d52.57281524967542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa06193f6f5541f1%3A0x8cf7b91b48c27247!2seMagazynowo%20-%20wyposa%C5%BCenie%20do%20magazynu!5e0!3m2!1spl!2spl!4v1672257120771!5m2!1spl!2spl"
                     class="h-full w-full absolute rounded-lg"
                   ></iframe>
                 </div>

@@ -1,5 +1,8 @@
 <template>
   <div class="wrapper">
+    <span class="test">
+      <label class="text">Tekst z tłem po środku</label>
+    </span>
     <div class="columns is-mobile is-vcentered is-centered is-gapless">
       <div
         class="column is-11-mobile is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-third-fullhd"
@@ -103,8 +106,6 @@ const handleSubmit = async (values, actions) => {
   // const result = await Fetch('/User/Identity/test', { method: 'get' })
   // onMounted(() => console.log(document.cookie))
 }
-onMounted(() => console.log(document.cookie))
-
 configure({
   validateOnBlur: true, // controls if `blur` events should trigger validation with `handleChange` handler
   validateOnChange: true, // controls if `change` events should trigger validation with `handleChange` handler
@@ -131,5 +132,17 @@ const initialValues = { email: '', password: '', confirmed: '' }
   min-height: 100%;
   background-size: cover;
   background-position: center;
+}
+
+.text {
+  position: relative;
+}
+.text::before {
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  left: 25%;
+  background-color: yellow;
 }
 </style>

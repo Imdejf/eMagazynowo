@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import { useAuth } from '~/stores/identity'
+
 export interface IMenuItem {
   type: 'link'
   text: string
@@ -6,7 +8,9 @@ export interface IMenuItem {
   route?: any
 }
 const app = useAppConfig()
+const auth = useAuth()
 const emit = defineEmits(['toogleSlide'])
+const isAuthenticated = ref(auth.getIsAuthenticated())
 
 const openMenu = () => {
   emit('toogleSlide')
@@ -35,6 +39,7 @@ const openShoppingCart = () => {
 <template>
   <BuilderNavbar>
     <template #banner>
+      {{ isAuthenticated }}
       <div class="navbar__banner bg-gray-900 text-sm">
         <div class="container mx-auto <md:px-2">
           <div class="flex justify-between text-slate-100">
@@ -155,11 +160,20 @@ const openShoppingCart = () => {
               <span class="uppercase">Ulubione</span>
             </a>
             <NuxtLink
+              v-show="!isAuthenticated"
               href="/login"
               class="flex flex-col items-center px-4 hover:text-blue-400 duration-300"
             >
               <Icon name="mingcute:user-3-line" class="w-5 h-5" />
               <span class="uppercase">Zaloguj</span>
+            </NuxtLink>
+            <NuxtLink
+              v-show="isAuthenticated"
+              href="/account"
+              class="flex flex-col items-center px-4 w-max hover:text-blue-400 duration-300"
+            >
+              <Icon name="mingcute:user-3-line" class="w-5 h-5" />
+              <span class="uppercase">Moje konto</span>
             </NuxtLink>
             <a
               href="#"

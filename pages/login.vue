@@ -1,23 +1,157 @@
 <script lang="ts" setup>
 import { object, string, ref as yupRef } from 'yup'
 import { configure } from 'vee-validate'
+import { Fetch } from '~/composables/useFetch'
+import nuxt from '@vueuse/nuxt'
+import { $ } from 'dom7'
 
 // compiler macro
 definePageMeta({
   layout: 'page',
 })
 
-const test = ref('')
+const rememberMe = ref('')
+const googleRedirectUri = ref('')
+
+const scripts = [
+  { src: 'https://connect.facebook.net/en_US/sdk.js' },
+  { src: 'https://accounts.google.com/gsi/client' },
+]
 
 const debug = ref(false)
 onMounted(() => {
+  const config = useRuntimeConfig()
+  console.log(config.basicURL)
   debug.value =
     useRouter().currentRoute.value.query.debug === 'true' ? true : false
+
+  scripts.forEach(({ src }) => {
+    const script = document.createElement('script')
+    script.src = src
+    script.defer = true
+    document.head.appendChild(script)
+  })
+
+  initializeGoogleSignIn()
 })
 
-const handleSubmit = (values, actions) => {
+function initializeGoogleSignIn() {
+  const config = useRuntimeConfig()
+
+  $fetch(config.baseURL + 'Google/Data', {
+    credentials: 'include',
+  }).then((response) => {
+    googleRedirectUri.value = response.data.redirectUri
+    google.accounts.id.initialize({
+      client_id: response.data.clientId,
+      callback: redirectResult,
+      context: 'signin',
+      scope: 'https://www.googleapis.com/auth/drive.metadata.readonly',
+      discoveryDocs: [
+        'https://www.googleapis.com/discovery/v1/apis/drive/v3/rest',
+      ],
+    })
+
+    google.accounts.id.renderButton(document.getElementById('googleButton'), {
+      theme: 'filled_black',
+      size: 'large',
+      width: '250',
+      shape: 'circle',
+      text: 'signup_with',
+    })
+    google.accounts.id.prompt()
+  })
+}
+
+async function redirectResult(response) {
+  const config = useRuntimeConfig()
+
+  const result = await Fetch(config.baseURL + 'Google/Login', {
+    method: 'GET',
+    headers: {
+      Authorization: response.credential,
+    },
+    credentials: 'include',
+  })
+  SetTokenCookie(result.data.value.data.token)
+  navigateTo('/')
+}
+
+const onAuthStatusChange = async (response) => {
+  if (response.authResponse) {
+    const response = await Fetch(
+      'Facebook/Login/' + response.authResponse.accessToken,
+      {
+        method: 'GET',
+      }
+    )
+    SetTokenCookie(response.access_token)
+    navigateTo('/')
+  }
+}
+
+const handleLoginFacebook = () => {
+  const config = useRuntimeConfig()
+
+  $fetch(config.baseURL + 'Facebook/Data', {
+    credentials: 'include',
+  }).then((response) => {
+    FB.init({
+      appId: response.data.clientId,
+      cookie: true,
+      xfbml: true,
+      version: 'v6.0',
+    })
+
+    FB.login(
+      (response) => {
+        if (response.authResponse) {
+          // navigateTo('/')
+        } else {
+          alert('fail')
+          console.log('User cancelled login or did not fully authorize.')
+          window.close()
+        }
+      },
+      {
+        scope: 'email,public_profile',
+      }
+    )
+    FB.Event.subscribe('auth.statusChange', onAuthStatusChange)
+  })
+}
+
+const handleLogin = (values, actions) => {
+  const config = useRuntimeConfig()
+  $fetch(config.baseURL + 'Connect/Token', {
+    credentials: 'include',
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: `client_id=ro.client&client_secret=secret&grant_type=password&username=${values.email}&password=${values.password}`,
+  }).then((response) => {
+    SetTokenCookie(response.access_token)
+    navigateTo('/')
+  })
+}
+
+const SetTokenCookie = (token: string) => {
+  var rememberMeMilliseconds = 0
+  if (rememberMe) {
+    rememberMeMilliseconds = 365 * 24 * 60 * 60 * 1000
+  } else {
+    rememberMeMilliseconds = 24 * 60 * 60 * 1000
+  }
+  const tokenCookie = useCookie('Authorization', {
+    expires: new Date(Date.now() + rememberMeMilliseconds),
+    path: '/',
+  })
+  tokenCookie.value = token
+}
+
+const invalidHandleLogin = (values, actions) => {
   console.log(values)
-  actions.resetForm()
 }
 configure({
   validateOnBlur: true, // controls if `blur` events should trigger validation with `handleChange` handler
@@ -28,12 +162,8 @@ configure({
 const schema = object({
   email: string().required().email().label('Email Address'),
   password: string().required().min(8).label('Your Password'),
-  confirmed: string()
-    .required()
-    .oneOf([yupRef('password')], 'Passwords do not match') //Cross-Field Validation
-    .label('Your Confirmation Password'),
 })
-const initialValues = { email: '', password: '', confirmed: '' }
+const initialValues = { email: '', password: '' }
 </script>
 
 <template>
@@ -54,25 +184,21 @@ const initialValues = { email: '', password: '', confirmed: '' }
                 </h1>
                 <div class="w-full flex-1 mt-8">
                   <div class="flex flex-col items-center">
+                    <div id="googleButton"></div>
                     <button
-                      class="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline"
+                      @click="handleLoginFacebook"
+                      class="w-251px h-40px max-w-xs font-sm shadow-sm rounded-20px py-3 bg-[#202124] text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline mt-5"
                     >
-                      <div class="bg-white p-2 rounded-full">
-                        <Icon name="logos:google-icon" class="w-6 h-6" />
+                      <div class="">
+                        <Icon name="logos:facebook" class="ml-0.5 w-9 h-9" />
                       </div>
-                      <span class="ml-4"> Zaloguj się przez Google </span>
-                    </button>
-
-                    <button
-                      class="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline mt-5"
-                    >
-                      <div class="p-2">
-                        <Icon name="logos:facebook" class="w-6 h-6" />
-                      </div>
-                      <span class="ml-4"> Zaloguj się przez Facebook </span>
+                      <span
+                        class="w-full font-550 text-center text-14px text-[#e8eaed]"
+                      >
+                        Zaloguj się przez Facebook
+                      </span>
                     </button>
                   </div>
-                  <VField />
                   <div class="my-6 border-b text-center">
                     <div
                       class="leading-none px-2 inline-block text-sm text-gray-600 tracking-wide font-medium bg-white transform translate-y-1/2"
@@ -85,7 +211,8 @@ const initialValues = { email: '', password: '', confirmed: '' }
                     :validation-schema="schema"
                     :initial-values="initialValues"
                     v-slot="{ meta: formMeta, errors: formErrors }"
-                    @submit="handleSubmit"
+                    @submit="handleLogin"
+                    @invalid-submit="invalidHandleLogin"
                   >
                     <FormVTextInput
                       type="text"
@@ -97,9 +224,9 @@ const initialValues = { email: '', password: '', confirmed: '' }
                     />
                     <FormVTextInput
                       type="password"
-                      name="confirmed"
-                      label="Confirm Password"
-                      placeholder="Confirm Password"
+                      name="password"
+                      label="Hasło"
+                      placeholder="Hasło"
                       :debug="debug"
                       leftIcon="ic:sharp-lock-person"
                     />

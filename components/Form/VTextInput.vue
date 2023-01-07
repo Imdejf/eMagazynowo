@@ -29,6 +29,10 @@ const propsInput = defineProps({
     type: Boolean,
     default: false,
   },
+  textarea: {
+    type: Boolean,
+    default: false,
+  },
 })
 const emitInput = defineEmits(['update:modelValue'])
 const slots = useSlots()
@@ -87,7 +91,21 @@ const selectedFontSizeStyle = computed(
     </div>
 
     <div class="text-field my-2 w-full">
-      <VField :name="name" v-slot="{ field, meta, errors }">
+      <span
+        v-show="textarea"
+        :class="` ${leftIcon ? 'ml-6' : ''} ${selectedFontSizeStyle}`"
+        >{{ placeholder }}</span
+      >
+      <VField
+        :as="textarea ? 'textarea' : ''"
+        :name="name"
+        :class="
+          textarea
+            ? `flex rounded-l  bg-gray-100 dark:bg-slate-800 text-gray-500 border ${selectedBorderStyle}`
+            : ''
+        "
+        v-slot="{ field, meta, errors }"
+      >
         <input
           required
           v-bind="field"
@@ -112,17 +130,6 @@ const selectedFontSizeStyle = computed(
             ><Icon name="majesticons:close" class="text-red-500 w-4 h-4"
           /></span>
         </span>
-        <!-- <template v-if="Object.keys(errors).length">
-                  <ul>
-                    <li
-                      v-for="(message, field) in errors"
-                      :key="field"
-                      class="help is-danger"
-                    >
-                      {{ message }}
-                    </li>
-                  </ul>
-                </template> -->
         <VErrorMessage
           :name="name"
           as="div"
@@ -133,9 +140,20 @@ const selectedFontSizeStyle = computed(
           <pre>{{ meta }}</pre>
         </div>
       </VField>
-      <label :class="` ${leftIcon ? 'ml-6' : ''} ${selectedFontSizeStyle}`">{{
-        placeholder
-      }}</label>
+      <!-- <label
+        v-show="!textarea"
+        :class="` ${leftIcon ? 'ml-6' : ''} ${selectedFontSizeStyle}`"
+        >{{ placeholder }}</label
+      > -->
+      <div class="text-container">
+        <label
+          v-show="!textarea"
+          :class="` ${leftIcon ? 'ml-6' : ''} ${selectedFontSizeStyle}`"
+          class="text"
+        >
+          {{ placeholder }}
+        </label>
+      </div>
     </div>
     <div
       v-if="slots.suffix"
@@ -162,7 +180,6 @@ const selectedFontSizeStyle = computed(
 
 .text-field label {
   color: #999;
-  position: absolute;
   pointer-events: none;
   left: 10px;
   top: 10px;
@@ -172,14 +189,55 @@ const selectedFontSizeStyle = computed(
   background: white;
 }
 
+.text-field input:focus ~ div label,
+.text-field input:valid ~ div label,
+.text-field input[type='email'] ~ div label {
+  top: -12px;
+  left: 15px;
+  font-size: small;
+  padding: 0 !important;
+  /* background-color: #fff !important; */
+  margin-left: 3px !important;
+}
+
+.text-field textarea {
+  width: 100%;
+}
+
+.text-field textarea {
+  height: 30vh;
+  resize: none;
+}
+
+.text-field textarea:focus {
+  outline: none;
+}
+
 .text-field input:focus ~ label,
 .text-field input:valid ~ label,
 .text-field input[type='email'] ~ label {
-  top: -10px;
+  position: relative !important;
+}
+
+label {
+  position: relative;
+}
+.text-container {
+  top: 0;
+  text-align: left;
+  height: 1px;
+  position: absolute;
+}
+
+.text-field input:focus ~ .text-container::before,
+.text-field input:valid ~ .text-container::before,
+.text-field input[type='email'] ~ .text-container::before {
+  content: '';
+  position: absolute !important;
+  top: 0px;
+  background-color: #fff;
   left: 15px;
-  font-size: small;
-  background-color: #fff !important;
-  padding: 0 5px 0 5px;
-  margin-left: 3px !important;
+  width: 100%;
+  height: 20%;
 }
 </style>

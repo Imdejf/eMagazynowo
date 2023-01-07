@@ -1,12 +1,14 @@
 import { useApplication } from '~/stores/application'
-
+import { useAuth } from '~/stores/identity'
 
 export default defineNuxtPlugin(() => {
     addRouteMiddleware('global-middleware',async (to, from) => {
-      const application = useApplication()
-      await application.fetchLanguage()
       if(process.client){
-        localStorage.getItem('lang') 
+          const application = useApplication()
+          await application.fetchLanguage()
+          localStorage.getItem('lang')
+          const auth = useAuth()
+          auth.setUserData()
         }
       },
       { global: true }

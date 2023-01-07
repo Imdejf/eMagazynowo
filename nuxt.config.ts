@@ -10,9 +10,21 @@ declare module '@nuxt/schema' {
 export default defineNuxtConfig({
   ssr: true,
 
+  app: {
+    head: {
+      script: [
+        {
+          src: 'https://accounts.google.com/gsi/client'
+        }
+      ]
+    }
+  },
+
   runtimeConfig: {
     public: {
-      baseURL: 'http://api.emagazynowo.pl/api' || 'http://api.emagazynowo.pl/api',
+      baseURL: process.env.NODE_ENV === 'production' ? process.env.API_BASE_URL : process.env.API_BASE_URL_LOCAL,
+      basicURL: process.env.NODE_ENV === 'production' ? process.env.API_URL : process.env.API_URL_LOCAL,
+      privateKey: process.env.NODE_ENV === 'production' ? process.env.JWT_SECRET_KEY : process.env.JWT_SECRET_KEY
     },
   },
 
