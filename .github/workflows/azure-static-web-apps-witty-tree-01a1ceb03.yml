@@ -32,8 +32,8 @@ jobs:
           output_location: ".output/public" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
         env:
-          API_BASE_URL: 'https://api.emagazynowo.pl/api/'
-          API_URL: 'https://api.emagazynowo.pl/'
+          API_BASE_URL: 'https://emagazynowo.azurewebsites.net/api/'
+          API_URL: 'https://emagazynowo.azurewebsites.net/'
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
