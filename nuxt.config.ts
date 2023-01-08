@@ -13,9 +13,8 @@ export default defineNuxtConfig({
   app: {
     head: {
       script: [
-        {
-          src: 'https://accounts.google.com/gsi/client'
-        }
+        { src: 'https://accounts.google.com/gsi/client' },
+        { src: 'https://connect.facebook.net/en_US/sdk.js' }
       ]
     }
   },

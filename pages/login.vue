@@ -2,8 +2,6 @@
 import { object, string, ref as yupRef } from 'yup'
 import { configure } from 'vee-validate'
 import { Fetch } from '~/composables/useFetch'
-import nuxt from '@vueuse/nuxt'
-import { $ } from 'dom7'
 
 // compiler macro
 definePageMeta({
@@ -13,11 +11,6 @@ definePageMeta({
 const rememberMe = ref('')
 const googleRedirectUri = ref('')
 
-const scripts = [
-  { src: 'https://connect.facebook.net/en_US/sdk.js' },
-  { src: 'https://accounts.google.com/gsi/client' },
-]
-
 const debug = ref(false)
 onMounted(() => {
   const config = useRuntimeConfig()
@@ -25,11 +18,11 @@ onMounted(() => {
   debug.value =
     useRouter().currentRoute.value.query.debug === 'true' ? true : false
 
-  scripts.forEach(({ src }) => {
-    const script = document.createElement('script')
-    script.src = src
-    script.defer = true
-    document.head.appendChild(script)
+  FB.init({
+    appId: '723789388964600',
+    cookie: true,
+    xfbml: true,
+    version: 'v6.0',
   })
 
   initializeGoogleSignIn()
@@ -79,13 +72,13 @@ async function redirectResult(response) {
 
 const onAuthStatusChange = async (response) => {
   if (response.authResponse) {
-    const response = await Fetch(
+    const result = await Fetch(
       'Facebook/Login/' + response.authResponse.accessToken,
       {
         method: 'GET',
       }
     )
-    SetTokenCookie(response.access_token)
+    SetTokenCookie(result.access_token)
     navigateTo('/')
   }
 }
