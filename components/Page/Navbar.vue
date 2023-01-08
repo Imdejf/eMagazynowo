@@ -39,7 +39,6 @@ const openShoppingCart = () => {
 <template>
   <BuilderNavbar>
     <template #banner>
-      {{ isAuthenticated }}
       <div class="navbar__banner bg-gray-900 text-sm">
         <div class="container mx-auto <md:px-2">
           <div class="flex justify-between text-slate-100">
