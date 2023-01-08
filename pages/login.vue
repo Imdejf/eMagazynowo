@@ -133,6 +133,9 @@ const handleLogin = (values, actions) => {
   }).then((response) => {
     SetTokenCookie(response.access_token)
     navigateTo('/')
+    setTimeout(() => {
+      window.location.reload()
+    }, 200)
   })
 }
 
