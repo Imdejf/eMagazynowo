@@ -2,6 +2,7 @@
 import { object, string, ref as yupRef } from 'yup'
 import { configure } from 'vee-validate'
 import { Fetch } from '~/composables/useFetch'
+import { client } from 'process'
 
 // compiler macro
 definePageMeta({
@@ -68,6 +69,9 @@ async function redirectResult(response) {
   })
   SetTokenCookie(result.data.value.data.token)
   navigateTo('/')
+  setTimeout(() => {
+    window.location.reload()
+  }, 200)
 }
 
 const onAuthStatusChange = async (response) => {
@@ -78,8 +82,11 @@ const onAuthStatusChange = async (response) => {
         method: 'GET',
       }
     )
-    SetTokenCookie(result.access_token)
-    navigateTo('/')
+    SetTokenCookie(result.data.value.data.token)
+    window.location.reload()
+    if (process.client) {
+      navigateTo('/')
+    }
   }
 }
 
@@ -99,7 +106,7 @@ const handleLoginFacebook = () => {
     FB.login(
       (response) => {
         if (response.authResponse) {
-          // navigateTo('/')
+          navigateTo('/')
         } else {
           alert('fail')
           console.log('User cancelled login or did not fully authorize.')
@@ -157,6 +164,7 @@ const schema = object({
   password: string().required().min(8).label('Your Password'),
 })
 const initialValues = { email: '', password: '' }
+const route = useRoute()
 </script>
 
 <template>
