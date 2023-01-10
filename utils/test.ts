@@ -69,7 +69,6 @@ export function LanguageManager() {
 
   // watchers
   watch(localeSetting, (localeSetting) => {
-    alert()
     localeUserSetting.value = localeSetting
     locale.value = localeSetting
     window.location.reload()
@@ -125,10 +124,7 @@ export function LanguageManager() {
   // methods
   const getSystemLocale = (): string => {
     try {
-      console.log('dupa')
-      console.log(availableLocales)
       const defaultLocale = availableLocales.find(locale => locale.defaultLanguage === true);
-      alert(window.navigator.language.substring(0, 2).toUpperCase() + "-" + window.navigator.language.substring(0, 2))
       const defaultIsoCode = defaultLocale ? defaultLocale.isoCode : '';
       const foundLang = window
       ? window.navigator.language.substring(0, 2).toUpperCase() + "-" + window.navigator.language.substring(0, 2)

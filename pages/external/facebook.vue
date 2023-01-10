@@ -7,7 +7,6 @@ definePageMeta({
 })
 
 onMounted(() => {
-  alert()
   const config = useRuntimeConfig()
   const router = useRouter()
   const code = new URLSearchParams(window.location.search).get('code')

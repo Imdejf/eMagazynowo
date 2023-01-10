@@ -15,7 +15,6 @@ const googleRedirectUri = ref('')
 const debug = ref(false)
 onMounted(() => {
   const config = useRuntimeConfig()
-  console.log(config.basicURL)
   debug.value =
     useRouter().currentRoute.value.query.debug === 'true' ? true : false
 })
@@ -55,9 +54,6 @@ const handleLoginFacebook = async () => {
     },
     mode: 'cors',
   })
-
-  alert(result.data.value.data)
-
   navigateTo(result.data.value.data, { external: true })
 }
 

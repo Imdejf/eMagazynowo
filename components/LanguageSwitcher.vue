@@ -19,7 +19,6 @@ const props = defineProps({
 // state
 const currentStyle = toRef(props, 'type')
 const localeSetting = useState<string>('locale.setting')
-console.log(availableLocales)
 const currentLang =
   availableLocales.find((c) => c.isoCode == localeSetting.value) ||
   availableLocales[0]

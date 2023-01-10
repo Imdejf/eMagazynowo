@@ -12,7 +12,6 @@ const registerForm = ref(null)
 const showInvoice = ref(false)
 
 const handleRegister = (values, actions) => {
-  console.log(values)
   Fetch('User/Identity/CreateUser', { method: 'post', body: values }).then(
     (response) => {
       if (!response.error.value) {

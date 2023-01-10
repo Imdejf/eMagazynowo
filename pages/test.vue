@@ -97,12 +97,9 @@ import { useApplication } from '~/stores/application'
 const debug = ref(false)
 const config = useRuntimeConfig()
 
-console.log(config.public.baseURL)
-
 const handleSubmit = async (values, actions) => {
   const application = useApplication()
   application.fetchLanguage()
-  console.log()
   // const result = await Fetch('/User/Identity/test', { method: 'get' })
   // onMounted(() => console.log(document.cookie))
 }

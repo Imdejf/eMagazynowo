@@ -26,7 +26,6 @@ const lazyLoad = () => {
           ? topDistance.distance(macbook.value) - 500
           : topDistance.distance(macbook.value) - 500)
       ) {
-        console.log(topDistance.distance(macbook.value))
         isLoadingMacbook.value = true
       }
     }
@@ -44,7 +43,6 @@ const lazyLoad = () => {
 }
 
 onMounted(() => {
-  console.log(macbook.value?.getBoundingClientRect().top)
   const { onLoad } = lazyLoad()
   setTimeout(() => onLoad(), 50)
 })
