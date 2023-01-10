@@ -30,29 +30,12 @@ const handleLoginGoogle = async () => {
   navigateTo(result.data.value.data, { external: true })
 }
 
-const onAuthStatusChange = async (response) => {
-  if (response.authResponse) {
-    const result = await Fetch(
-      'Facebook/Login/' + response.authResponse.accessToken,
-      {
-        method: 'GET',
-      }
-    )
-    SetTokenCookie(result.data.value.data.token)
-    window.location.reload()
-  }
-}
-
 const handleLoginFacebook = async () => {
   const config = useRuntimeConfig()
 
-  const result = await $fetch(config.baseURL + 'Facebook/Link', {
+  const result = await Fetch(config.baseURL + 'Facebook/Link', {
     method: 'GET',
     credentials: 'include',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    mode: 'cors',
   })
   navigateTo(result.data.value.data, { external: true })
 }
