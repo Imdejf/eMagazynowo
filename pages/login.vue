@@ -18,13 +18,6 @@ onMounted(() => {
   console.log(config.basicURL)
   debug.value =
     useRouter().currentRoute.value.query.debug === 'true' ? true : false
-
-  FB.init({
-    appId: '723789388964600',
-    cookie: true,
-    xfbml: true,
-    version: 'v6.0',
-  })
 })
 
 const handleLoginGoogle = async () => {
@@ -51,34 +44,21 @@ const onAuthStatusChange = async (response) => {
   }
 }
 
-const handleLoginFacebook = () => {
+const handleLoginFacebook = async () => {
   const config = useRuntimeConfig()
 
-  $fetch(config.baseURL + 'Facebook/Data', {
+  const result = await $fetch(config.baseURL + 'Facebook/Link', {
+    method: 'GET',
     credentials: 'include',
-  }).then((response) => {
-    FB.init({
-      appId: response.data.clientId,
-      cookie: true,
-      xfbml: true,
-      version: 'v6.0',
-    })
-
-    FB.login(
-      (response) => {
-        if (response.authResponse) {
-        } else {
-          alert('fail')
-          console.log('User cancelled login or did not fully authorize.')
-          window.close()
-        }
-      },
-      {
-        scope: 'email,public_profile',
-      }
-    )
-    FB.Event.subscribe('auth.statusChange', onAuthStatusChange)
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    mode: 'cors',
   })
+
+  alert(result.data.value.data)
+
+  navigateTo(result.data.value.data, { external: true })
 }
 
 const handleLogin = (values, actions) => {
