@@ -45,22 +45,16 @@ onMounted(() => {
 
 <template>
   <label :for="id" class="flex cursor-pointer">
-    <label
-      :for="id"
-      class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in"
-    >
+    <label :for="id" class="toggle">
       <input
         :id="id"
         ref="input"
+        class="toggle-checkbox"
         type="checkbox"
-        class="switch-checkbox absolute block w-6 h-6 rounded-full bg-white dark:bg-slate-900 border-2 border-slate-300 dark:border-slate-600 appearance-none cursor-pointer"
         :checked="checked"
         @change="onInputChange"
       />
-      <label
-        :for="id"
-        class="switch-label block overflow-hidden h-6 rounded-full bg-gray-200 dark:bg-slate-700 cursor-pointer border border-slate-300 dark:border-slate-500"
-      />
+      <div class="toggle-switch"></div>
     </label>
     <slot />
   </label>
@@ -70,7 +64,57 @@ onMounted(() => {
 .switch-checkbox:checked {
   right: 0;
 }
-.switch-checkbox:checked + .switch-label {
-  @apply bg-primary-500;
+
+.toggle {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.toggle-switch {
+  display: inline-block;
+  background: #ccc;
+  border-radius: 16px;
+  width: 58px;
+  height: 32px;
+  position: relative;
+  vertical-align: middle;
+  transition: background 0.25s;
+}
+.toggle-switch:before,
+.toggle-switch:after {
+  content: '';
+}
+.toggle-switch:before {
+  display: block;
+  background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  transition: left 0.25s;
+}
+.toggle:hover .toggle-switch:before {
+  background: linear-gradient(to bottom, #fff 0%, #fff 100%);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
+}
+.toggle-checkbox:checked + .toggle-switch {
+  background: #38bdf8;
+}
+.toggle-checkbox:checked + .toggle-switch:before {
+  left: 30px;
+}
+
+.toggle-checkbox {
+  position: absolute;
+  visibility: hidden;
+}
+
+.toggle-label {
+  margin-left: 5px;
+  position: relative;
+  top: 2px;
 }
 </style>

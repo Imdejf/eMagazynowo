@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { Size } from '~/composables/useScreen'
 import { useAuth } from '~/stores/identity'
 
 export interface IMenuItem {
@@ -8,12 +9,22 @@ export interface IMenuItem {
   route?: any
 }
 const app = useAppConfig()
+const screen = useScreen()
 const auth = useAuth()
 const emit = defineEmits(['toogleSlide'])
 const isAuthenticated = ref(auth.getIsAuthenticated())
 
 const openMenu = () => {
   emit('toogleSlide')
+}
+
+const showUserOptions = ref(false)
+
+const toggleUserOptions = () => {
+  if (!screen.higherThan(Size.MEDIUM)) {
+    navigateTo('/profile')
+  }
+  showUserOptions.value = !showUserOptions.value
 }
 
 const menus = computed((): IMenuItem[] => [
@@ -31,8 +42,13 @@ const menus = computed((): IMenuItem[] => [
 const popupRef = ref()
 
 const openShoppingCart = () => {
-  console.log(popupRef.value)
   popupRef.value.toggleShoppingCart()
+}
+
+const logOut = () => {
+  const cookie = useCookie('Authorization')
+  cookie.value = null
+  window.location.reload()
 }
 </script>
 
@@ -166,14 +182,14 @@ const openShoppingCart = () => {
               <Icon name="mingcute:user-3-line" class="w-5 h-5" />
               <span class="uppercase">Zaloguj</span>
             </NuxtLink>
-            <NuxtLink
+            <button
               v-show="isAuthenticated"
-              href="/account"
               class="flex flex-col items-center px-4 w-max hover:text-blue-400 duration-300"
+              @click="toggleUserOptions"
             >
               <Icon name="mingcute:user-3-line" class="w-5 h-5" />
               <span class="uppercase">Moje konto</span>
-            </NuxtLink>
+            </button>
             <a
               href="#"
               @click="openShoppingCart()"
@@ -186,6 +202,47 @@ const openShoppingCart = () => {
               <Icon name="uil:shopping-cart" class="w-5 h-5" />
               <span class="uppercase">Koszyk</span>
             </a>
+
+            <div v-show="showUserOptions" class="relative <sm:hidden">
+              <div
+                class="absolute right-0 mt-2 border border-gray-300 py-3 rounded-lg top-10 right-2.5 py-2 w-48 bg-white shadow-xl z-20"
+              >
+                <div
+                  class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rotate-45 w-4 h-4 bg-white border-l border-t border-gray-300"
+                ></div>
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white"
+                >
+                  Profil
+                </a>
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white"
+                >
+                  Twoje zamówienia
+                </a>
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white"
+                >
+                  Pomoc
+                </a>
+                <a
+                  href="#"
+                  class="block px-4 py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white"
+                >
+                  Ustawienia
+                </a>
+                <div class="border-t-1 border-gray-300 my-1"></div>
+                <button
+                  @click="logOut"
+                  class="block px-4 w-full py-2 text-sm capitalize text-gray-700 hover:bg-blue-500 hover:text-white"
+                >
+                  Wyloguj się
+                </button>
+              </div>
+            </div>
           </div>
           <GridPopupShoppingCart ref="popupRef" />
         </div>

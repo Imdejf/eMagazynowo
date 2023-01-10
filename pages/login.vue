@@ -2,10 +2,10 @@
 import { object, string, ref as yupRef } from 'yup'
 import { configure } from 'vee-validate'
 import { Fetch } from '~/composables/useFetch'
-import { client } from 'process'
 
 // compiler macro
 definePageMeta({
+  middleware: ['is-authorized'],
   layout: 'page',
 })
 
@@ -25,53 +25,17 @@ onMounted(() => {
     xfbml: true,
     version: 'v6.0',
   })
-
-  initializeGoogleSignIn()
 })
 
-function initializeGoogleSignIn() {
+const handleLoginGoogle = async () => {
   const config = useRuntimeConfig()
 
-  $fetch(config.baseURL + 'Google/Data', {
-    credentials: 'include',
-  }).then((response) => {
-    googleRedirectUri.value = response.data.redirectUri
-    google.accounts.id.initialize({
-      client_id: response.data.clientId,
-      callback: redirectResult,
-      context: 'signin',
-      scope: 'https://www.googleapis.com/auth/drive.metadata.readonly',
-      discoveryDocs: [
-        'https://www.googleapis.com/discovery/v1/apis/drive/v3/rest',
-      ],
-    })
-
-    google.accounts.id.renderButton(document.getElementById('googleButton'), {
-      theme: 'filled_black',
-      size: 'large',
-      width: '250',
-      shape: 'circle',
-      text: 'signup_with',
-    })
-    google.accounts.id.prompt()
-  })
-}
-
-async function redirectResult(response) {
-  const config = useRuntimeConfig()
-
-  const result = await Fetch(config.baseURL + 'Google/Login', {
+  const result = await Fetch('Google/Link', {
     method: 'GET',
-    headers: {
-      Authorization: response.credential,
-    },
     credentials: 'include',
   })
-  SetTokenCookie(result.data.value.data.token)
-  navigateTo('/')
-  setTimeout(() => {
-    window.location.reload()
-  }, 200)
+
+  navigateTo(result.data.value.data, { external: true })
 }
 
 const onAuthStatusChange = async (response) => {
@@ -84,9 +48,6 @@ const onAuthStatusChange = async (response) => {
     )
     SetTokenCookie(result.data.value.data.token)
     window.location.reload()
-    if (process.client) {
-      navigateTo('/')
-    }
   }
 }
 
@@ -106,7 +67,6 @@ const handleLoginFacebook = () => {
     FB.login(
       (response) => {
         if (response.authResponse) {
-          navigateTo('/')
         } else {
           alert('fail')
           console.log('User cancelled login or did not fully authorize.')
@@ -132,10 +92,7 @@ const handleLogin = (values, actions) => {
     body: `client_id=ro.client&client_secret=secret&grant_type=password&username=${values.email}&password=${values.password}`,
   }).then((response) => {
     SetTokenCookie(response.access_token)
-    navigateTo('/')
-    setTimeout(() => {
-      window.location.reload()
-    }, 200)
+    window.location.reload()
   })
 }
 
@@ -153,9 +110,6 @@ const SetTokenCookie = (token: string) => {
   tokenCookie.value = token
 }
 
-const invalidHandleLogin = (values, actions) => {
-  console.log(values)
-}
 configure({
   validateOnBlur: true, // controls if `blur` events should trigger validation with `handleChange` handler
   validateOnChange: true, // controls if `change` events should trigger validation with `handleChange` handler
@@ -188,19 +142,23 @@ const route = useRoute()
                 </h1>
                 <div class="w-full flex-1 mt-8">
                   <div class="flex flex-col items-center">
-                    <div id="googleButton"></div>
+                    <button
+                      @click="handleLoginGoogle"
+                      class="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline"
+                    >
+                      <div class="bg-white p-2 rounded-full">
+                        <Icon name="logos:google-icon" class="w-6 h-6" />
+                      </div>
+                      <span class="ml-4"> Zaloguj się przez Google </span>
+                    </button>
                     <button
                       @click="handleLoginFacebook"
-                      class="w-251px h-40px max-w-xs font-sm shadow-sm rounded-20px py-3 bg-[#202124] text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline mt-5"
+                      class="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-indigo-100 text-gray-800 flex items-center justify-center transition-all duration-300 ease-in-out focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline mt-5"
                     >
-                      <div class="">
-                        <Icon name="logos:facebook" class="ml-0.5 w-9 h-9" />
+                      <div class="p-2">
+                        <Icon name="logos:facebook" class="w-6 h-6" />
                       </div>
-                      <span
-                        class="w-full font-550 text-center text-14px text-[#e8eaed]"
-                      >
-                        Zaloguj się przez Facebook
-                      </span>
+                      <span class="ml-4"> Zaloguj się przez Facebook </span>
                     </button>
                   </div>
                   <div class="my-6 border-b text-center">

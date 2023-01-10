@@ -33,6 +33,10 @@ const propsInput = defineProps({
     type: Boolean,
     default: false,
   },
+  visable: {
+    type: Boolean,
+    default: true,
+  },
 })
 const emitInput = defineEmits(['update:modelValue'])
 const slots = useSlots()
@@ -85,7 +89,7 @@ const selectedFontSizeStyle = computed(
     </div>
     <div
       v-if="slots.prefix"
-      :class="`flex rounded-l  border ${selectedBorderStyle}`"
+      :class="`flex rounded-l border ${selectedBorderStyle}`"
     >
       <slot name="prefix" />
     </div>
@@ -109,10 +113,12 @@ const selectedFontSizeStyle = computed(
         <input
           required
           v-bind="field"
-          :class="` w-full border-1  bg-gray-100 ${
+          :class="` w-full border-1  bg-gray-100  ${
             !meta.valid && meta.touched == true
               ? 'border-red-300'
               : 'border-gray-300'
+          } ${
+            visable == true ? '' : 'pointer-events-none bg-gray-300'
           } ${selectedBorderStyle} ${selectedOnHoverBorderStyle} ${selectedPaddingStyle} ${selectedFontSizeStyle}`"
           :type="type"
         />
