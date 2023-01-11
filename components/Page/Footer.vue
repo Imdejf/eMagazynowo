@@ -165,8 +165,12 @@
               aria-label="Footer Support Nav"
               class="mt-6 flex flex-col space-y-1"
             >
+              <img
+                data-src="/assets/DS-min.png"
+                class="lazyload w-30px h-30px"
+              />
               <p class="text-white" href="/">
-                Data Sharp<br />Polna 7 66-340 Przytoczna <br />
+                Data Sharp<br />Polna 6 66-340 Przytoczna <br />
                 NIP: 523999467
               </p>
             </div>
